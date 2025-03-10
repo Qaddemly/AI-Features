@@ -1,0 +1,1714 @@
+{
+  "job": {
+    "id": 101,
+    "title": "Backend Software Engineer",
+    "description": "We are seeking a skilled Backend Software Engineer to join our team. The ideal candidate will be responsible for developing, testing, and maintaining backend services, APIs, and databases. You will work closely with frontend developers and product managers to build scalable and efficient applications.",
+    "country": "Egypt",
+    "city": "Cairo",
+    "location_type": "Onsite",
+    "status": "Opened",
+    "skills": ["Node.js", "Java", "Go", "Microservices", "Docker", "Kubernetes"],
+    "salary": 15000,
+    "employee_type": "FullTime",
+    "keywords": ["backend", "REST API", "cloud computing", "SQL", "NoSQL"],
+    "experience": 3,
+    "created_at": "2025-02-18T21:53:02.789Z",
+    "updated_at": "2025-02-18T21:53:02.789Z"
+  },
+  "users":[
+    {
+      "id": 1,
+      "country": "Egypt",
+      "city": "Tanta",
+      "about_me": "I am a passionate software engineer with a focus on building scalable web applications.",
+      "subtitle": "Software Engineer",
+      "skills": [
+        {
+          "name": "JavaScript"
+        },
+        {
+          "name": "React"
+        },
+        {
+          "name": "Node.js"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Cairo University",
+          "field_of_study": "Computer Science",
+          "gpa": 3.8,
+          "start_date": "2018-09-01",
+          "end_date": "2022-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Frontend Developer",
+          "employment_type": "FullTime",
+          "company_name": "Tech Solutions Inc.",
+          "location": "Cairo",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2022-07-01",
+          "end_date": "2023-09-30"
+        },
+        {
+          "id": 2,
+          "job_title": "Backend Developer",
+          "employment_type": "FullTime",
+          "company_name": "Innovate Tech",
+          "location": "Alexandria",
+          "location_type": "Remote",
+          "still_working": true,
+          "start_date": "2023-10-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "country": "Egypt",
+      "city": "Alexandria",
+      "about_me": "I am a data scientist with expertise in machine learning and data analysis.",
+      "subtitle": "Data Scientist",
+      "skills": [
+        {
+          "name": "Python"
+        },
+        {
+          "name": "Machine Learning"
+        },
+        {
+          "name": "Data Visualization"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Alexandria University",
+          "field_of_study": "Data Science",
+          "gpa": 3.9,
+          "start_date": "2017-09-01",
+          "end_date": "2021-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Data Analyst",
+          "employment_type": "FullTime",
+          "company_name": "Data Insights Co.",
+          "location": "Alexandria",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2021-07-01",
+          "end_date": "2022-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Machine Learning Engineer",
+          "employment_type": "FullTime",
+          "company_name": "AI Innovations",
+          "location": "Cairo",
+          "location_type": "Remote",
+          "still_working": true,
+          "start_date": "2023-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "country": "Egypt",
+      "city": "Cairo",
+      "about_me": "I am a mobile app developer specializing in Flutter and Android development.",
+      "subtitle": "Mobile App Developer",
+      "skills": [
+        {
+          "name": "Flutter"
+        },
+        {
+          "name": "Dart"
+        },
+        {
+          "name": "Firebase"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Ain Shams University",
+          "field_of_study": "Software Engineering",
+          "gpa": 3.7,
+          "start_date": "2019-09-01",
+          "end_date": "2023-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Flutter Developer",
+          "employment_type": "FullTime",
+          "company_name": "AppWorks",
+          "location": "Cairo",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2023-07-01",
+          "end_date": "2024-03-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Android Developer",
+          "employment_type": "FullTime",
+          "company_name": "MobileTech",
+          "location": "Giza",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2024-04-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "country": "Egypt",
+      "city": "Tanta",
+      "about_me": "Software Engineer",
+      "subtitle": "Software Engineer",
+      "skills": [
+        {
+          "name": "JavaScript"
+        },
+        {
+          "name": "React"
+        },
+        {
+          "name": "Node.js"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Alexandria University",
+          "field_of_study": "Computer Science",
+          "gpa": 3.99,
+          "start_date": "2018-09-01",
+          "end_date": "2022-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Frontend Developer",
+          "employment_type": "FullTime",
+          "company_name": "Tech Solutions",
+          "location": "Cairo",
+          "location_type": "Onsite",
+          "still_working": true,
+          "start_date": "2022-07-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "country": "USA",
+      "city": "New York",
+      "about_me": "Passionate about technology",
+      "subtitle": "Data Scientist",
+      "skills": [
+        {
+          "name": "Python"
+        },
+        {
+          "name": "Machine Learning"
+        },
+        {
+          "name": "Data Analysis"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Harvard University",
+          "field_of_study": "Statistics",
+          "gpa": 4,
+          "start_date": "2016-08-01",
+          "end_date": "2020-05-31"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Data Analyst",
+          "employment_type": "PartTime",
+          "company_name": "Google",
+          "location": "Mountain View",
+          "location_type": "Hybrid",
+          "still_working": false,
+          "start_date": "2020-06-01",
+          "end_date": "2022-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Data Scientist",
+          "employment_type": "FullTime",
+          "company_name": "Amazon",
+          "location": "Seattle",
+          "location_type": "Remote",
+          "still_working": true,
+          "start_date": "2023-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "country": "India",
+      "city": "Bangalore",
+      "about_me": "Love coding and solving problems",
+      "subtitle": "Backend Developer",
+      "skills": [
+        {
+          "name": "Java"
+        },
+        {
+          "name": "Spring Boot"
+        },
+        {
+          "name": "Microservices"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Indian Institute of Technology",
+          "field_of_study": "Information Technology",
+          "gpa": 3.8,
+          "start_date": "2017-07-01",
+          "end_date": "2021-05-31"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Junior Developer",
+          "employment_type": "Internship",
+          "company_name": "Infosys",
+          "location": "Bangalore",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2020-06-01",
+          "end_date": "2020-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Backend Developer",
+          "employment_type": "FullTime",
+          "company_name": "TCS",
+          "location": "Hyderabad",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2021-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "country": "Germany",
+      "city": "Berlin",
+      "about_me": "Innovative thinker with a passion for AI",
+      "subtitle": "AI Researcher",
+      "skills": [
+        {
+          "name": "TensorFlow"
+        },
+        {
+          "name": "PyTorch"
+        },
+        {
+          "name": "Deep Learning"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Technical University of Munich",
+          "field_of_study": "Artificial Intelligence",
+          "gpa": 3.95,
+          "start_date": "2015-10-01",
+          "end_date": "2020-07-31"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Research Assistant",
+          "employment_type": "PartTime",
+          "company_name": "TU Munich",
+          "location": "Munich",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2019-08-01",
+          "end_date": "2020-07-31"
+        },
+        {
+          "id": 2,
+          "job_title": "AI Researcher",
+          "employment_type": "FullTime",
+          "company_name": "Bosch",
+          "location": "Stuttgart",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2020-08-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "country": "Canada",
+      "city": "Toronto",
+      "about_me": "Focused on creating impactful software solutions",
+      "subtitle": "Product Manager",
+      "skills": [
+        {
+          "name": "Agile Methodologies"
+        },
+        {
+          "name": "Scrum"
+        },
+        {
+          "name": "Leadership"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "University of Toronto",
+          "field_of_study": "Business Administration",
+          "gpa": 3.85,
+          "start_date": "2014-09-01",
+          "end_date": "2018-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Project Coordinator",
+          "employment_type": "Contract",
+          "company_name": "RBC",
+          "location": "Toronto",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2018-07-01",
+          "end_date": "2020-06-30"
+        },
+        {
+          "id": 2,
+          "job_title": "Product Manager",
+          "employment_type": "FullTime",
+          "company_name": "Shopify",
+          "location": "Ottawa",
+          "location_type": "Remote",
+          "still_working": true,
+          "start_date": "2020-07-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "country": "Australia",
+      "city": "Sydney",
+      "about_me": "Exploring the intersection of design and technology",
+      "subtitle": "UI/UX Designer",
+      "skills": [
+        {
+          "name": "Adobe XD"
+        },
+        {
+          "name": "Figma"
+        },
+        {
+          "name": "User Research"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "University of Sydney",
+          "field_of_study": "Design",
+          "gpa": 3.7,
+          "start_date": "2016-02-01",
+          "end_date": "2020-11-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Junior Designer",
+          "employment_type": "Internship",
+          "company_name": "Canva",
+          "location": "Sydney",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2019-06-01",
+          "end_date": "2019-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "UI/UX Designer",
+          "employment_type": "FullTime",
+          "company_name": "Atlassian",
+          "location": "Melbourne",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2020-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "country": "France",
+      "city": "Paris",
+      "about_me": "Avid learner in the field of cybersecurity",
+      "subtitle": "Cybersecurity Analyst",
+      "skills": [
+        {
+          "name": "Ethical Hacking"
+        },
+        {
+          "name": "Penetration Testing"
+        },
+        {
+          "name": "Network Security"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Sorbonne University",
+          "field_of_study": "Computer Security",
+          "gpa": 3.9,
+          "start_date": "2017-09-01",
+          "end_date": "2021-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Security Intern",
+          "employment_type": "Internship",
+          "company_name": "Thales Group",
+          "location": "Paris",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2020-06-01",
+          "end_date": "2020-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Cybersecurity Analyst",
+          "employment_type": "FullTime",
+          "company_name": "Capgemini",
+          "location": "Lyon",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2021-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "country": "Brazil",
+      "city": "São Paulo",
+      "about_me": "Dedicated to advancing mobile development",
+      "subtitle": "Mobile Developer",
+      "skills": [
+        {
+          "name": "Swift"
+        },
+        {
+          "name": "Kotlin"
+        },
+        {
+          "name": "Flutter"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "University of São Paulo",
+          "field_of_study": "Software Engineering",
+          "gpa": 3.8,
+          "start_date": "2015-03-01",
+          "end_date": "2019-12-31"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Junior Mobile Developer",
+          "employment_type": "Internship",
+          "company_name": "Globant",
+          "location": "São Paulo",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2019-01-01",
+          "end_date": "2019-06-30"
+        },
+        {
+          "id": 2,
+          "job_title": "Mobile Developer",
+          "employment_type": "FullTime",
+          "company_name": "StoneCo",
+          "location": "Rio de Janeiro",
+          "location_type": "Remote",
+          "still_working": true,
+          "start_date": "2019-07-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "country": "Japan",
+      "city": "Tokyo",
+      "about_me": "Passionate about game development and interactive media",
+      "subtitle": "Game Developer",
+      "skills": [
+        {
+          "name": "Unity"
+        },
+        {
+          "name": "Unreal Engine"
+        },
+        {
+          "name": "C#"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "University of Tokyo",
+          "field_of_study": "Interactive Media",
+          "gpa": 3.95,
+          "start_date": "2016-04-01",
+          "end_date": "2020-03-31"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Game Design Intern",
+          "employment_type": "Internship",
+          "company_name": "Nintendo",
+          "location": "Kyoto",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2019-04-01",
+          "end_date": "2019-09-30"
+        },
+        {
+          "id": 2,
+          "job_title": "Game Developer",
+          "employment_type": "FullTime",
+          "company_name": "Square Enix",
+          "location": "Tokyo",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2019-10-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "country": "South Korea",
+      "city": "Seoul",
+      "about_me": "Driven by innovation in cloud computing",
+      "subtitle": "Cloud Architect",
+      "skills": [
+        {
+          "name": "AWS"
+        },
+        {
+          "name": "Azure"
+        },
+        {
+          "name": "DevOps"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Seoul National University",
+          "field_of_study": "Computer Engineering",
+          "gpa": 3.8,
+          "start_date": "2014-03-01",
+          "end_date": "2018-02-28"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "DevOps Engineer",
+          "employment_type": "FullTime",
+          "company_name": "Samsung",
+          "location": "Seoul",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2018-03-01",
+          "end_date": "2020-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Cloud Architect",
+          "employment_type": "FullTime",
+          "company_name": "LG Electronics",
+          "location": "Incheon",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2021-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "country": "United Kingdom",
+      "city": "London",
+      "about_me": "Focused on delivering scalable web applications",
+      "subtitle": "Web Developer",
+      "skills": [
+        {
+          "name": "HTML"
+        },
+        {
+          "name": "CSS"
+        },
+        {
+          "name": "PHP"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "University of Oxford",
+          "field_of_study": "Web Development",
+          "gpa": 3.75,
+          "start_date": "2017-10-01",
+          "end_date": "2021-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Junior Web Developer",
+          "employment_type": "Internship",
+          "company_name": "BBC",
+          "location": "London",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2020-07-01",
+          "end_date": "2020-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Web Developer",
+          "employment_type": "FullTime",
+          "company_name": "Sky",
+          "location": "Leeds",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2021-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "country": "Italy",
+      "city": "Rome",
+      "about_me": "Committed to enhancing digital marketing strategies",
+      "subtitle": "Digital Marketing Specialist",
+      "skills": [
+        {
+          "name": "SEO"
+        },
+        {
+          "name": "SEM"
+        },
+        {
+          "name": "Social Media Marketing"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "La Sapienza University",
+          "field_of_study": "Marketing",
+          "gpa": 3.8,
+          "start_date": "2016-09-01",
+          "end_date": "2020-07-31"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Marketing Intern",
+          "employment_type": "Internship",
+          "company_name": "Ferrari",
+          "location": "Maranello",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2019-06-01",
+          "end_date": "2019-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Digital Marketing Specialist",
+          "employment_type": "FullTime",
+          "company_name": "Pirelli",
+          "location": "Milan",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2020-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "country": "Spain",
+      "city": "Barcelona",
+      "about_me": "In love with blockchain technology",
+      "subtitle": "Blockchain Developer",
+      "skills": [
+        {
+          "name": "Solidity"
+        },
+        {
+          "name": "Ethereum"
+        },
+        {
+          "name": "Smart Contracts"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Universitat Pompeu Fabra",
+          "field_of_study": "Blockchain Technology",
+          "gpa": 3.9,
+          "start_date": "2017-09-01",
+          "end_date": "2021-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Blockchain Intern",
+          "employment_type": "Internship",
+          "company_name": "Coinbase",
+          "location": "Barcelona",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2020-07-01",
+          "end_date": "2020-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Blockchain Developer",
+          "employment_type": "FullTime",
+          "company_name": "Binance",
+          "location": "Madrid",
+          "location_type": "Remote",
+          "still_working": true,
+          "start_date": "2021-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "country": "Netherlands",
+      "city": "Amsterdam",
+      "about_me": "Exploring the world of fintech",
+      "subtitle": "Fintech Specialist",
+      "skills": [
+        {
+          "name": "Financial Analysis"
+        },
+        {
+          "name": "Cryptocurrency"
+        },
+        {
+          "name": "Risk Management"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "University of Amsterdam",
+          "field_of_study": "Finance",
+          "gpa": 3.85,
+          "start_date": "2016-09-01",
+          "end_date": "2020-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Finance Intern",
+          "employment_type": "Internship",
+          "company_name": "ING Bank",
+          "location": "Amsterdam",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2019-06-01",
+          "end_date": "2019-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Fintech Specialist",
+          "employment_type": "FullTime",
+          "company_name": "Adyen",
+          "location": "Rotterdam",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2020-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "country": "Sweden",
+      "city": "Stockholm",
+      "about_me": "Passionate about renewable energy solutions",
+      "subtitle": "Energy Engineer",
+      "skills": [
+        {
+          "name": "Solar Energy"
+        },
+        {
+          "name": "Wind Energy"
+        },
+        {
+          "name": "Energy Storage"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "KTH Royal Institute of Technology",
+          "field_of_study": "Renewable Energy",
+          "gpa": 3.9,
+          "start_date": "2017-08-01",
+          "end_date": "2021-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Energy Intern",
+          "employment_type": "Internship",
+          "company_name": "Vattenfall",
+          "location": "Stockholm",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2020-07-01",
+          "end_date": "2020-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Energy Engineer",
+          "employment_type": "FullTime",
+          "company_name": "Fortum",
+          "location": "Helsinki",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2021-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "country": "Denmark",
+      "city": "Copenhagen",
+      "about_me": "Excited about the future of autonomous vehicles",
+      "subtitle": "Autonomous Vehicle Engineer",
+      "skills": [
+        {
+          "name": "Robotics"
+        },
+        {
+          "name": "Computer Vision"
+        },
+        {
+          "name": "Sensor Fusion"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Technical University of Denmark",
+          "field_of_study": "Mechanical Engineering",
+          "gpa": 3.85,
+          "start_date": "2016-08-01",
+          "end_date": "2020-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Robotics Intern",
+          "employment_type": "Internship",
+          "company_name": "Volvo",
+          "location": "Gothenburg",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2019-06-01",
+          "end_date": "2019-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Autonomous Vehicle Engineer",
+          "employment_type": "FullTime",
+          "company_name": "Tesla",
+          "location": "Fredericia",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2020-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "country": "Finland",
+      "city": "Helsinki",
+      "about_me": "Exploring the realm of quantum computing",
+      "subtitle": "Quantum Computing Researcher",
+      "skills": [
+        {
+          "name": "Quantum Mechanics"
+        },
+        {
+          "name": "Quantum Algorithms"
+        },
+        {
+          "name": "Quantum Cryptography"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Aalto University",
+          "field_of_study": "Physics",
+          "gpa": 3.95,
+          "start_date": "2015-08-01",
+          "end_date": "2019-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Research Intern",
+          "employment_type": "Internship",
+          "company_name": "IBM",
+          "location": "Helsinki",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2019-07-01",
+          "end_date": "2019-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Quantum Computing Researcher",
+          "employment_type": "FullTime",
+          "company_name": "Microsoft",
+          "location": "Espoo",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2020-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "country": "Norway",
+      "city": "Oslo",
+      "about_me": "Advancing healthcare through technology",
+      "subtitle": "Healthcare Technologist",
+      "skills": [
+        {
+          "name": "Telemedicine"
+        },
+        {
+          "name": "Medical Devices"
+        },
+        {
+          "name": "Health Informatics"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "University of Oslo",
+          "field_of_study": "Biomedical Engineering",
+          "gpa": 3.8,
+          "start_date": "2016-08-01",
+          "end_date": "2020-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Biomedical Intern",
+          "employment_type": "Internship",
+          "company_name": "GE Healthcare",
+          "location": "Oslo",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2019-06-01",
+          "end_date": "2019-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Healthcare Technologist",
+          "employment_type": "FullTime",
+          "company_name": "Philips",
+          "location": "Trondheim",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2020-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "country": "Poland",
+      "city": "Warsaw",
+      "about_me": "Focused on improving supply chain logistics",
+      "subtitle": "Supply Chain Analyst",
+      "skills": [
+        {
+          "name": "Logistics Management"
+        },
+        {
+          "name": "Inventory Optimization"
+        },
+        {
+          "name": "Warehouse Operations"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Warsaw University of Technology",
+          "field_of_study": "Supply Chain Management",
+          "gpa": 3.75,
+          "start_date": "2016-10-01",
+          "end_date": "2020-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Supply Chain Intern",
+          "employment_type": "Internship",
+          "company_name": "DHL",
+          "location": "Warsaw",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2019-07-01",
+          "end_date": "2019-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Supply Chain Analyst",
+          "employment_type": "FullTime",
+          "company_name": "UPS",
+          "location": "Kraków",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2020-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "country": "Turkey",
+      "city": "Istanbul",
+      "about_me": "Innovating in the field of augmented reality",
+      "subtitle": "AR Developer",
+      "skills": [
+        {
+          "name": "ARKit"
+        },
+        {
+          "name": "ARCore"
+        },
+        {
+          "name": "Unity AR"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Boğaziçi University",
+          "field_of_study": "Computer Graphics",
+          "gpa": 3.9,
+          "start_date": "2016-09-01",
+          "end_date": "2020-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "AR Intern",
+          "employment_type": "Internship",
+          "company_name": "Snapchat",
+          "location": "Istanbul",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2019-07-01",
+          "end_date": "2019-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "AR Developer",
+          "employment_type": "FullTime",
+          "company_name": "Meta",
+          "location": "Ankara",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2020-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "country": "Egypt",
+      "city": "Cairo",
+      "about_me": "Dedicated to building scalable backend systems",
+      "subtitle": "Backend Developer",
+      "skills": [
+        {
+          "name": "Ruby on Rails"
+        },
+        {
+          "name": "GraphQL"
+        },
+        {
+          "name": "Docker"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Cairo University",
+          "field_of_study": "Computer Science",
+          "gpa": 3.8,
+          "start_date": "2017-09-01",
+          "end_date": "2021-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Junior Backend Developer",
+          "employment_type": "Internship",
+          "company_name": "Orascom",
+          "location": "Cairo",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2020-07-01",
+          "end_date": "2020-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Backend Developer",
+          "employment_type": "FullTime",
+          "company_name": "Swvl",
+          "location": "Alexandria",
+          "location_type": "Remote",
+          "still_working": true,
+          "start_date": "2021-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "country": "Egypt",
+      "city": "Alexandria",
+      "about_me": "Creating engaging content for digital platforms",
+      "subtitle": "Content Creator",
+      "skills": [
+        {
+          "name": "Video Editing"
+        },
+        {
+          "name": "Copywriting"
+        },
+        {
+          "name": "Graphic Design"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Alexandria University",
+          "field_of_study": "Mass Communication",
+          "gpa": 3.7,
+          "start_date": "2016-09-01",
+          "end_date": "2020-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Content Intern",
+          "employment_type": "Internship",
+          "company_name": "Al Masry Al Youm",
+          "location": "Alexandria",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2019-07-01",
+          "end_date": "2019-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Content Creator",
+          "employment_type": "Freelance",
+          "company_name": "Self-employed",
+          "location": "Remote",
+          "location_type": "Remote",
+          "still_working": true,
+          "start_date": "2020-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "country": "Egypt",
+      "city": "Giza",
+      "about_me": "Passionate about artificial intelligence and its applications",
+      "subtitle": "AI Developer",
+      "skills": [
+        {
+          "name": "Natural Language Processing"
+        },
+        {
+          "name": "Computer Vision"
+        },
+        {
+          "name": "Reinforcement Learning"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "German University in Cairo",
+          "field_of_study": "Artificial Intelligence",
+          "gpa": 3.9,
+          "start_date": "2017-09-01",
+          "end_date": "2021-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 2,
+          "job_title": "AI Developer",
+          "employment_type": "FullTime",
+          "company_name": "Alef Technologies",
+          "location": "Cairo",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2021-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "country": "Egypt",
+      "city": "Luxor",
+      "about_me": "Exploring the intersection of art and technology",
+      "subtitle": "Digital Artist",
+      "skills": [
+        {
+          "name": "3D Modeling"
+        },
+        {
+          "name": "Animation"
+        },
+        {
+          "name": "Texture Painting"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Faculty of Fine Arts, Helwan University",
+          "field_of_study": "Digital Art",
+          "gpa": 3.85,
+          "start_date": "2016-09-01",
+          "end_date": "2020-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Junior Artist",
+          "employment_type": "Internship",
+          "company_name": "ArtStation",
+          "location": "Luxor",
+          "location_type": "Remote",
+          "still_working": false,
+          "start_date": "2020-07-01",
+          "end_date": "2020-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Digital Artist",
+          "employment_type": "Freelance",
+          "company_name": "Self-employed",
+          "location": "Remote",
+          "location_type": "Remote",
+          "still_working": true,
+          "start_date": "2021-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "country": "Egypt",
+      "city": "Aswan",
+      "about_me": "Focused on creating efficient data pipelines",
+      "subtitle": "Data Engineer",
+      "skills": [
+        {
+          "name": "Apache Kafka"
+        },
+        {
+          "name": "Spark"
+        },
+        {
+          "name": "ETL"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "South Valley University",
+          "field_of_study": "Information Systems",
+          "gpa": 3.75,
+          "start_date": "2017-09-01",
+          "end_date": "2021-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Data Intern",
+          "employment_type": "Internship",
+          "company_name": "Vodafone",
+          "location": "Cairo",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2020-07-01",
+          "end_date": "2020-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Data Engineer",
+          "employment_type": "FullTime",
+          "company_name": "Jumia",
+          "location": "Cairo",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2021-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "country": "Egypt",
+      "city": "Port Said",
+      "about_me": "Passionate about developing mobile applications",
+      "subtitle": "Mobile App Developer",
+      "skills": [
+        {
+          "name": "SwiftUI"
+        },
+        {
+          "name": "Android Jetpack Compose"
+        },
+        {
+          "name": "Firebase"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Suez Canal University",
+          "field_of_study": "Software Engineering",
+          "gpa": 3.8,
+          "start_date": "2016-09-01",
+          "end_date": "2020-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Mobile Intern",
+          "employment_type": "Internship",
+          "company_name": "Orange",
+          "location": "Port Said",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2019-07-01",
+          "end_date": "2019-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Mobile App Developer",
+          "employment_type": "FullTime",
+          "company_name": "Elmenus",
+          "location": "Cairo",
+          "location_type": "Remote",
+          "still_working": true,
+          "start_date": "2020-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "country": "Egypt",
+      "city": "Ismailia",
+      "about_me": "Innovating in the field of cybersecurity",
+      "subtitle": "Cybersecurity Analyst",
+      "skills": [
+        {
+          "name": "Network Security"
+        },
+        {
+          "name": "Vulnerability Assessment"
+        },
+        {
+          "name": "Incident Response"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Military Technical College",
+          "field_of_study": "Cybersecurity",
+          "gpa": 3.9,
+          "start_date": "2017-09-01",
+          "end_date": "2021-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Security Intern",
+          "employment_type": "Internship",
+          "company_name": "Etisalat",
+          "location": "Cairo",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2020-07-01",
+          "end_date": "2020-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Cybersecurity Analyst",
+          "employment_type": "FullTime",
+          "company_name": "Nile ICT",
+          "location": "Cairo",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2021-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "country": "Egypt",
+      "city": "Zagazig",
+      "about_me": "Building intuitive user interfaces for web applications",
+      "subtitle": "Frontend Developer",
+      "skills": [
+        {
+          "name": "Vue.js"
+        },
+        {
+          "name": "Tailwind CSS"
+        },
+        {
+          "name": "REST APIs"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Zagazig University",
+          "field_of_study": "Computer Science",
+          "gpa": 3.75,
+          "start_date": "2017-09-01",
+          "end_date": "2021-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Frontend Intern",
+          "employment_type": "Internship",
+          "company_name": "Fawry",
+          "location": "Cairo",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2020-07-01",
+          "end_date": "2020-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Frontend Developer",
+          "employment_type": "FullTime",
+          "company_name": "ValyouX",
+          "location": "Cairo",
+          "location_type": "Remote",
+          "still_working": true,
+          "start_date": "2021-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "country": "Egypt",
+      "city": "Mansoura",
+      "about_me": "Creating impactful marketing strategies",
+      "subtitle": "Marketing Specialist",
+      "skills": [
+        {
+          "name": "Google Ads"
+        },
+        {
+          "name": "Content Marketing"
+        },
+        {
+          "name": "Email Campaigns"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Mansoura University",
+          "field_of_study": "Marketing",
+          "gpa": 3.8,
+          "start_date": "2016-09-01",
+          "end_date": "2020-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "Marketing Intern",
+          "employment_type": "Internship",
+          "company_name": "CIB",
+          "location": "Cairo",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2019-07-01",
+          "end_date": "2019-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Marketing Specialist",
+          "employment_type": "FullTime",
+          "company_name": "Beyti",
+          "location": "Cairo",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2020-01-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "country": "Egypt",
+      "city": "Asyut",
+      "about_me": "Focused on delivering high-quality software solutions",
+      "subtitle": "Quality Assurance Engineer",
+      "skills": [
+        {
+          "name": "Test Automation"
+        },
+        {
+          "name": "Manual Testing"
+        },
+        {
+          "name": "Agile Testing"
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "university": "Asyut University",
+          "field_of_study": "Software Quality Assurance",
+          "gpa": 3.85,
+          "start_date": "2017-09-01",
+          "end_date": "2021-06-30"
+        }
+      ],
+      "experiences": [
+        {
+          "id": 1,
+          "job_title": "QA Intern",
+          "employment_type": "Internship",
+          "company_name": "ITWorx",
+          "location": "Cairo",
+          "location_type": "Onsite",
+          "still_working": false,
+          "start_date": "2020-07-01",
+          "end_date": "2020-12-31"
+        },
+        {
+          "id": 2,
+          "job_title": "Quality Assurance Engineer",
+          "employment_type": "FullTime",
+          "company_name": "Orascom",
+          "location": "Cairo",
+          "location_type": "Hybrid",
+          "still_working": true,
+          "start_date": "2021-01-01",
+          "end_date": null
+        }
+      ]
+    }
+  ]
+}
