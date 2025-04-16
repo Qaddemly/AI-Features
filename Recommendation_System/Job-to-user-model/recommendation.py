@@ -51,7 +51,7 @@ class RecommendForUser:
                 ]
             ),
             axis=1,
-        ).values[0]
+        ).tolist()  # Convert to a list of strings
 
         # Process job text data
         job_text = job_df.apply(
@@ -67,20 +67,24 @@ class RecommendForUser:
                 ]
             ),
             axis=1,
-        ).values
+        ).tolist()  # Convert to a list of strings
 
         # TF-IDF Cosine Similarity
         tfidf = TfidfVectorizer(stop_words="english")
-        tfidf_matrix = tfidf.fit_transform([job_text] + list(users_text))
+        tfidf_matrix = tfidf.fit_transform(
+            [job_text[0]] + users_text
+        )  # Combine job text and users text
         cosine_similarities = cosine_similarity(
-            tfidf_matrix[0], tfidf_matrix[1:]
+            tfidf_matrix[0:1], tfidf_matrix[1:]
         ).flatten()
 
         # Jaccard Similarity for skills
         job_skills = set(job_df["skills"].iloc[0])
         jaccard_similarities = np.array(
             [
-                self.jaccard_similarity(job_skills, set(user_skills))
+                self.jaccard_similarity(
+                    job_skills, {skill["name"] for skill in user_skills}
+                )  # Extract skill names
                 for user_skills in users_df["skills"]
             ]
         )
@@ -126,7 +130,7 @@ class RecommendForUser:
         # )
 
         # max_euclidean = max(euclidean_distances) if len(euclidean_distances) > 0 else 1
-        euclidean_similarities = 0 #1 - (euclidean_distances / max_euclidean)
+        euclidean_similarities = 0  # 1 - (euclidean_distances / max_euclidean)
 
         # Final Hybrid Score
         final_scores = (

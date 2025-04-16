@@ -58,27 +58,21 @@ class JobItem(BaseModel):
 
 
 class RecommendationRequest(BaseModel):
-    user: User
-    jobs: List[JobItem]
+    job: JobItem
+    users: List[User]
 
 
 @app.post("/recommend")
 def recommend(request: RecommendationRequest):
+    print("Received request:", request.dict())  # Log the incoming request
     recommender = RecommendForUser()
 
-    user_data = request.user.dict()
-    user_data["skills"] = [skill["name"] for skill in user_data.get("skills", [])]
-    user_data["educations"] = [
-        f"{edu.university} {edu.field_of_study}" for edu in request.user.educations
-    ]
-    user_data["experiences"] = [
-        f"{exp.job_title} {exp.company_name} {exp.location}"
-        for exp in request.user.experiences
-    ]
+    users_data = [user.dict() for user in request.users]
+    users_df = pd.DataFrame(users_data)
+    print("Users DataFrame:", users_df)  # Log the users DataFrame
 
-    jobs_data = [job.dict() for job in request.jobs]
+    job_data = request.job.dict()
+    job_df = pd.DataFrame([job_data])
+    print("Job DataFrame:", job_df)  # Log the job DataFrame
 
-    user_df = pd.DataFrame([user_data])
-    jobs_df = pd.DataFrame(jobs_data)
-
-    return recommender.recommend_users(user_df, jobs_df)
+    return recommender.recommend_users(users_df, job_df)
