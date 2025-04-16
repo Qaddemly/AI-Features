@@ -1,0 +1,141 @@
+{
+  "success": true,
+  "user": {
+    "id": 2,
+    "first_name": "Emma",
+    "last_name": "Wilson",
+    "email": "emma.wilson@example.com",
+    "date_of_birth": "1993-05-15",
+    "profile_picture": "https://example.com/profiles/emma_wilson.jpg",
+    "about_me": "Full-stack developer with 5 years of experience building scalable web applications. Passionate about clean code and user experience.",
+    "subtitle": "Senior Software Engineer",
+    "created_at": "2025-01-10T08:30:45.123Z",
+    "updated_at": "2025-03-18T14:20:10.456Z",
+    "address": {
+      "country": "United States",
+      "city": "San Francisco"
+    },
+    "phone": {
+      "country_code": "+1",
+      "number": "4155550199"
+    },
+    "links": {
+      "linkedin": "https://linkedin.com/in/emmawilson",
+      "github": "https://github.com/emma-dev",
+      "portfolio": "https://emmawilson.dev",
+      "twitter": "https://twitter.com/emma_codes",
+      "facebook": null,
+      "instagram": null,
+      "youtube": null,
+      "website": null
+    },
+    "skills": [
+      {
+        "name": "JavaScript"
+      },
+      {
+        "name": "React"
+      },
+      {
+        "name": "Node.js"
+      },
+      {
+        "name": "TypeScript"
+      },
+      {
+        "name": "GraphQL"
+      },
+      {
+        "name": "AWS"
+      }
+    ],
+    "educations": [
+      {
+        "id": 1,
+        "university": "Stanford University",
+        "field_of_study": "Computer Science",
+        "gpa": 3.9,
+        "start_date": "2011-09-01",
+        "end_date": "2015-06-30"
+      }
+    ],
+    "experiences": [
+      {
+        "id": 1,
+        "job_title": "Software Engineer",
+        "employment_type": "FullTime",
+        "company_name": "Google",
+        "location": "Mountain View",
+        "location_type": "Hybrid",
+        "still_working": false,
+        "start_date": "2015-07-01",
+        "end_date": "2018-12-31"
+      },
+      {
+        "id": 2,
+        "job_title": "Senior Software Engineer",
+        "employment_type": "FullTime",
+        "company_name": "Airbnb",
+        "location": "San Francisco",
+        "location_type": "Remote",
+        "still_working": true,
+        "start_date": "2019-01-01",
+        "end_date": null
+      }
+    ]
+  },
+  "job": {
+    "id": 32891,
+    "title": "Senior Full-Stack Developer",
+    "description": "We're looking for an experienced Full-Stack Developer to join our engineering team. You'll be responsible for designing and implementing features across our entire stack, from database to UI.\n\nResponsibilities:\n- Develop and maintain web applications using modern JavaScript frameworks\n- Collaborate with product managers and designers\n- Write clean, maintainable, and efficient code\n- Mentor junior developers\n\nRequirements:\n- 5+ years of professional software development experience\n- Expertise in React, Node.js, and TypeScript\n- Strong understanding of database design and API development",
+    "country": "United States",
+    "city": "New York",
+    "location_type": "Remote",
+    "status": "Opened",
+    "skills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "TypeScript",
+      "GraphQL",
+      "REST APIs",
+      "Database Design"
+    ],
+    "salary": 145000,
+    "employee_type": "FullTime",
+    "keywords": [
+      "Full-Stack",
+      "JavaScript",
+      "React",
+      "Node.js",
+      "TypeScript"
+    ],
+    "experience": 5,
+    "business_id": 42,
+    "created_at": "2025-03-01T10:15:33.789Z",
+    "updated_at": "2025-03-15T12:20:45.678Z",
+    "business": {
+      "id": 42,
+      "name": "TechInnovate",
+      "logo": "https://techinnovate.com/logo.png",
+      "CEO": "David Chen",
+      "founder": "Sarah Johnson",
+      "founded": "2016-04-05",
+      "location_type": "Hybrid",
+      "description": "Fast-growing SaaS company building innovative productivity tools for remote teams",
+      "company_size": 200,
+      "industry": "Software",
+      "website": "https://techinnovate.com",
+      "headquarter": "New York",
+      "email": "careers@techinnovate.com",
+      "reviewsRatingsQuantity": 35,
+      "reviewsRatingsAverage": 4.8,
+      "created_at": "2025-01-05T10:00:00.000Z",
+      "updated_at": "2025-03-10T16:30:22.111Z",
+      "address": {
+        "country": "United States",
+        "city": "New York"
+      }
+    }
+  }
+}

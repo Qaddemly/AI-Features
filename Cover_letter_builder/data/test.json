@@ -1,0 +1,123 @@
+{
+  "success": true,
+  "user": {
+    "id": 1,
+    "first_name": "Abdo",
+    "last_name": "Khattab",
+    "email": "abdotest@mailsac.com",
+    "date_of_birth": null,
+    "profile_picture": null,
+    "about_me": null,
+    "subtitle": null,
+    "created_at": "2025-03-23T00:39:15.246Z",
+    "updated_at": "2025-03-23T00:39:15.246Z",
+    "address": {
+      "country": null,
+      "city": null
+    },
+    "phone": {
+      "country_code": null,
+      "number": null
+    },
+    "links": {
+      "linkedin": null,
+      "github": null,
+      "portfolio": null,
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "youtube": null,
+      "website": null
+    }, 
+    "skills": [
+      {
+        "name": "JavaScript"
+      },
+      {
+        "name": "React"
+      },
+      {
+        "name": "Node.js"
+      }
+    ],
+    "educations": [
+      {
+        "id": 1,
+        "university": "Cairo University",
+        "field_of_study": "Computer Science",
+        "gpa": 3.8,
+        "start_date": "2018-09-01",
+        "end_date": "2022-06-30"
+      }
+    ],
+    "experiences": [
+      {
+        "id": 1,
+        "job_title": "Frontend Developer",
+        "employment_type": "FullTime",
+        "company_name": "Tech Solutions Inc.",
+        "location": "Cairo",
+        "location_type": "Onsite",
+        "still_working": false,
+        "start_date": "2022-07-01",
+        "end_date": "2023-09-30"
+      },
+      {
+        "id": 2,
+        "job_title": "Backend Developer",
+        "employment_type": "FullTime",
+        "company_name": "Innovate Tech",
+        "location": "Alexandria",
+        "location_type": "Remote",
+        "still_working": true,
+        "start_date": "2023-10-01",
+        "end_date": null
+      }
+    ]
+  },
+  "job": {
+    "id": 28746,
+    "title": "Digital Marketing Specialist",
+    "description": "Social Media Managers oversee an organizations social media presence. They create and schedule content, engage with followers, and analyze social media metrics to drive brand awareness and engagement.\n\nResponsibilities: Manage and grow social media accounts, create engaging content, and interact with the online community. Develop social media content calendars and strategies. Monitor social media trends and engagement metrics.\n\nQualifications: M.Tech",
+    "country": null,
+    "city": "Douglas",
+    "location_type": "Onsite",
+    "status": "Opened",
+    "skills": [
+      "Social media platforms (e.g., Facebook, Twitter, Instagram) Content creation and scheduling Social media analytics and insights Community engagement Paid social advertising"
+    ],
+    "salary": 79000,
+    "employee_type": "Internship",
+    "keywords": [
+      "Digital Marketing Specialist",
+      "Social media platforms (e.g., Facebook, Twitter, Instagram) Content creation and scheduling Social media analytics and insights Community engagement Paid social advertising"
+    ],
+    "experience": 10,
+    "business_id": 1,
+    "created_at": "2025-03-23T00:47:08.493Z",
+    "updated_at": "2025-03-23T00:47:08.493Z",
+    "business": {
+      "id": 1,
+      "name": "Vodafone Haha",
+      "logo": "http://localhost:8000/uploads/businesses/business-logo-Vodafone Haha-1742690438471.jpeg",
+      "CEO": "Abdo Khattab",
+      "founder": "Abdo Khattab",
+      "founded": "2002-10-12",
+      "location_type": "Onsite",
+      "description": "Descrisafasfgasfa88888888888888888",
+      "company_size": 500,
+      "industry": "Tech",
+      "website": "www.voda.com",
+      "headquarter": "Tanta",
+      "email": "mr.spytkhattab@gmail.com",
+      "reviewsRatingsQuantity": 0,
+      "reviewsRatingsAverage": 0,
+      "created_at": "2025-03-23T00:40:38.567Z",
+      "updated_at": "2025-03-23T00:40:38.567Z",
+      "address": {
+        "country": "Egypt",
+        "city": "Tanta"
+      }
+    }
+  }
+}
