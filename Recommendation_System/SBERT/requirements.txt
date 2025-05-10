@@ -1,9 +1,0 @@
-fastapi
-uvicorn
-sentence-transformers
-faiss-cpu
-pdfplumber
-numpy
-scikit-learn
-requests
-pydantic
