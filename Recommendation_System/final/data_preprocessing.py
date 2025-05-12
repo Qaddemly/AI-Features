@@ -168,7 +168,7 @@ class DataPreprocessor:
         elif isinstance(text, list):
             return [self.preprocess_text(item) for item in text]
         elif isinstance(text, dict):
-            return {self.preprocess_text(key): self.preprocess_text(value) if isinstance(value, str) else str(value)
+            return {self.preprocess_text(key) if isinstance(key, str) else key: self.preprocess_text(value) if isinstance(value, str) else value
                     for key, value in text.items()}
         return text
 
@@ -199,7 +199,6 @@ class DataPreprocessor:
         user_last_experience = self.get_last_experience(user_df)
         user_df['location_type'] = user_last_experience['location_type']
         user_df['employment_type'] = user_last_experience['employment_type']
-        # user_df['skills'] = user_df['skills'].apply(self.preprocess_user_skills)
 
         return user_df, jobs_df
 
@@ -311,7 +310,7 @@ class DataPreprocessor:
             pickle.dump(skill_to_embedding, f)
         return skill_to_embedding
 
-    def preprocess(self, input_data):
+    def preprocess(self, input_json = 'test.json'):
         """
         Main preprocessing function to process input JSON data.
 
@@ -325,8 +324,11 @@ class DataPreprocessor:
         tuple
             (user_df, jobs_df) preprocessed dataframes
         """
-        user_df = pd.DataFrame([data['recommendedJobs']['userInfo']])
-        jobs_df = pd.DataFrame([job for job in data['recommendedJobs']['jobs']])
+        with open(input_json, 'r') as f:
+            data = json.load(f)
+
+        user_df = pd.DataFrame([data['user']])
+        jobs_df = pd.DataFrame([job for job in data['jobs']])
 
         jobs_df = jobs_df.drop_duplicates(subset=['description'], keep='first').reset_index(drop=True)
 
