@@ -161,11 +161,6 @@ class JobRecommender:
         normalized_similarities = raw_similarities / max_score if max_score > 0 else raw_similarities
         jobs_df['description_similarity'] = normalized_similarities
 
-        # Calculate skill similarity
-        # user_skills = set(user_df["skills"])
-        # jobs_df['common_skills'] = jobs_df['parsed_skills'].apply(
-        #     lambda job_skills: self.compute_common_skills(user_skills, job_skills, 0.5)
-        # )
         user_skills = set(user_df["skills"])
         jobs_df['common_skills'] = jobs_df['skills'].apply(
             lambda job_skills: self.compute_common_skills(user_skills, job_skills, 0.5)
@@ -187,13 +182,16 @@ class JobRecommender:
                 self.jaccard_weight * jobs_df['skill_similarity']
         )
 
-        # Get top recommendations
         top_indices = final_scores.argsort()[::-1][:self.top_n]
-        recommended_jobs = jobs_df.iloc[top_indices].copy()
-        recommended_jobs["similarity_score"] = final_scores[top_indices]
+        recommendations = [
+            {
+                "id": int(jobs_df.iloc[i]['id']),
+                "similarity_score": float(final_scores.iloc[i])
+            }
+            for i in top_indices
+        ]
 
-        return recommended_jobs.to_dict(orient="records")
-
+        return recommendations
 
 def recommend_for_user(user_df, jobs_df, title_w=0.2, cosine_w=0.2, jaccard_w=0.2,
                        emp_type_w=0.2, loc_type_w=0.2, top_n=20):

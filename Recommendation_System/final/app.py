@@ -9,14 +9,15 @@ allowing clients to submit user profiles and job data to receive recommendations
 """
 
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel, Field
 from typing import List, Optional, Dict, Any, Union
+from pydantic import BaseModel, Field
+
 import json
 import pandas as pd
 from datetime import date
 
 from data_preprocessing import DataPreprocessor
-from recommendation_to_user import recommend_for_user
+from recommendation_to_user import JobRecommender
 
 app = FastAPI(title="Job Recommendation API",
               description="API for recommending jobs to users based on skills, experience, and preferences")
@@ -58,9 +59,9 @@ class User(BaseModel):
     city: Optional[str] = None
     about_me: str
     subtitle: str
-    skills: List[Dict[str, str]] = Field(default_factory=list)
-    educations: List[Dict[str, Any]] = Field(default_factory=list)
-    experiences: List[Dict[str, Any]] = Field(default_factory=list)
+    skills: List[Dict[str, str]]
+    educations: List[Dict[str, Any]]
+    experiences: List[Dict[str, Any]]
 
 
 class Job(BaseModel):
@@ -72,10 +73,10 @@ class Job(BaseModel):
     city: Optional[str] = None
     location_type: Optional[str] = None
     status: Optional[str] = None
-    skills: List[str] = Field(default_factory=list)
+    skills: List[str]
     salary: Optional[Union[int, float]] = None
     employee_type: Optional[str] = None
-    keywords: Optional[List[str]] = Field(default_factory=list)
+    keywords: Optional[List[str]]
     experience: Optional[int] = None
     business_id: Optional[int] = None
     created_at: Optional[str] = None
@@ -119,9 +120,9 @@ async def recommend_jobs(request: InputData):
     try:
         # Convert input data to internal format
         input_data = {
-            "success": request.success,
             "user": request.user.model_dump(),
-            "jobs": [job.model_dump() for job in request.jobs]
+            "jobs": [job.model_dump() for job in request.jobs],
+            "select": request.select
         }
 
         # Preprocess data
@@ -129,7 +130,7 @@ async def recommend_jobs(request: InputData):
         user_df, jobs_df = preprocessor.preprocess(input_data)
 
         # Generate recommendations
-        recommender = JobRecommender()
+        recommender = JobRecommender(top_n=input_data['select'])
         recommendations = recommender.recommend(user_df, jobs_df)
 
         return {
