@@ -1,0 +1,2563 @@
+{
+  "success": true,
+  "jobApplicationSubmit": [
+    {
+  "id": 25,
+  "first_name": "Director",
+  "last_name": "Engineering",
+  "email": "director.engineering@example.com",
+  "phone": "+1234567890",
+  "birth_date": "1970-01-01",
+  "skills": [
+    "Agile",
+    "Product Management",
+    "E-commerce",
+    "Ruby on Rails",
+    "Strategic Planning",
+    "Venture Capital",
+    "Team Leadership",
+    "Cloud Architecture"
+  ],
+  "languages": ["English"],
+  "created_at": "2025-04-18T10:00:00.000Z",
+  "updated_at": "2025-04-18T10:00:00.000Z",
+  "job_application_educations": [
+    {
+      "id": 32,
+      "university": "Georgia Institute of Technology",
+      "field_of_study": "Management of Technology",
+      "gpa": 3.7,
+      "start_date": "2004-01-01",
+      "end_date": "2006-12-31"
+    },
+    {
+      "id": 33,
+      "university": "Rutgers University",
+      "field_of_study": "Computer Science",
+      "gpa": 3.5,
+      "start_date": "1988-01-01",
+      "end_date": "1992-12-31"
+    }
+  ],
+  "job_application_experiences": [
+    {
+      "id": 30,
+      "job_title": "Director of Engineering",
+      "employment_type": "FullTime",
+      "company_name": "Calero",
+      "location": "Atlanta",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "2018-04-01",
+      "end_date": "2018-05-31"
+    },
+    {
+      "id": 31,
+      "job_title": "Sr. Director Software Development",
+      "employment_type": "FullTime",
+      "company_name": "CLA",
+      "location": "Remote",
+      "location_type": "Hybrid",
+      "still_working": false,
+      "start_date": "2016-04-01",
+      "end_date": "2018-04-01"
+    },
+    {
+      "id": 32,
+      "job_title": "VP of Engineering and Operations",
+      "employment_type": "FullTime",
+      "company_name": "PictureU",
+      "location": "Remote",
+      "location_type": "Remote",
+      "still_working": false,
+      "start_date": "2013-08-01",
+      "end_date": "2016-04-01"
+    }
+  ],
+  "job_application_resume": [
+    {
+      "id": 16,
+      "url": "file:///E:/ML/graduation%20project/Qaddemly%20Project/Practical%20Code%20AI%20-Features/ATS%20Scan%20system/data/Engineer3264796.pdf",
+      "name": "Engineer3264796.pdf",
+      "size": 250000
+    }
+  ],
+  "job_application_state": {
+    "job_application_submit_id": 25,
+    "state": "UNDER_REVIEW"
+  },
+  "job": {
+    "id": 1002,
+    "title": "Director of Engineering",
+    "description": "We are seeking a seasoned Director of Engineering to lead our engineering department. This role involves overseeing multiple engineering teams, driving product development, and aligning engineering initiatives with company objectives. The ideal candidate will have a proven track record in building scalable systems, managing cross-functional teams, and delivering innovative solutions.",
+    "country": "United States",
+    "city": "Remote",
+    "location_type": "Remote",
+    "status": "Opened",
+    "skills": [
+      "Leadership",
+      "Strategic Planning",
+      "Project Management",
+      "Agile Methodologies",
+      "Software Development",
+      "Cloud Computing",
+      "Product Management",
+      "Team Building",
+      "Budget Management",
+      "Cross-functional Collaboration"
+    ],
+    "salary": 180000,
+    "employee_type": "FullTime",
+    "keywords": [
+      "Engineering Leadership",
+      "Technical Strategy",
+      "Team Management",
+      "Product Development",
+      "Cloud Infrastructure"
+    ],
+    "experience": 10,
+    "business_id": 2001,
+    "created_at": "2025-03-15T10:00:00.000Z",
+    "updated_at": "2025-04-01T11:30:00.000Z"
+  },
+  "questionAnswers": [
+    {
+      "_id": "25a",
+      "question": {
+        "_id": "q1",
+        "questionText": "What is your full name?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 1
+      },
+      "answer": "Director Engineering"
+    },
+    {
+      "_id": "25b",
+      "question": {
+        "_id": "q2",
+        "questionText": "Describe your experience with machine learning projects.",
+        "questionType": "long_answer",
+        "isRequired": true,
+        "order": 2
+      },
+      "answer": "Built computer vision systems for a 16-camera array at PictureU, designed AI-driven e-commerce platforms, and implemented data migration solutions for enterprise clients."
+    },
+    {
+      "_id": "25c",
+      "question": {
+        "_id": "q3",
+        "questionText": "How many years of experience do you have in technology leadership?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 3
+      },
+      "answer": "20+"
+    },
+    {
+      "_id": "25d",
+      "question": {
+        "_id": "q4",
+        "questionText": "What is your highest level of education?",
+        "questionType": "multiple_choice",
+        "options": ["High School Diploma", "Associate Degree", "Bachelor's Degree", "Master's Degree", "Doctorate"],
+        "isRequired": true,
+        "order": 4
+      },
+      "answer": "Master's Degree"
+    }
+  ]
+},
+{
+  "id": 26,
+  "first_name": "Regional",
+  "last_name": "Engineering Manager",
+  "email": "regional.engineering@transportation-example.com",
+  "phone": "+1987654321",
+  "birth_date": "1970-05-15",
+  "skills": [
+    "SCADA Systems",
+    "ITS (Intelligent Transportation Systems)",
+    "Technical Program Management",
+    "Disaster Recovery Planning",
+    "GIS Mapping",
+    "PLC/SCADA Design",
+    "Cost Estimating",
+    "Cross-Team Leadership"
+  ],
+  "languages": ["English"],
+  "created_at": "2025-04-19T09:15:00.000Z",
+  "updated_at": "2025-04-19T09:15:00.000Z",
+  "job_application_educations": [
+    {
+      "id": 34,
+      "university": "University of California at Santa Barbara",
+      "field_of_study": "Electrical and Computer Engineering",
+      "gpa": 3.6,
+      "start_date": "1986-09-01",
+      "end_date": "1990-06-30"
+    }
+  ],
+  "job_application_experiences": [
+    {
+      "id": 33,
+      "job_title": "Regional Engineering Manager",
+      "employment_type": "FullTime",
+      "company_name": "Transportation Solutions Inc.",
+      "location": "Texas (Remote)",
+      "location_type": "Hybrid",
+      "still_working": true,
+      "start_date": "2014-01-01",
+      "end_date": null,
+      "achievements": [
+        "Led $25M LBJ/NTE Managed Lanes Project (first dynamic tolling roadway in Texas)",
+        "Directed ITS projects across 4 countries (US, Australia, New Zealand, Chile)",
+        "Winning bids on projects ranging from $1M to $25M"
+      ]
+    },
+    {
+      "id": 34,
+      "job_title": "Engineering Supervisor",
+      "employment_type": "FullTime",
+      "company_name": "InfraTech Systems",
+      "location": "California",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "2011-01-01",
+      "end_date": "2013-12-31",
+      "achievements": [
+        "Delivered $7M Caltrans Devil's Slide Tunnel life-safety system",
+        "Beat 'preferred supplier' bids with innovative technical proposals"
+      ]
+    },
+    {
+      "id": 35,
+      "job_title": "Senior Engineer",
+      "employment_type": "FullTime",
+      "company_name": "Control Systems Engineering Ltd",
+      "location": "California",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "2003-07-01",
+      "end_date": "2010-12-31"
+    }
+  ],
+  "job_application_resume": [
+    {
+      "id": 17,
+      "url": "file:///E:/ML/graduation%20project/Qaddemly%20Project/Practical%20Code%20AI%20-Features/ATS%20Scan%20system/data/Engineer2748557.pdf",
+      "name": "Engineer2748557.pdf",
+      "size": 275000
+    }
+  ],
+  "job_application_state": {
+    "job_application_submit_id": 26,
+    "state": "UNDER_REVIEW"
+  },
+  "job": {
+    "id": 1002,
+    "title": "Equipment Engineering Technician",
+    "description": "We are seeking a highly experienced Equipment Engineering Technician with a strong background in automation systems, mechanical and electrical troubleshooting, and factory equipment maintenance. The ideal candidate has hands-on experience in robotics, preventative maintenance, and supporting manufacturing teams in high-reliability environments.",
+    "country": "United States",
+    "city": "Remote",
+    "location_type": "Remote",
+    "status": "Opened",
+    "skills": [
+    "Automation Systems",
+    "Mechanical Troubleshooting",
+    "Electrical Systems",
+    "Preventive Maintenance",
+    "Robotic Systems",
+    "NDT Level II",
+    "Pneumatics & Hydraulics",
+    "Inventory Management",
+    "MS Office",
+    "Test Equipment",
+    "ISO 9001 Compliance"
+    ],
+    "salary": 95000,
+    "employee_type": "FullTime",
+    "keywords": [
+    "Equipment Maintenance",
+    "Factory Automation",
+    "Troubleshooting",
+    "Robotics",
+    "Manufacturing Support",
+    "ISO Compliance",
+    "Material Management",
+    "Technical Support"
+    ],
+    "experience": 10,
+    "business_id": 2001,
+    "created_at": "2025-05-13T08:00:00.000Z",
+    "updated_at": "2025-05-13T08:00:00.000Z"
+    },
+  "questionAnswers": [
+    {
+      "_id": "26a",
+      "question": {
+        "_id": "q1",
+        "questionText": "What is your full name?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 1
+      },
+      "answer": "Regional Engineering Manager"
+    },
+    {
+      "_id": "26b",
+      "question": {
+        "_id": "q2",
+        "questionText": "Describe your experience with mission-critical systems.",
+        "questionType": "long_answer",
+        "isRequired": true,
+        "order": 2
+      },
+      "answer": "Designed and delivered life-safety SCADA/ITS systems for tunnels (e.g., Caltrans Devil's Slide, Eastern Distributor). Expertise in disaster recovery planning, hot-cutovers with minimal downtime, and emergency response GUIs. Led Texas's first dynamic tolling roadway ($25M project)."
+    },
+    {
+      "_id": "26c",
+      "question": {
+        "_id": "q3",
+        "questionText": "How many years of experience do you have in ITS/SCADA?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 3
+      },
+      "answer": "25+"
+    },
+    {
+      "_id": "26d",
+      "question": {
+        "_id": "q4",
+        "questionText": "What is your highest level of education?",
+        "questionType": "multiple_choice",
+        "options": ["High School Diploma", "Associate Degree", "Bachelor's Degree", "Master's Degree", "Doctorate"],
+        "isRequired": true,
+        "order": 4
+      },
+      "answer": "Bachelor's Degree"
+    }
+  ]
+},
+{
+  "id": 27,
+  "first_name": "Senior",
+  "last_name": "Engineering Manager",
+  "email": "senior.engineering@education-example.com",
+  "phone": "+1555123456",
+  "birth_date": "1980-08-20",
+  "skills": [
+    "Mathematics Tutoring",
+    "SQL Programming",
+    "Operations Management",
+    "Data Analysis",
+    "Statistical Analysis",
+    "Optimization Techniques",
+    "Curriculum Development",
+    "Classroom Instruction"
+  ],
+  "languages": ["English", "Turkish"],
+  "created_at": "2025-04-20T14:30:00.000Z",
+  "updated_at": "2025-04-20T14:30:00.000Z",
+  "job_application_educations": [
+    {
+      "id": 35,
+      "university": "San Francisco State University",
+      "field_of_study": "MBA in Decision Sciences",
+      "gpa": 3.8,
+      "start_date": "2005-09-01",
+      "end_date": "2007-05-31"
+    },
+    {
+      "id": 36,
+      "university": "Yildiz Technical University",
+      "field_of_study": "Mathematical Engineering",
+      "gpa": 3.7,
+      "start_date": "2000-09-01",
+      "end_date": "2004-06-30"
+    }
+  ],
+  "job_application_experiences": [
+    {
+      "id": 36,
+      "job_title": "Volunteer Math Tutor",
+      "employment_type": "PartTime",
+      "company_name": "Community Education Center",
+      "location": "San Francisco, CA",
+      "location_type": "OnSite",
+      "still_working": true,
+      "start_date": "2015-09-01",
+      "end_date": null
+    },
+    {
+      "id": 37,
+      "job_title": "Operational Excellence Lead",
+      "employment_type": "FullTime",
+      "company_name": "Google Express",
+      "location": "Silicon Valley, CA",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "2014-11-01",
+      "end_date": "2015-04-30"
+    },
+    {
+      "id": 38,
+      "job_title": "Operations Manager",
+      "employment_type": "FullTime",
+      "company_name": "Global Logistics Inc.",
+      "location": "San Francisco, CA",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "2011-10-01",
+      "end_date": "2013-01-31"
+    }
+  ],
+  "job_application_resume": [
+    {
+      "id": 18,
+      "url": "file:///E:/ML/graduation%20project/Qaddemly%20Project/Practical%20Code%20AI%20-Features/ATS%20Scan%20system/data/EngineerEngineer890896.pdf",
+      "name": "EngineerEngineer890896.pdf",
+      "size": 210000
+    }
+  ],
+  "job_application_state": {
+    "job_application_submit_id": 27,
+    "state": "UNDER_REVIEW"
+  },
+  "job": {
+    "id": 1002,
+    "title": "Equipment Engineering Technician",
+    "description": "We are seeking a highly experienced Equipment Engineering Technician with a strong background in automation systems, mechanical and electrical troubleshooting, and factory equipment maintenance. The ideal candidate has hands-on experience in robotics, preventative maintenance, and supporting manufacturing teams in high-reliability environments.",
+    "country": "United States",
+    "city": "Remote",
+    "location_type": "Remote",
+    "status": "Opened",
+    "skills": [
+    "Automation Systems",
+    "Mechanical Troubleshooting",
+    "Electrical Systems",
+    "Preventive Maintenance",
+    "Robotic Systems",
+    "NDT Level II",
+    "Pneumatics & Hydraulics",
+    "Inventory Management",
+    "MS Office",
+    "Test Equipment",
+    "ISO 9001 Compliance"
+    ],
+    "salary": 95000,
+    "employee_type": "FullTime",
+    "keywords": [
+    "Equipment Maintenance",
+    "Factory Automation",
+    "Troubleshooting",
+    "Robotics",
+    "Manufacturing Support",
+    "ISO Compliance",
+    "Material Management",
+    "Technical Support"
+    ],
+    "experience": 10,
+    "business_id": 2001,
+    "created_at": "2025-05-13T08:00:00.000Z",
+    "updated_at": "2025-05-13T08:00:00.000Z"
+    },
+  "questionAnswers": [
+    {
+      "_id": "27a",
+      "question": {
+        "_id": "q1",
+        "questionText": "What is your full name?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 1
+      },
+      "answer": "Senior Engineering Manager"
+    },
+    {
+      "_id": "27b",
+      "question": {
+        "_id": "q2",
+        "questionText": "Describe your experience with data analysis.",
+        "questionType": "long_answer",
+        "isRequired": true,
+        "order": 2
+      },
+      "answer": "Extensive experience in statistical analysis including correlation and multiple regression analysis. Developed optimization tools and inventory reconciliation reports that reduced operational errors by 80%. Provided SQL programming trainings to enhance corporate team's data analysis capabilities."
+    },
+    {
+      "_id": "27c",
+      "question": {
+        "_id": "q3",
+        "questionText": "How many years of teaching/tutoring experience do you have?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 3
+      },
+      "answer": "8+ years (3 years focused on math tutoring)"
+    },
+    {
+      "_id": "27d",
+      "question": {
+        "_id": "q4",
+        "questionText": "What is your highest level of education?",
+        "questionType": "multiple_choice",
+        "options": ["High School Diploma", "Associate Degree", "Bachelor's Degree", "Master's Degree", "Doctorate"],
+        "isRequired": true,
+        "order": 4
+      },
+      "answer": "Master's Degree"
+    }
+  ]
+},
+{
+  "id": 28,
+  "first_name": "Software",
+  "last_name": "Engineering Manager",
+  "email": "software.manager@broadcast-example.com",
+  "phone": "+18885551234",
+  "birth_date": "1975-03-10",
+  "skills": [
+    "C++",
+    "Windows API",
+    "REST API Design",
+    "SOA Architecture",
+    "MPEG-DASH",
+    "Video Codecs",
+    "Team Leadership",
+    "Scrum Methodology",
+    "Jenkins CI/CD",
+    "Mercurial"
+  ],
+  "languages": ["English"],
+  "created_at": "2025-04-21T11:45:00.000Z",
+  "updated_at": "2025-04-21T11:45:00.000Z",
+  "job_application_educations": [
+    {
+      "id": 37,
+      "university": "Illinois Institute of Technology",
+      "field_of_study": "Computer Science",
+      "gpa": 3.8,
+      "start_date": "1992-09-01",
+      "end_date": "1994-06-30"
+    },
+    {
+      "id": 38,
+      "university": "National Institute of Technology",
+      "field_of_study": "Electronics and Communication Engineering",
+      "gpa": 3.7,
+      "start_date": "1988-09-01",
+      "end_date": "1992-06-30"
+    }
+  ],
+  "job_application_experiences": [
+    {
+      "id": 39,
+      "job_title": "Software Engineering Manager",
+      "employment_type": "FullTime",
+      "company_name": "Imagine (formerly BCD)",
+      "location": "Burbank, CA",
+      "location_type": "Hybrid",
+      "still_working": true,
+      "start_date": "2009-09-01",
+      "end_date": null,
+      "achievements": [
+        "Led team of 22 developers across 3 locations (Burbank, Naperville, Beijing)",
+        "Architected service-oriented architecture for broadcast media systems",
+        "Developed Hercules web service for MPEG-DASH based web player solution",
+        "Implemented JSON services on TCP stack for broadcast workflows"
+      ]
+    },
+    {
+      "id": 40,
+      "job_title": "Software Engineering Manager",
+      "employment_type": "FullTime",
+      "company_name": "BCD",
+      "location": "Naperville, IL",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "2005-11-01",
+      "end_date": "2009-08-31",
+      "achievements": [
+        "Built and mentored core editing team of 8 developers",
+        "Established development processes and code review guidelines",
+        "Developed server integration modules for video broadcast workflows"
+      ]
+    },
+    {
+      "id": 41,
+      "job_title": "Principal Software Engineer",
+      "employment_type": "FullTime",
+      "company_name": "Harris Corporation",
+      "location": "Chicago, IL",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "1997-08-01",
+      "end_date": "2005-10-31",
+      "achievements": [
+        "Architected fundamental DLL components for video editing software",
+        "Developed video/audio rendering engines and codec components",
+        "Created hardware integration modules critical for post-production"
+      ]
+    }
+  ],
+  "job_application_resume": [
+    {
+      "id": 19,
+      "url": "file:///E:/ML/graduation%20project/Qaddemly%20Project/Practical%20Code%20AI%20-Features/ATS%20Scan%20system/data/EngineerEngineer981094.pdf",
+      "name": "EngineerEngineer981094.pdf",
+      "size": 225000
+    }
+  ],
+  "job_application_state": {
+    "job_application_submit_id": 28,
+    "state": "UNDER_REVIEW"
+  },
+  "job": {
+    "id": 1002,
+    "title": "Equipment Engineering Technician",
+    "description": "We are seeking a highly experienced Equipment Engineering Technician with a strong background in automation systems, mechanical and electrical troubleshooting, and factory equipment maintenance. The ideal candidate has hands-on experience in robotics, preventative maintenance, and supporting manufacturing teams in high-reliability environments.",
+    "country": "United States",
+    "city": "Remote",
+    "location_type": "Remote",
+    "status": "Opened",
+    "skills": [
+    "Automation Systems",
+    "Mechanical Troubleshooting",
+    "Electrical Systems",
+    "Preventive Maintenance",
+    "Robotic Systems",
+    "NDT Level II",
+    "Pneumatics & Hydraulics",
+    "Inventory Management",
+    "MS Office",
+    "Test Equipment",
+    "ISO 9001 Compliance"
+    ],
+    "salary": 95000,
+    "employee_type": "FullTime",
+    "keywords": [
+    "Equipment Maintenance",
+    "Factory Automation",
+    "Troubleshooting",
+    "Robotics",
+    "Manufacturing Support",
+    "ISO Compliance",
+    "Material Management",
+    "Technical Support"
+    ],
+    "experience": 10,
+    "business_id": 2001,
+    "created_at": "2025-05-13T08:00:00.000Z",
+    "updated_at": "2025-05-13T08:00:00.000Z"
+    },
+  "questionAnswers": [
+    {
+      "_id": "28a",
+      "question": {
+        "_id": "q1",
+        "questionText": "What is your full name?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 1
+      },
+      "answer": "Software Engineering Manager"
+    },
+    {
+      "_id": "28b",
+      "question": {
+        "_id": "q2",
+        "questionText": "Describe your experience with API design.",
+        "questionType": "long_answer",
+        "isRequired": true,
+        "order": 2
+      },
+      "answer": "Designed and implemented REST API for Hercules web service supporting MPEG-DASH playback. Created 10 JSON protocol API documents for third-party integration. Developed header-only JSON parser on top of rapidjson for SAX-style reading. Built multi-threaded server-side API framework classes in C++ for request-response and notification methods."
+    },
+    {
+      "_id": "28c",
+      "question": {
+        "_id": "q3",
+        "questionText": "How many years of experience do you have in video/broadcast technologies?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 3
+      },
+      "answer": "25+ years (20+ in broadcast media specifically)"
+    },
+    {
+      "_id": "28d",
+      "question": {
+        "_id": "q4",
+        "questionText": "What is your highest level of education?",
+        "questionType": "multiple_choice",
+        "options": ["High School Diploma", "Associate Degree", "Bachelor's Degree", "Master's Degree", "Doctorate"],
+        "isRequired": true,
+        "order": 4
+      },
+      "answer": "Master's Degree"
+    }
+  ]
+}, 
+{
+  "id": 29,
+  "first_name": "Information",
+  "last_name": "Technology Manager",
+  "email": "it.manager@trustee-example.com",
+  "phone": "+17785551234",
+  "birth_date": "1970-11-15",
+  "skills": [
+    "Network Engineering",
+    "Disaster Recovery",
+    "LAN/WAN Management",
+    "IT Infrastructure",
+    "Cisco/Nortel Networking",
+    "Windows Server Administration",
+    "IT Project Management",
+    "Helpdesk Systems",
+    "IT Policy Development",
+    "Asset Management"
+  ],
+  "languages": ["English"],
+  "created_at": "2025-04-22T13:20:00.000Z",
+  "updated_at": "2025-04-22T13:20:00.000Z",
+  "job_application_educations": [
+    {
+      "id": 39,
+      "university": "Walden University",
+      "field_of_study": "MS in Leadership",
+      "gpa": 3.8,
+      "start_date": "2013-01-01",
+      "end_date": "2015-12-31"
+    },
+    {
+      "id": 40,
+      "university": "Walden University",
+      "field_of_study": "MS in Information Systems Management",
+      "gpa": 3.7,
+      "start_date": "2011-01-01",
+      "end_date": "2013-12-31"
+    },
+    {
+      "id": 41,
+      "university": "Walden University",
+      "field_of_study": "BS in Information Systems Management",
+      "gpa": 3.6,
+      "start_date": "2007-01-01",
+      "end_date": "2011-12-31"
+    }
+  ],
+  "job_application_experiences": [
+    {
+      "id": 42,
+      "job_title": "Information Technology Manager",
+      "employment_type": "FullTime",
+      "company_name": "Bankruptcy Trustee Office",
+      "location": "Northern District of Georgia",
+      "location_type": "OnSite",
+      "still_working": true,
+      "start_date": "2013-04-01",
+      "end_date": null,
+      "achievements": [
+        "Designed and implemented network infrastructure enhancements improving performance and security",
+        "Implemented enterprise backup solution with user self-service recovery",
+        "Doubled WAN bandwidth and improved LAN/WLAN performance by 100%+",
+        "Developed automated scripts improving efficiency from 35% to 87%"
+      ]
+    },
+    {
+      "id": 43,
+      "job_title": "Network Analyst",
+      "employment_type": "FullTime",
+      "company_name": "Global Manufacturing Company",
+      "location": "Georgia",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "1987-08-01",
+      "end_date": "2012-06-30",
+      "achievements": [
+        "Achieved 1000% improvement in LAN performance through network overhaul",
+        "Led team of 5 network specialists supporting 600 users",
+        "Reduced support requests by 75% through thin client implementation",
+        "Completed tsunami-impacted laptop replacement project on schedule"
+      ]
+    }
+  ],
+  "job_application_resume": [
+    {
+      "id": 20,
+      "url": "file:///E:/ML/graduation%20project/Qaddemly%20Project/Practical%20Code%20AI%20-Features/ATS%20Scan%20system/data/InfoTech0247517.pdf",
+      "name": "InfoTech0247517.pdf",
+      "size": 235000
+    }
+  ],
+  "job_application_state": {
+    "job_application_submit_id": 29,
+    "state": "UNDER_REVIEW"
+  },
+  "job": {
+    "id": 1002,
+    "title": "Equipment Engineering Technician",
+    "description": "We are seeking a highly experienced Equipment Engineering Technician with a strong background in automation systems, mechanical and electrical troubleshooting, and factory equipment maintenance. The ideal candidate has hands-on experience in robotics, preventative maintenance, and supporting manufacturing teams in high-reliability environments.",
+    "country": "United States",
+    "city": "Remote",
+    "location_type": "Remote",
+    "status": "Opened",
+    "skills": [
+    "Automation Systems",
+    "Mechanical Troubleshooting",
+    "Electrical Systems",
+    "Preventive Maintenance",
+    "Robotic Systems",
+    "NDT Level II",
+    "Pneumatics & Hydraulics",
+    "Inventory Management",
+    "MS Office",
+    "Test Equipment",
+    "ISO 9001 Compliance"
+    ],
+    "salary": 95000,
+    "employee_type": "FullTime",
+    "keywords": [
+    "Equipment Maintenance",
+    "Factory Automation",
+    "Troubleshooting",
+    "Robotics",
+    "Manufacturing Support",
+    "ISO Compliance",
+    "Material Management",
+    "Technical Support"
+    ],
+    "experience": 10,
+    "business_id": 2001,
+    "created_at": "2025-05-13T08:00:00.000Z",
+    "updated_at": "2025-05-13T08:00:00.000Z"
+    },
+  "questionAnswers": [
+    {
+      "_id": "29a",
+      "question": {
+        "_id": "q1",
+        "questionText": "What is your full name?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 1
+      },
+      "answer": "Information Technology Manager"
+    },
+    {
+      "_id": "29b",
+      "question": {
+        "_id": "q2",
+        "questionText": "Describe your experience with network infrastructure improvements.",
+        "questionType": "long_answer",
+        "isRequired": true,
+        "order": 2
+      },
+      "answer": "Achieved 1000% LAN performance improvement by replacing entire network infrastructure including 20 switches. Doubled WAN bandwidth through strategic reconfiguration. Designed and implemented WLAN solutions across multiple facilities using Cisco, Nortel and Meraki equipment. Spearheaded transition to thin client solutions reducing support requests by 75% and equipment costs by 50%."
+    },
+    {
+      "_id": "29c",
+      "question": {
+        "_id": "q3",
+        "questionText": "How many years of IT management experience do you have?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 3
+      },
+      "answer": "25+ years (12+ in management roles)"
+    },
+    {
+      "_id": "29d",
+      "question": {
+        "_id": "q4",
+        "questionText": "What is your highest level of education?",
+        "questionType": "multiple_choice",
+        "options": ["High School Diploma", "Associate Degree", "Bachelor's Degree", "Master's Degree", "Doctorate"],
+        "isRequired": true,
+        "order": 4
+      },
+      "answer": "Master's Degree"
+    }
+  ]
+}, 
+{
+  "id": 30,
+  "first_name": "Working",
+  "last_name": "RF Systems Engineer",
+  "email": "rf.engineer@satcom-example.com",
+  "phone": "+18885556789",
+  "birth_date": "1985-08-22",
+  "skills": [
+    "RF/Microwave Systems",
+    "Satellite Communications",
+    "C/C++",
+    "Python",
+    "MATLAB",
+    "LabVIEW",
+    "PCB Design",
+    "Signal Processing",
+    "DFM Procedures",
+    "Big Data Analysis",
+    "SQL"
+  ],
+  "languages": ["English"],
+  "created_at": "2025-04-23T15:10:00.000Z",
+  "updated_at": "2025-04-23T15:10:00.000Z",
+  "job_application_educations": [
+    {
+      "id": 42,
+      "university": "Purdue University",
+      "field_of_study": "MS in Electrical and Computer Engineering",
+      "gpa": 3.9,
+      "start_date": "2011-08-01",
+      "end_date": "2013-12-31",
+      "thesis": "The Design and Evaluation of a 5.8 GHz Laptop-Based Radar System"
+    },
+    {
+      "id": 43,
+      "university": "Purdue University",
+      "field_of_study": "BS in Electrical and Computer Engineering",
+      "gpa": 3.2,
+      "start_date": "2007-08-01",
+      "end_date": "2011-12-31"
+    }
+  ],
+  "job_application_experiences": [
+    {
+      "id": 44,
+      "job_title": "Working RF Systems Engineer",
+      "employment_type": "FullTime",
+      "company_name": "Satellite Communications Company",
+      "location": "Remote",
+      "location_type": "Hybrid",
+      "still_working": true,
+      "start_date": "2014-05-01",
+      "end_date": null,
+      "achievements": [
+        "Led end-to-end technical projects for satellite communication systems",
+        "Developed DFM procedures for RF hardware (antennas, receivers, filters)",
+        "Optimized RF system performance through algorithm investigation",
+        "Conducted EVT/DVT/PVT validations for satellite assemblies"
+      ]
+    },
+    {
+      "id": 45,
+      "job_title": "System Data Analyst",
+      "employment_type": "FullTime",
+      "company_name": "Research Institution",
+      "location": "Indiana",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "2011-08-01",
+      "end_date": "2013-12-31",
+      "achievements": [
+        "Managed big data extraction from SQL databases",
+        "Developed data collection systems improving statistical efficiency",
+        "Created complex data visualizations and pivot tables for publications"
+      ]
+    },
+    {
+      "id": 46,
+      "job_title": "Electrical/Validation Engineer",
+      "employment_type": "FullTime",
+      "company_name": "Electronics Manufacturer",
+      "location": "Indiana",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "2011-05-01",
+      "end_date": "2011-08-31",
+      "achievements": [
+        "Designed automated tests for touch-pad sensitivity and EMI",
+        "Developed reliability testing procedures (thermal, drop, tap tests)",
+        "Improved manufacturing diagnostic processes"
+      ]
+    }
+  ],
+  "job_application_resume": [
+    {
+      "id": 21,
+      "url": "file:///E:/ML/graduation%20project/Qaddemly%20Project/Practical%20Code%20AI%20-Features/ATS%20Scan%20system/data/InfoTech0265057.pdf",
+      "name": "IInfoTech0265057.pdf",
+      "size": 245000
+    }
+  ],
+  "job_application_state": {
+    "job_application_submit_id": 30,
+    "state": "UNDER_REVIEW"
+  },
+  "job": {
+    "id": 1002,
+    "title": "Equipment Engineering Technician",
+    "description": "We are seeking a highly experienced Equipment Engineering Technician with a strong background in automation systems, mechanical and electrical troubleshooting, and factory equipment maintenance. The ideal candidate has hands-on experience in robotics, preventative maintenance, and supporting manufacturing teams in high-reliability environments.",
+    "country": "United States",
+    "city": "Remote",
+    "location_type": "Remote",
+    "status": "Opened",
+    "skills": [
+    "Automation Systems",
+    "Mechanical Troubleshooting",
+    "Electrical Systems",
+    "Preventive Maintenance",
+    "Robotic Systems",
+    "NDT Level II",
+    "Pneumatics & Hydraulics",
+    "Inventory Management",
+    "MS Office",
+    "Test Equipment",
+    "ISO 9001 Compliance"
+    ],
+    "salary": 95000,
+    "employee_type": "FullTime",
+    "keywords": [
+    "Equipment Maintenance",
+    "Factory Automation",
+    "Troubleshooting",
+    "Robotics",
+    "Manufacturing Support",
+    "ISO Compliance",
+    "Material Management",
+    "Technical Support"
+    ],
+    "experience": 10,
+    "business_id": 2001,
+    "created_at": "2025-05-13T08:00:00.000Z",
+    "updated_at": "2025-05-13T08:00:00.000Z"
+    },
+  "questionAnswers": [
+    {
+      "_id": "30a",
+      "question": {
+        "_id": "q1",
+        "questionText": "What is your full name?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 1
+      },
+      "answer": "Working RF Systems Engineer"
+    },
+    {
+      "_id": "30b",
+      "question": {
+        "_id": "q2",
+        "questionText": "Describe your experience with RF system design.",
+        "questionType": "long_answer",
+        "isRequired": true,
+        "order": 2
+      },
+      "answer": "Designed satellite communication architectures including antennas, receivers, filters and amplifiers. Developed DFM procedures and technical specifications for suppliers. Optimized RF system performance through algorithm investigation and cascade analyses (NF, Gain, IP3). Conducted full validation lifecycle testing (EVT/DVT/PVT) for satellite assemblies at system and unit levels."
+    },
+    {
+      "_id": "30c",
+      "question": {
+        "_id": "q3",
+        "questionText": "How many years of RF engineering experience do you have?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 3
+      },
+      "answer": "10+ years (including graduate research)"
+    },
+    {
+      "_id": "30d",
+      "question": {
+        "_id": "q4",
+        "questionText": "What is your highest level of education?",
+        "questionType": "multiple_choice",
+        "options": ["High School Diploma", "Associate Degree", "Bachelor's Degree", "Master's Degree", "Doctorate"],
+        "isRequired": true,
+        "order": 4
+      },
+      "answer": "Master's Degree"
+    }
+  ]
+}, 
+{
+  "id": 31,
+  "first_name": "Director",
+  "last_name": "Information Technology",
+  "email": "director.it@automotive-example.com",
+  "phone": "+17785559876",
+  "birth_date": "1975-04-18",
+  "skills": [
+    "VMware Virtualization",
+    "Microsoft Server",
+    "Cisco Infrastructure",
+    "ITIL Framework",
+    "Project Management",
+    "Budget Management",
+    "Vendor Negotiation",
+    "IT Strategy",
+    "Exchange Server",
+    "Hyper-V"
+  ],
+  "languages": ["English"],
+  "created_at": "2025-04-24T10:30:00.000Z",
+  "updated_at": "2025-04-24T10:30:00.000Z",
+  "job_application_educations": [
+    {
+      "id": 44,
+      "university": "Cardinal Stritch University",
+      "field_of_study": "Management Information Systems",
+      "gpa": 3.5,
+      "start_date": "1996-09-01",
+      "end_date": "2000-05-31"
+    }
+  ],
+  "job_application_experiences": [
+    {
+      "id": 47,
+      "job_title": "Director of Information Technology",
+      "employment_type": "FullTime",
+      "company_name": "Automotive Group",
+      "location": "Chicago, IL",
+      "location_type": "OnSite",
+      "still_working": true,
+      "start_date": "2012-11-01",
+      "end_date": null,
+      "achievements": [
+        "Developed and implemented organization-wide IT strategy",
+        "Led migration to virtual environment (120 users to VDI)",
+        "Managed $1M+ IT budget and vendor relationships",
+        "Implemented paperless workflow reducing costs by $30K/year"
+      ]
+    },
+    {
+      "id": 48,
+      "job_title": "IT Administrator",
+      "employment_type": "FullTime",
+      "company_name": "Automotive Group",
+      "location": "Chicago, IL",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "2008-03-01",
+      "end_date": "2012-11-30",
+      "achievements": [
+        "Migrated entire infrastructure to virtual environment",
+        "Implemented VMware Horizon View VDI solution",
+        "Managed Cisco VoIP and network infrastructure",
+        "Established ITIL-based help desk for 260 users"
+      ]
+    },
+    {
+      "id": 49,
+      "job_title": "IT Consultant",
+      "employment_type": "Contract",
+      "company_name": "Retail Technology Solutions",
+      "location": "Chicago, IL",
+      "location_type": "Hybrid",
+      "still_working": false,
+      "start_date": "2000-01-01",
+      "end_date": "2005-08-31",
+      "achievements": [
+        "Led IT implementations for major retailers (Walmart, Toys 'R Us)",
+        "Managed team of 10+ IT contractors",
+        "Spearheaded POS system rollouts nationwide"
+      ]
+    }
+  ],
+  "job_application_resume": [
+    {
+      "id": 22,
+      "url": "file:///E:/ML/graduation%20project/Qaddemly%20Project/Practical%20Code%20AI%20-Features/ATS%20Scan%20system/data/InfoTech5118506.pdf",
+      "name": "InfoTech5118506.pdf",
+      "size": 255000
+    }
+  ],
+  "job_application_state": {
+    "job_application_submit_id": 31,
+    "state": "UNDER_REVIEW"
+  },
+  "job": {
+    "id": 1002,
+    "title": "Equipment Engineering Technician",
+    "description": "We are seeking a highly experienced Equipment Engineering Technician with a strong background in automation systems, mechanical and electrical troubleshooting, and factory equipment maintenance. The ideal candidate has hands-on experience in robotics, preventative maintenance, and supporting manufacturing teams in high-reliability environments.",
+    "country": "United States",
+    "city": "Remote",
+    "location_type": "Remote",
+    "status": "Opened",
+    "skills": [
+    "Automation Systems",
+    "Mechanical Troubleshooting",
+    "Electrical Systems",
+    "Preventive Maintenance",
+    "Robotic Systems",
+    "NDT Level II",
+    "Pneumatics & Hydraulics",
+    "Inventory Management",
+    "MS Office",
+    "Test Equipment",
+    "ISO 9001 Compliance"
+    ],
+    "salary": 95000,
+    "employee_type": "FullTime",
+    "keywords": [
+    "Equipment Maintenance",
+    "Factory Automation",
+    "Troubleshooting",
+    "Robotics",
+    "Manufacturing Support",
+    "ISO Compliance",
+    "Material Management",
+    "Technical Support"
+    ],
+    "experience": 10,
+    "business_id": 2001,
+    "created_at": "2025-05-13T08:00:00.000Z",
+    "updated_at": "2025-05-13T08:00:00.000Z"
+    },
+  "questionAnswers": [
+    {
+      "_id": "31a",
+      "question": {
+        "_id": "q1",
+        "questionText": "What is your full name?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 1
+      },
+      "answer": "Director Information Technology"
+    },
+    {
+      "_id": "31b",
+      "question": {
+        "_id": "q2",
+        "questionText": "Describe your experience with IT infrastructure management.",
+        "questionType": "long_answer",
+        "isRequired": true,
+        "order": 2
+      },
+      "answer": "Designed and implemented complete virtual infrastructure including VMware ESXi hosts, vCenter, and Horizon View VDI for 120 users. Migrated entire organization from physical to virtual environment. Managed Cisco network infrastructure including UCM VoIP systems. Implemented Microsoft Server 2012 domain environment with Exchange Server. Reduced operational costs by $30K/year through paperless workflow implementation while improving document accessibility."
+    },
+    {
+      "_id": "31c",
+      "question": {
+        "_id": "q3",
+        "questionText": "How many years of IT leadership experience do you have?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 3
+      },
+      "answer": "12+ years in IT leadership roles"
+    },
+    {
+      "_id": "31d",
+      "question": {
+        "_id": "q4",
+        "questionText": "What is your highest level of education?",
+        "questionType": "multiple_choice",
+        "options": ["High School Diploma", "Associate Degree", "Bachelor's Degree", "Master's Degree", "Doctorate"],
+        "isRequired": true,
+        "order": 4
+      },
+      "answer": "Bachelor's Degree"
+    }
+  ],
+  "certifications": [
+    "VMware Certified Professional 5 - Data Center Virtualization",
+    "VMware Certified Professional 5 - Desktop Virtualization",
+    "ITIL Foundation Certified",
+    "Microsoft Certified Professional - Server 2012"
+  ],
+  "online_profiles": [
+    {
+      "network": "LinkedIn",
+      "url": "https://www.linkedin.com/in/RobertRJordan"
+    }
+  ]
+},
+{
+  "id": 32,
+  "first_name": "Practice",
+  "last_name": "Manager",
+  "email": "practice.manager@healthcare-example.com",
+  "phone": "+18885554321",
+  "birth_date": "1980-07-25",
+  "skills": [
+    "Healthcare IT Management",
+    "EMR Systems (Allscripts/McKesson)",
+    "HIPAA/HITECH Compliance",
+    "Budgeting & Financial Planning",
+    "Process Improvement",
+    "Team Leadership",
+    "Strategic Planning",
+    "Disaster Recovery",
+    "Network Administration",
+    "Healthcare Operations"
+  ],
+  "languages": ["English"],
+  "created_at": "2025-04-25T09:15:00.000Z",
+  "updated_at": "2025-04-25T09:15:00.000Z",
+  "job_application_educations": [
+    {
+      "id": 45,
+      "university": "Keller Graduate School of Management",
+      "field_of_study": "MBA",
+      "gpa": 3.7,
+      "start_date": "2002-09-01",
+      "end_date": "2004-05-31"
+    },
+    {
+      "id": 46,
+      "university": "DeVry University",
+      "field_of_study": "Telecommunications Management",
+      "gpa": 3.5,
+      "start_date": "1998-09-01",
+      "end_date": "2002-05-31"
+    }
+  ],
+  "job_application_experiences": [
+    {
+      "id": 50,
+      "job_title": "Practice Manager",
+      "employment_type": "FullTime",
+      "company_name": "Healthcare System",
+      "location": "Chicago, IL",
+      "location_type": "OnSite",
+      "still_working": true,
+      "start_date": "2014-08-01",
+      "end_date": null,
+      "achievements": [
+        "Achieved 39.4% top-line growth through operational improvements",
+        "Developed efficient patient workflows from intake to discharge",
+        "Managed Federal/DEA compliance and cost containment",
+        "Implemented community marketing/outreach campaigns"
+      ]
+    },
+    {
+      "id": 51,
+      "job_title": "Information Technology Manager",
+      "employment_type": "FullTime",
+      "company_name": "Medical Group",
+      "location": "Chicago, IL",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "2012-02-01",
+      "end_date": "2013-09-30",
+      "achievements": [
+        "Ensured HIPAA compliance for health information systems",
+        "Led Performance Improvement committee initiatives",
+        "Developed clinical staff training programs",
+        "Supported internal audits and regulatory surveys"
+      ]
+    },
+    {
+      "id": 52,
+      "job_title": "Director of Information Systems",
+      "employment_type": "FullTime",
+      "company_name": "Healthcare Agency",
+      "location": "Chicago, IL",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "2004-01-01",
+      "end_date": "2007-02-28",
+      "achievements": [
+        "Implemented first disaster recovery plan for the agency",
+        "Tripled corporate bandwidth and implemented VoIP",
+        "Reduced costs by replacing pagers with Verizon cell plan",
+        "Developed equipment lifecycle management"
+      ]
+    }
+  ],
+  "job_application_resume": [
+    {
+      "id": 23,
+      "url": "file:///E:/ML/graduation%20project/Qaddemly%20Project/Practical%20Code%20AI%20-Features/ATS%20Scan%20system/data/InfoTech5297298.pdf",
+      "name": "InfoTech5297298.pdf",
+      "size": 265000
+    }
+  ],
+  "job_application_state": {
+    "job_application_submit_id": 32,
+    "state": "UNDER_REVIEW"
+  },
+  "job": {
+    "id": 1002,
+    "title": "Equipment Engineering Technician",
+    "description": "We are seeking a highly experienced Equipment Engineering Technician with a strong background in automation systems, mechanical and electrical troubleshooting, and factory equipment maintenance. The ideal candidate has hands-on experience in robotics, preventative maintenance, and supporting manufacturing teams in high-reliability environments.",
+    "country": "United States",
+    "city": "Remote",
+    "location_type": "Remote",
+    "status": "Opened",
+    "skills": [
+    "Automation Systems",
+    "Mechanical Troubleshooting",
+    "Electrical Systems",
+    "Preventive Maintenance",
+    "Robotic Systems",
+    "NDT Level II",
+    "Pneumatics & Hydraulics",
+    "Inventory Management",
+    "MS Office",
+    "Test Equipment",
+    "ISO 9001 Compliance"
+    ],
+    "salary": 95000,
+    "employee_type": "FullTime",
+    "keywords": [
+    "Equipment Maintenance",
+    "Factory Automation",
+    "Troubleshooting",
+    "Robotics",
+    "Manufacturing Support",
+    "ISO Compliance",
+    "Material Management",
+    "Technical Support"
+    ],
+    "experience": 10,
+    "business_id": 2001,
+    "created_at": "2025-05-13T08:00:00.000Z",
+    "updated_at": "2025-05-13T08:00:00.000Z"
+    },
+  "questionAnswers": [
+    {
+      "_id": "32a",
+      "question": {
+        "_id": "q1",
+        "questionText": "What is your full name?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 1
+      },
+      "answer": "Practice Manager"
+    },
+    {
+      "_id": "32b",
+      "question": {
+        "_id": "q2",
+        "questionText": "Describe your experience with healthcare IT systems.",
+        "questionType": "long_answer",
+        "isRequired": true,
+        "order": 2
+      },
+      "answer": "Extensive experience managing EMR systems (Allscripts/McKesson) with full HIPAA/HITECH compliance. Implemented disaster recovery plans and network infrastructure supporting healthcare operations. Tripled bandwidth for remote sites and implemented VoIP systems. Developed clinical training programs for EMR adoption and optimized patient workflows. Reduced operational costs through technology implementations while improving care quality."
+    },
+    {
+      "_id": "32c",
+      "question": {
+        "_id": "q3",
+        "questionText": "How many years of healthcare management experience do you have?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 3
+      },
+      "answer": "15+ years (10+ in leadership roles)"
+    },
+    {
+      "_id": "32d",
+      "question": {
+        "_id": "q4",
+        "questionText": "What is your highest level of education?",
+        "questionType": "multiple_choice",
+        "options": ["High School Diploma", "Associate Degree", "Bachelor's Degree", "Master's Degree", "Doctorate"],
+        "isRequired": true,
+        "order": 4
+      },
+      "answer": "Master's Degree"
+    }
+  ],
+  "certifications": [
+    "Cisco Certified Network Associate (CCNA/CCAI)",
+    "ITIL Foundations Certification",
+    "Certified Novell Administrator (CNA 5.1)",
+    "HIPAA/HITECH Regulation Certified"
+  ]
+}, 
+{
+  "id": 33,
+  "first_name": "Yomna",
+  "last_name": "Waleed",
+  "email": "yomnawaleed2002@gmail.com",
+  "phone": "+201118064546",
+  "location": "Cairo, Egypt",
+  "birth_date": "2002-01-01",
+  "skills": [
+    "Python",
+    "C++",
+    "JavaScript",
+    "PyTorch",
+    "TensorFlow",
+    "LLMs",
+    "NLP",
+    "MERN Stack",
+    "Data Science",
+    "Generative AI",
+    "LangChain",
+    "FAISS",
+    "React.js",
+    "Node.js"
+  ],
+  "languages": ["English", "Arabic"],
+  "created_at": "2025-04-26T08:00:00.000Z",
+  "updated_at": "2025-04-26T08:00:00.000Z",
+  "job_application_educations": [
+    {
+      "id": 47,
+      "university": "Tanta University",
+      "field_of_study": "Computer and Automatic Control Engineering",
+      "gpa": 3.8,
+      "start_date": "2020-09-01",
+      "end_date": "2025-06-30",
+      "degree": "Bachelor's",
+      "grade": "Excellent"
+    }
+  ],
+  "job_application_experiences": [
+    {
+      "id": 53,
+      "job_title": "Tech Participant",
+      "employment_type": "PartTime",
+      "company_name": "Manara Tech",
+      "location": "Remote",
+      "location_type": "Remote",
+      "still_working": true,
+      "start_date": "2023-04-01",
+      "end_date": null,
+      "achievements": [
+        "Earned Full-Stack Engineering Certificate (React.js & Node.js)",
+        "Built MERN stack projects and passed technical assessments",
+        "Conducted mock interviews for technical skills evaluation"
+      ]
+    }
+  ],
+  "job_application_resume": [
+    {
+      "id": 24,
+      "url": "file:///E:/ML/graduation%20project/Qaddemly%20Project/Practical%20Code%20AI%20-Features/ATS%20Scan%20system/data/YomnaResume.pdf",
+      "name": "YomnaResume.pdf",
+      "size": 185000
+    }
+  ],
+  "job_application_projects": [
+    {
+      "id": 1,
+      "name": "Medical Chatbot using Llama2",
+      "date": "03/2025",
+      "description": "Developed context-aware medical chatbot using Llama2, LangChain and FAISS with Flask web interface",
+      "technologies": ["LLama2", "LangChain", "FAISS", "Flask", "NLP"]
+    },
+    {
+      "id": 2,
+      "name": "Job Recommendation System",
+      "date": "02/2025",
+      "description": "AI system analyzing PDF resumes to suggest job matches using NLP and Sentence Transformers",
+      "technologies": ["NLP", "FAISS", "Sentence Transformers", "Machine Learning"]
+    },
+    {
+      "id": 3,
+      "name": "3D Maze Game",
+      "date": "2023",
+      "description": "Developed 3D maze navigation game with puzzle-solving mechanics",
+      "technologies": ["OpenGL", "Python", "Game Development"]
+    }
+  ],
+  "job_application_state": {
+    "job_application_submit_id": 33,
+    "state": "UNDER_REVIEW"
+  },
+  "job": {
+    "id": 1002,
+    "title": "Equipment Engineering Technician",
+    "description": "We are seeking a highly experienced Equipment Engineering Technician with a strong background in automation systems, mechanical and electrical troubleshooting, and factory equipment maintenance. The ideal candidate has hands-on experience in robotics, preventative maintenance, and supporting manufacturing teams in high-reliability environments.",
+    "country": "United States",
+    "city": "Remote",
+    "location_type": "Remote",
+    "status": "Opened",
+    "skills": [
+    "Automation Systems",
+    "Mechanical Troubleshooting",
+    "Electrical Systems",
+    "Preventive Maintenance",
+    "Robotic Systems",
+    "NDT Level II",
+    "Pneumatics & Hydraulics",
+    "Inventory Management",
+    "MS Office",
+    "Test Equipment",
+    "ISO 9001 Compliance"
+    ],
+    "salary": 95000,
+    "employee_type": "FullTime",
+    "keywords": [
+    "Equipment Maintenance",
+    "Factory Automation",
+    "Troubleshooting",
+    "Robotics",
+    "Manufacturing Support",
+    "ISO Compliance",
+    "Material Management",
+    "Technical Support"
+    ],
+    "experience": 10,
+    "business_id": 2001,
+    "created_at": "2025-05-13T08:00:00.000Z",
+    "updated_at": "2025-05-13T08:00:00.000Z"
+    },
+  "questionAnswers": [
+    {
+      "_id": "33a",
+      "question": {
+        "_id": "q1",
+        "questionText": "What is your full name?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 1
+      },
+      "answer": "Yomna Waleed"
+    },
+    {
+      "_id": "33b",
+      "question": {
+        "_id": "q2",
+        "questionText": "Describe your experience with generative AI projects.",
+        "questionType": "long_answer",
+        "isRequired": true,
+        "order": 2
+      },
+      "answer": "Developed a medical chatbot using Llama2 and LangChain that provides context-aware responses by leveraging FAISS for efficient similarity search. Implemented prompt engineering techniques to optimize LLM outputs and built a Flask-based web interface for user interaction. Also created a job recommendation system using Sentence Transformers and FAISS for semantic search capabilities to match resumes with job descriptions."
+    },
+    {
+      "_id": "33c",
+      "question": {
+        "_id": "q3",
+        "questionText": "What machine learning frameworks are you proficient with?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 3
+      },
+      "answer": "PyTorch, TensorFlow, LangChain, Hugging Face Transformers"
+    },
+    {
+      "_id": "33d",
+      "question": {
+        "_id": "q4",
+        "questionText": "What is your highest level of education?",
+        "questionType": "multiple_choice",
+        "options": ["High School Diploma", "Associate Degree", "Bachelor's Degree", "Master's Degree", "Doctorate"],
+        "isRequired": true,
+        "order": 4
+      },
+      "answer": "Bachelor's Degree"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Full-Stack Engineering Certificate",
+      "issuer": "Manara Tech",
+      "date": "2023"
+    },
+    {
+      "name": "Zero to Hero in Front-end Development with React",
+      "issuer": "Online",
+      "date": "2023"
+    },
+    {
+      "name": "EF SET English Certificate",
+      "issuer": "EF Standard English Test",
+      "date": "2022"
+    }
+  ],
+  "volunteer_experience": [
+    {
+      "role": "Chairman of the Art Committee",
+      "organization": "Tanta Engineering Union",
+      "date": "2024",
+      "description": "Led art initiatives and event planning for student activities"
+    },
+    {
+      "role": "Official Spokesperson",
+      "organization": "Tanta Engineering Union Symposiums",
+      "date": "2023-2024",
+      "description": "Represented the student body in formal events and symposiums"
+    }
+  ],
+  "social_profiles": [
+    {
+      "network": "LinkedIn",
+      "url": "https://linkedin.com/in/YomnaWaleed"
+    },
+    {
+      "network": "GitHub",
+      "url": "https://github.com/YomnaWaleed"
+    }
+  ]
+}, 
+{
+  "id": 34,
+  "first_name": "Business",
+  "last_name": "Development Representative",
+  "email": "bizdev.rep@example.com",
+  "phone": "+15551234567",
+  "location": "Texas, USA",
+  "birth_date": "1985-05-15",
+  "skills": [
+    "Business Development",
+    "Territory Management",
+    "Sales Strategy",
+    "Client Relations",
+    "Lead Generation",
+    "Market Research",
+    "Budget Forecasting",
+    "Performance Reporting",
+    "Microsoft Office",
+    "Spanish (Intermediate)"
+  ],
+  "languages": ["English", "Spanish"],
+  "created_at": "2025-04-27T11:20:00.000Z",
+  "updated_at": "2025-04-27T11:20:00.000Z",
+  "job_application_educations": [
+    {
+      "id": 48,
+      "university": "Taft High School",
+      "field_of_study": "High School Diploma",
+      "start_date": "2002-09-01",
+      "end_date": "2006-05-31"
+    },
+    {
+      "id": 49,
+      "university": "Del Mar College",
+      "field_of_study": "Some College Coursework",
+      "start_date": "2006-09-01",
+      "end_date": "2008-05-31"
+    }
+  ],
+  "job_application_experiences": [
+    {
+      "id": 54,
+      "job_title": "Business Development Representative",
+      "employment_type": "FullTime",
+      "company_name": "GIS",
+      "location": "South & West Texas",
+      "location_type": "Hybrid",
+      "still_working": true,
+      "start_date": "2014-11-01",
+      "end_date": null,
+      "achievements": [
+        "Increased division profits through effective territory management",
+        "Generated new accounts through strategic networking",
+        "Optimized revenue streams by expanding client relationships",
+        "Consistently exceeded productivity and accuracy expectations"
+      ]
+    },
+    {
+      "id": 55,
+      "job_title": "Administrative Clerk",
+      "employment_type": "FullTime",
+      "company_name": "GIS",
+      "location": "Texas",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "2012-09-01",
+      "end_date": "2014-11-30",
+      "achievements": [
+        "Processed payroll for 30-50 employees with 100% accuracy",
+        "Managed executive travel arrangements and office operations",
+        "Streamlined purchase order processing",
+        "Maintained confidential employee records"
+      ]
+    },
+    {
+      "id": 56,
+      "job_title": "Registrar",
+      "employment_type": "FullTime",
+      "company_name": "South Texas Vocational Technical Institute",
+      "location": "Texas",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "2009-10-01",
+      "end_date": "2012-09-30",
+      "achievements": [
+        "Promoted to Registrar after 1 year (Employee of the Year 2010)",
+        "Redesigned filing system increasing department efficiency",
+        "Coordinated all educational department functions",
+        "Improved student registration processes through database implementation"
+      ]
+    }
+  ],
+  "job_application_resume": [
+    {
+      "id": 25,
+      "url": "file:///E:/ML/graduation%20project/Qaddemly%20Project/Practical%20Code%20AI%20-Features/ATS%20Scan%20system/data/BusinessDev4055971.pdf",
+      "name": "BusinessDev4055971.pdf",
+      "size": 195000
+    }
+  ],
+  "job_application_state": {
+    "job_application_submit_id": 34,
+    "state": "UNDER_REVIEW"
+  },
+  "job": {
+"id": 1002,
+"title": "Equipment Engineering Technician",
+"description": "We are seeking a highly experienced Equipment Engineering Technician with a strong background in automation systems, mechanical and electrical troubleshooting, and factory equipment maintenance. The ideal candidate has hands-on experience in robotics, preventative maintenance, and supporting manufacturing teams in high-reliability environments.",
+"country": "United States",
+"city": "Remote",
+"location_type": "Remote",
+"status": "Opened",
+"skills": [
+"Automation Systems",
+"Mechanical Troubleshooting",
+"Electrical Systems",
+"Preventive Maintenance",
+"Robotic Systems",
+"NDT Level II",
+"Pneumatics & Hydraulics",
+"Inventory Management",
+"MS Office",
+"Test Equipment",
+"ISO 9001 Compliance"
+],
+"salary": 95000,
+"employee_type": "FullTime",
+"keywords": [
+"Equipment Maintenance",
+"Factory Automation",
+"Troubleshooting",
+"Robotics",
+"Manufacturing Support",
+"ISO Compliance",
+"Material Management",
+"Technical Support"
+],
+"experience": 10,
+"business_id": 2001,
+"created_at": "2025-05-13T08:00:00.000Z",
+"updated_at": "2025-05-13T08:00:00.000Z"
+},
+  "questionAnswers": [
+    {
+      "_id": "34a",
+      "question": {
+        "_id": "q1",
+        "questionText": "What is your full name?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 1
+      },
+      "answer": "Business Development Representative"
+    },
+    {
+      "_id": "34b",
+      "question": {
+        "_id": "q2",
+        "questionText": "Describe your sales territory management experience.",
+        "questionType": "long_answer",
+        "isRequired": true,
+        "order": 2
+      },
+      "answer": "Managed the South and West Texas regions, performing full sales cycle duties that directly increased division profits. Developed strategic partnerships through market research and networking. Implemented lead generation strategies through cold calling and relationship-building activities. Consistently exceeded productivity targets while maintaining exceptional customer service standards. Delivered weekly performance updates and monthly business reviews to leadership."
+    },
+    {
+      "_id": "34c",
+      "question": {
+        "_id": "q3",
+        "questionText": "How many years of business development experience do you have?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 3
+      },
+      "answer": "10+ years (8+ in business development roles)"
+    },
+    {
+      "_id": "34d",
+      "question": {
+        "_id": "q4",
+        "questionText": "What is your highest level of education?",
+        "questionType": "multiple_choice",
+        "options": ["High School Diploma", "Associate Degree", "Bachelor's Degree", "Master's Degree", "Doctorate"],
+        "isRequired": true,
+        "order": 4
+      },
+      "answer": "High School Diploma"
+    }
+  ],
+  "awards": [
+    {
+      "name": "Employee of the Year",
+      "year": 2010,
+      "organization": "South Texas Vocational Technical Institute"
+    }
+  ],
+  "additional_info": {
+    "promotions": [
+      "Promoted to Registrar after 1 year at STVT",
+      "Promoted to Business Development Representative after 18 months at GIS"
+    ],
+    "special_skills": [
+      "Intermediate Spanish proficiency",
+      "Advanced Microsoft Office skills",
+      "Exceptional organizational and problem-solving abilities"
+    ]
+  }
+}, 
+{
+  "id": 35,
+  "first_name": "Business",
+  "last_name": "Development Manager",
+  "email": "bdm.exec@wolterskluwer-example.com",
+  "phone": "+18885554321",
+  "location": "Connecticut, USA",
+  "birth_date": "1975-10-15",
+  "skills": [
+    "Enterprise Sales",
+    "C-Level Negotiation",
+    "Strategic Planning",
+    "Revenue Forecasting",
+    "Account Management",
+    "Territory Expansion",
+    "Solution Selling",
+    "Contract Negotiation",
+    "Sales Presentations",
+    "Team Leadership"
+  ],
+  "languages": ["English"],
+  "created_at": "2025-04-28T14:45:00.000Z",
+  "updated_at": "2025-04-28T14:45:00.000Z",
+  "job_application_educations": [
+    {
+      "id": 50,
+      "university": "Wright State University",
+      "field_of_study": "Education/Exercise Physiology",
+      "degree": "Bachelor of Science",
+      "start_date": "1991-09-01",
+      "end_date": "1995-05-31"
+    }
+  ],
+  "job_application_experiences": [
+    {
+      "id": 57,
+      "job_title": "Business Development Manager",
+      "employment_type": "FullTime",
+      "company_name": "Wolters Kluwer/CT Corporation",
+      "location": "Connecticut",
+      "location_type": "Hybrid",
+      "still_working": true,
+      "start_date": "2017-03-01",
+      "end_date": null,
+      "achievements": [
+        "Achieved 104.4% of sales quota for CT Corporation (FY2016)",
+        "#1 Business Development Manager on Law Firm Segment Team",
+        "Closed largest POS contract in company history ($75,123)",
+        "Developed enterprise-wide strategies for C-level executives"
+      ]
+    },
+    {
+      "id": 58,
+      "job_title": "Territory Manager",
+      "employment_type": "FullTime",
+      "company_name": "LexisNexis",
+      "location": "Tampa & Southwest Florida",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "2012-05-01",
+      "end_date": "2015-07-31",
+      "achievements": [
+        "Earned Circle of Excellence awards (2010, 2011, 2012, 2014)",
+        "Received Best Sales Teaming Award for the Region (2011)",
+        "Exceeded 100% quota for 4 consecutive years",
+        "Developed strategic account plans increasing territory revenue by 35%"
+      ]
+    },
+    {
+      "id": 59,
+      "job_title": "Executive Director",
+      "employment_type": "FullTime",
+      "company_name": "Youth Soccer Organization",
+      "location": "Dayton, OH",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "1998-02-01",
+      "end_date": "2009-12-31",
+      "achievements": [
+        "Managed 150+ coaches and trainers",
+        "Only coach in state history to earn highest honor twice (2006, 2009)",
+        "Developed training curricula used at district/state levels",
+        "Trained 1000+ professional coaches through certification programs"
+      ]
+    }
+  ],
+  "job_application_resume": [
+    {
+      "id": 26,
+      "url": "file:///E:/ML/graduation%20project/Qaddemly%20Project/Practical%20Code%20AI%20-Features/ATS%20Scan%20system/data/BusinessDev4070138.pdf",
+      "name": "BusinessDev4070138.pdf",
+      "size": 225000
+    }
+  ],
+  "job_application_state": {
+    "job_application_submit_id": 35,
+    "state": "UNDER_REVIEW"
+  },
+  "job": {
+  "id": 1002,
+  "title": "Equipment Engineering Technician",
+  "description": "We are seeking a highly experienced Equipment Engineering Technician with a strong background in automation systems, mechanical and electrical troubleshooting, and factory equipment maintenance. The ideal candidate has hands-on experience in robotics, preventative maintenance, and supporting manufacturing teams in high-reliability environments.",
+  "country": "United States",
+  "city": "Remote",
+  "location_type": "Remote",
+  "status": "Opened",
+  "skills": [
+  "Automation Systems",
+  "Mechanical Troubleshooting",
+  "Electrical Systems",
+  "Preventive Maintenance",
+  "Robotic Systems",
+  "NDT Level II",
+  "Pneumatics & Hydraulics",
+  "Inventory Management",
+  "MS Office",
+  "Test Equipment",
+  "ISO 9001 Compliance"
+  ],
+  "salary": 95000,
+  "employee_type": "FullTime",
+  "keywords": [
+  "Equipment Maintenance",
+  "Factory Automation",
+  "Troubleshooting",
+  "Robotics",
+  "Manufacturing Support",
+  "ISO Compliance",
+  "Material Management",
+  "Technical Support"
+  ],
+  "experience": 10,
+  "business_id": 2001,
+  "created_at": "2025-05-13T08:00:00.000Z",
+  "updated_at": "2025-05-13T08:00:00.000Z"
+  },
+  "questionAnswers": [
+    {
+      "_id": "35a",
+      "question": {
+        "_id": "q1",
+        "questionText": "What is your full name?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 1
+      },
+      "answer": "Business Development Manager"
+    },
+    {
+      "_id": "35b",
+      "question": {
+        "_id": "q2",
+        "questionText": "Describe your experience with enterprise sales.",
+        "questionType": "long_answer",
+        "isRequired": true,
+        "order": 2
+      },
+      "answer": "Consulted directly with C-level executives to develop enterprise-wide strategies maximizing solution value. Managed full sales cycle from prospecting to closing, including forecasting and strategic planning. Achieved 104.4% of quota as Business Development Manager at Wolters Kluwer, earning #1 position on Law Firm Segment Team. Previously secured largest POS contract in LexisNexis history ($75K+) through solution-based selling and executive relationship building."
+    },
+    {
+      "_id": "35c",
+      "question": {
+        "_id": "q3",
+        "questionText": "How many years of sales leadership experience do you have?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 3
+      },
+      "answer": "15+ years (7+ in enterprise sales leadership)"
+    },
+    {
+      "_id": "35d",
+      "question": {
+        "_id": "q4",
+        "questionText": "What is your highest level of education?",
+        "questionType": "multiple_choice",
+        "options": ["High School Diploma", "Associate Degree", "Bachelor's Degree", "Master's Degree", "Doctorate"],
+        "isRequired": true,
+        "order": 4
+      },
+      "answer": "Bachelor's Degree"
+    }
+  ],
+  "awards": [
+    {
+      "name": "Circle of Excellence",
+      "years": [2010, 2011, 2012, 2014],
+      "organization": "LexisNexis"
+    },
+    {
+      "name": "Best Sales Teaming Award",
+      "year": 2011,
+      "organization": "LexisNexis (Regional)"
+    },
+    {
+      "name": "Highest Coaching Honor",
+      "years": [2006, 2009],
+      "organization": "State Soccer Association"
+    }
+  ],
+  "additional_info": {
+    "athletic_background": [
+      "Professional Soccer Player (NPSL) 1994-1998",
+      "Division I College Soccer Coach"
+    ],
+    "sales_achievements": [
+      "Closed largest POS contract in company history ($75,123)",
+      "Consistently exceeded 100% sales quota for 6+ years",
+      "Developed strategic sales plans increasing territory revenue by 35%"
+    ]
+  }
+}, 
+{
+  "id": 36,
+  "first_name": "Business",
+  "last_name": "Development Associate",
+  "email": "bda.sales@thomsonreuters-example.com",
+  "phone": "+15551237890",
+  "location": "Michigan, USA",
+  "birth_date": "1980-06-20",
+  "skills": [
+    "Technical Sales",
+    "SaaS Solutions",
+    "Account Management",
+    "Customer Success",
+    "Software Implementation",
+    "Accounting Systems",
+    "Public Speaking",
+    "Team Leadership",
+    "Sales Strategy",
+    "Relationship Building"
+  ],
+  "languages": ["English"],
+  "created_at": "2025-04-29T10:30:00.000Z",
+  "updated_at": "2025-04-29T10:30:00.000Z",
+  "job_application_educations": [
+    {
+      "id": 51,
+      "university": "Asbury Theological Seminary",
+      "field_of_study": "Master of Divinity & Counseling",
+      "degree": "Master's",
+      "start_date": "1998-09-01",
+      "end_date": "2002-05-31"
+    },
+    {
+      "id": 52,
+      "university": "Asbury College",
+      "field_of_study": "Psychology",
+      "degree": "Bachelor of Arts",
+      "start_date": "1994-09-01",
+      "end_date": "1998-05-31"
+    }
+  ],
+  "job_application_experiences": [
+    {
+      "id": 60,
+      "job_title": "Business Development Associate",
+      "employment_type": "FullTime",
+      "company_name": "Thomson Reuters",
+      "location": "Michigan",
+      "location_type": "Hybrid",
+      "still_working": true,
+      "start_date": "2009-01-01",
+      "end_date": null,
+      "achievements": [
+        "Generated nearly $3M in SaaS sales over 6 years",
+        "President's Club Member (Top 10% globally in 2013)",
+        "Led $695K+ product launch for Accounting CS software",
+        "Selected for Culture Champion Team guiding 110 sales professionals"
+      ]
+    },
+    {
+      "id": 61,
+      "job_title": "Sales and Leasing Consultant",
+      "employment_type": "FullTime",
+      "company_name": "Dunning Toyota",
+      "location": "Michigan",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "2005-01-01",
+      "end_date": "2009-01-31",
+      "achievements": [
+        "Achieved top sales position within 6 months",
+        "Consistently doubled minimum sales quotas",
+        "Implemented Kaizen philosophy in customer service"
+      ]
+    },
+    {
+      "id": 62,
+      "job_title": "Pastoral Leadership",
+      "employment_type": "PartTime",
+      "company_name": "Community Church",
+      "location": "Michigan",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "2000-01-01",
+      "end_date": "2009-12-31",
+      "achievements": [
+        "Led 200 volunteers in facility renovation project (25,000 sq ft)",
+        "Organized music festivals attracting 15,000-20,000 attendees",
+        "Developed leadership programs for 2,000+ volunteers"
+      ]
+    }
+  ],
+  "job_application_resume": [
+    {
+      "id": 27,
+      "url": "file:///E:/ML/graduation%20project/Qaddemly%20Project/Practical%20Code%20AI%20-Features/ATS%20Scan%20system/data/BusinessDev5811992.pdf",
+      "name": "BusinessDev5811992.pdf",
+      "size": 215000
+    }
+  ],
+  "job_application_state": {
+    "job_application_submit_id": 36,
+    "state": "UNDER_REVIEW"
+  },
+  "job": {
+    "id": 1002,
+    "title": "Equipment Engineering Technician",
+    "description": "We are seeking a highly experienced Equipment Engineering Technician with a strong background in automation systems, mechanical and electrical troubleshooting, and factory equipment maintenance. The ideal candidate has hands-on experience in robotics, preventative maintenance, and supporting manufacturing teams in high-reliability environments.",
+    "country": "United States",
+    "city": "Remote",
+    "location_type": "Remote",
+    "status": "Opened",
+    "skills": [
+    "Automation Systems",
+    "Mechanical Troubleshooting",
+    "Electrical Systems",
+    "Preventive Maintenance",
+    "Robotic Systems",
+    "NDT Level II",
+    "Pneumatics & Hydraulics",
+    "Inventory Management",
+    "MS Office",
+    "Test Equipment",
+    "ISO 9001 Compliance"
+    ],
+    "salary": 95000,
+    "employee_type": "FullTime",
+    "keywords": [
+    "Equipment Maintenance",
+    "Factory Automation",
+    "Troubleshooting",
+    "Robotics",
+    "Manufacturing Support",
+    "ISO Compliance",
+    "Material Management",
+    "Technical Support"
+    ],
+    "experience": 10,
+    "business_id": 2001,
+    "created_at": "2025-05-13T08:00:00.000Z",
+    "updated_at": "2025-05-13T08:00:00.000Z"
+    },
+  "questionAnswers": [
+    {
+      "_id": "36a",
+      "question": {
+        "_id": "q1",
+        "questionText": "What is your full name?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 1
+      },
+      "answer": "Business Development Associate"
+    },
+    {
+      "_id": "36b",
+      "question": {
+        "_id": "q2",
+        "questionText": "Describe your technical sales achievements.",
+        "questionType": "long_answer",
+        "isRequired": true,
+        "order": 2
+      },
+      "answer": "Generated nearly $3M in SaaS sales at Thomson Reuters, specializing in accounting/tax software solutions. Recognized as President's Club Member (top 10% globally) for sales excellence. Led successful product launch of Accounting CS software, selling $695K+ in first two years. Selected by CEO for sales strategy observation due to exceptional transition sales approach. Consistently exceeded quotas (110% in 2013) while providing complex technical implementation guidance to accounting firms."
+    },
+    {
+      "_id": "36c",
+      "question": {
+        "_id": "q3",
+        "questionText": "How many years of technical sales experience do you have?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 3
+      },
+      "answer": "10+ years (6+ in SaaS/accounting software sales)"
+    },
+    {
+      "_id": "36d",
+      "question": {
+        "_id": "q4",
+        "questionText": "What is your highest level of education?",
+        "questionType": "multiple_choice",
+        "options": ["High School Diploma", "Associate Degree", "Bachelor's Degree", "Master's Degree", "Doctorate"],
+        "isRequired": true,
+        "order": 4
+      },
+      "answer": "Master's Degree"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Limited License Professional Counselor",
+      "number": "6401006038",
+      "state": "Michigan"
+    }
+  ],
+  "awards": [
+    {
+      "name": "President's Club Award",
+      "year": 2013,
+      "organization": "Thomson Reuters (Global Top 10%)"
+    },
+    {
+      "name": "Platinum Revenue Achievers Club",
+      "year": 2013,
+      "organization": "Thomson Reuters"
+    },
+    {
+      "name": "Bronze Sales Award",
+      "year": 2011,
+      "organization": "Thomson Reuters ($300K+ Transition Sales)"
+    }
+  ],
+  "additional_info": {
+    "volunteer_leadership": [
+      "Organized music festivals for 15,000-20,000 attendees",
+      "Managed 200+ volunteers in facility renovation projects",
+      "Developed community programs serving 2,000+ participants"
+    ],
+    "unique_qualifications": [
+      "Combines sales expertise with counseling/leadership background",
+      "Athlete with 30+ years discipline (college cross-country runner)",
+      "Father of seven with strong work-life balance philosophy"
+    ]
+  }
+}, 
+{
+  "id": 37,
+  "first_name": "Global",
+  "last_name": "Business Development Manager",
+  "email": "global.bdm@tech-example.com",
+  "phone": "+18885556789",
+  "location": "West Virginia, USA",
+  "birth_date": "1980-03-15",
+  "skills": [
+    "International Business Development",
+    "Strategic Account Management",
+    "Fortune 500 Sales",
+    "Territory Expansion",
+    "Sales Team Training",
+    "Contract Negotiation",
+    "Salesforce CRM",
+    "Lead Generation",
+    "Bid Management",
+    "Market Penetration"
+  ],
+  "languages": ["English"],
+  "created_at": "2025-04-30T13:20:00.000Z",
+  "updated_at": "2025-04-30T13:20:00.000Z",
+  "job_application_educations": [
+    {
+      "id": 53,
+      "university": "West Virginia State University",
+      "field_of_study": "Marketing",
+      "degree": "Bachelor of Arts",
+      "gpa": 3.5,
+      "honors": ["Dean's List 1998-2002"],
+      "start_date": "1998-09-01",
+      "end_date": "2002-05-31"
+    }
+  ],
+  "job_application_experiences": [
+    {
+      "id": 63,
+      "job_title": "Global Business Development Manager/Marketing",
+      "employment_type": "FullTime",
+      "company_name": "Technology Company",
+      "location": "Global",
+      "location_type": "Hybrid",
+      "still_working": true,
+      "start_date": "2015-09-01",
+      "end_date": null,
+      "achievements": [
+        "Expanded customer base from 10 to 35 accounts in one year",
+        "Established 30+ international sales relationships",
+        "Closed deals with multiple Fortune 500 companies",
+        "Recognized for exceptional lead generation strategies"
+      ]
+    },
+    {
+      "id": 64,
+      "job_title": "Sales Representative",
+      "employment_type": "FullTime",
+      "company_name": "Buzz Food Service",
+      "location": "WV/KY/OH Region",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "2012-09-01",
+      "end_date": "2017-08-31",
+      "achievements": [
+        "Grew $1K territory to $1M in under 2 years",
+        "Ranked top 5% of sales reps in tri-state region",
+        "Consistently exceeded annual quotas by 75%+",
+        "Managed 60 accounts generating $1.2M annually"
+      ]
+    },
+    {
+      "id": 65,
+      "job_title": "Instruction and Job Development Coordinator",
+      "employment_type": "FullTime",
+      "company_name": "Goodwill of Kanawha Valley",
+      "location": "West Virginia",
+      "location_type": "OnSite",
+      "still_working": false,
+      "start_date": "2005-05-01",
+      "end_date": "2011-10-31",
+      "achievements": [
+        "2006 Employee of the Year",
+        "Managed team of 10 job coaches for disabled clients",
+        "Developed community employment partnerships",
+        "Created award-winning job placement programs"
+      ]
+    }
+  ],
+  "job_application_resume": [
+    {
+      "id": 28,
+      "url": "file:///E:/ML/graduation%20project/Qaddemly%20Project/Practical%20Code%20AI%20-Features/ATS%20Scan%20system/data/BusinessDev6091352.pdf",
+      "name": "BusinessDev6091352.pdf",
+      "size": 235000
+    }
+  ],
+  "job_application_state": {
+    "job_application_submit_id": 37,
+    "state": "UNDER_REVIEW"
+  },
+  "job": {
+    "id": 1002,
+    "title": "Equipment Engineering Technician",
+    "description": "We are seeking a highly experienced Equipment Engineering Technician with a strong background in automation systems, mechanical and electrical troubleshooting, and factory equipment maintenance. The ideal candidate has hands-on experience in robotics, preventative maintenance, and supporting manufacturing teams in high-reliability environments.",
+    "country": "United States",
+    "city": "Remote",
+    "location_type": "Remote",
+    "status": "Opened",
+    "skills": [
+    "Automation Systems",
+    "Mechanical Troubleshooting",
+    "Electrical Systems",
+    "Preventive Maintenance",
+    "Robotic Systems",
+    "NDT Level II",
+    "Pneumatics & Hydraulics",
+    "Inventory Management",
+    "MS Office",
+    "Test Equipment",
+    "ISO 9001 Compliance"
+    ],
+    "salary": 95000,
+    "employee_type": "FullTime",
+    "keywords": [
+    "Equipment Maintenance",
+    "Factory Automation",
+    "Troubleshooting",
+    "Robotics",
+    "Manufacturing Support",
+    "ISO Compliance",
+    "Material Management",
+    "Technical Support"
+    ],
+    "experience": 10,
+    "business_id": 2001,
+    "created_at": "2025-05-13T08:00:00.000Z",
+    "updated_at": "2025-05-13T08:00:00.000Z"
+    },
+  "questionAnswers": [
+    {
+      "_id": "37a",
+      "question": {
+        "_id": "q1",
+        "questionText": "What is your full name?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 1
+      },
+      "answer": "Global Business Development Manager"
+    },
+    {
+      "_id": "37b",
+      "question": {
+        "_id": "q2",
+        "questionText": "Describe your international business development experience.",
+        "questionType": "long_answer",
+        "isRequired": true,
+        "order": 2
+      },
+      "answer": "As Global Business Development Manager, established 30+ new international sales relationships and expanded customer base from 10 to 35 accounts within one year. Successfully closed deals with multiple Fortune 500 companies through strategic account development and relationship selling. Recognized for aggressive lead generation and exceptional work ethic. Previously transformed a $1K food service territory into $1M territory in under two years, ranking top 5% in regional sales performance."
+    },
+    {
+      "_id": "37c",
+      "question": {
+        "_id": "q3",
+        "questionText": "How many years of global sales experience do you have?",
+        "questionType": "short_answer",
+        "isRequired": true,
+        "order": 3
+      },
+      "answer": "8+ years in global business development"
+    },
+    {
+      "_id": "37d",
+      "question": {
+        "_id": "q4",
+        "questionText": "What is your highest level of education?",
+        "questionType": "multiple_choice",
+        "options": ["High School Diploma", "Associate Degree", "Bachelor's Degree", "Master's Degree", "Doctorate"],
+        "isRequired": true,
+        "order": 4
+      },
+      "answer": "Bachelor's Degree"
+    }
+  ],
+  "awards": [
+    {
+      "name": "Spirit of Generosity Award",
+      "year": 2012,
+      "organization": "Buzz Food Service"
+    },
+    {
+      "name": "Employee of the Year",
+      "year": 2006,
+      "organization": "Goodwill of Kanawha Valley"
+    },
+    {
+      "name": "Certified Angus Beef Master",
+      "year": 2013,
+      "organization": "National Beef Association"
+    }
+  ],
+  "community_involvement": [
+    {
+      "role": "Youth Sports Coach",
+      "organization": "Community Programs",
+      "duration": "2002-Present",
+      "activities": ["Basketball", "Baseball"]
+    },
+    {
+      "role": "Program Founder",
+      "organization": "Active Kids Initiative",
+      "duration": "2002-Present",
+      "description": "Combating childhood obesity in Kanawha County Schools"
+    },
+    {
+      "role": "Church Leader",
+      "organization": "South Charleston First Church of Nazarene",
+      "duration": "2005-Present",
+      "activities": ["Teaching", "Charity Work"]
+    }
+  ],
+  "technical_skills": [
+    "Salesforce.com",
+    "Salesloft",
+    "Sales Genius",
+    "Rainking",
+    "Microsoft Office Suite"
+  ]
+}
+  ]  
+}
