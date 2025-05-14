@@ -340,12 +340,10 @@ class DataPreprocessor:
         jobs_df['top_10_words'] = jobs_df['description'].apply(self.get_top_10_words)
         user_df['top_10_words'] = user_df['about_me'].apply(self.get_top_10_words)
 
-        self.precompute_skill_embeddings(user_df, jobs_df)
+        skill_embeddings = self.precompute_skill_embeddings(user_df, jobs_df)
 
-        jobs_df.to_pickle('jobs_df.pkl')
-        user_df.to_pickle('user_df.pkl')
 
-        return user_df, jobs_df
+        return user_df, jobs_df, skill_embeddings
 
 
 def preprocess(input_data):

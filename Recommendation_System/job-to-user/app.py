@@ -11,11 +11,6 @@ allowing clients to submit user profiles and job data to receive recommendations
 from fastapi import FastAPI, HTTPException
 from typing import List, Optional, Dict, Any, Union
 from pydantic import BaseModel, Field
-
-import json
-import pandas as pd
-from datetime import date
-
 from data_preprocessing import DataPreprocessor
 from recommendation_to_user import JobRecommender
 
@@ -127,10 +122,10 @@ async def recommend_jobs(request: InputData):
 
         # Preprocess data
         preprocessor = DataPreprocessor()
-        user_df, jobs_df = preprocessor.preprocess(input_data)
+        user_df, jobs_df, skill_embeddings = preprocessor.preprocess(input_data)
 
         # Generate recommendations
-        recommender = JobRecommender(top_n=input_data['select'])
+        recommender = JobRecommender(skill_embeddings= skill_embeddings, top_n=input_data['select'])
         recommendations = recommender.recommend(user_df, jobs_df)
 
         return {

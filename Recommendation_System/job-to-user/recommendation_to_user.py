@@ -4,9 +4,9 @@
 """
 Job recommendation module for user-job matching.
 
-This module provides functionality to recommend jobs to users based on
-various similarity metrics including skill matching, title matching,
-job description similarity, and employment type.
+This module provides functionality to recommend jobs to users based on various
+similarity metrics including skill matching, title matching, job description
+similarity, and employment type.
 """
 
 import numpy as np
@@ -20,51 +20,51 @@ class JobRecommender:
     """
     A class for recommending jobs to users.
 
-    Provides methods to calculate various similarity metrics between user profiles
-    and job listings, and combines these metrics to generate recommendations.
-
     Attributes
     ----------
     title_weight : float
-        Weight for title matching in the final score
+        Weight for title matching in the final score.
     cosine_weight : float
-        Weight for description cosine similarity in the final score
-    jaccard_weight : float
-        Weight for skill similarity in the final score
+        Weight for description cosine similarity in the final score.
+    skill_weight : float
+        Weight for skill similarity in the final score.
     emp_type_weight : float
-        Weight for employment type matching in the final score
+        Weight for employment type matching in the final score.
     loc_type_weight : float
-        Weight for location type matching in the final score
+        Weight for location type matching in the final score.
     top_n : int
-        Number of recommendations to return
+        Number of recommendations to return.
+    skill_embeddings : dict
+        Precomputed skill embeddings loaded from file.
     """
 
-    def __init__(self, title_w=0.2, cosine_w=0.2, jaccard_w=0.2,
+    def __init__(self, skill_embeddings, title_w=0.2, cosine_w=0.2, skill_w=0.2,
                  emp_type_w=0.2, loc_type_w=0.2, top_n=20):
         """
-        Initialize the JobRecommender with scoring weights.
+        Initialize the JobRecommender with scoring weights and skill embeddings.
 
         Parameters
         ----------
         title_w : float, optional
-            Weight for title matching, by default 0.2
+            Weight for title matching, default is 0.2.
         cosine_w : float, optional
-            Weight for description similarity, by default 0.2
-        jaccard_w : float, optional
-            Weight for skill similarity, by default 0.2
+            Weight for description similarity, default is 0.2.
+        skill_w : float, optional
+            Weight for skill similarity, default is 0.2.
         emp_type_w : float, optional
-            Weight for employment type matching, by default 0.2
+            Weight for employment type matching, default is 0.2.
         loc_type_w : float, optional
-            Weight for location type matching, by default 0.2
+            Weight for location type matching, default is 0.2.
         top_n : int, optional
-            Number of recommendations to return, by default 20
+            Number of recommendations to return, default is 20.
         """
         self.title_weight = title_w
         self.cosine_weight = cosine_w
-        self.jaccard_weight = jaccard_w
+        self.skill_weight = skill_w
         self.emp_type_weight = emp_type_w
         self.loc_type_weight = loc_type_w
         self.top_n = top_n
+        self.skill_embeddings = skill_embeddings
 
     def compute_similarity(self, user_emb, job_emb):
         """
@@ -72,24 +72,21 @@ class JobRecommender:
 
         Parameters
         ----------
-        user_emb : numpy.ndarray
-            User's skill embedding, shape (n_features,) or (1, n_features)
+        user_emb : ndarray
+            User's skill embedding, shape (n_features,) or (1, n_features).
         job_emb : list or pandas.Series
-            List or Series of job embeddings, each shape (n_features,)
+            List or Series of job embeddings, each shape (n_features,).
 
         Returns
         -------
-        numpy.ndarray
-            Array of similarity scores for each job
+        ndarray
+            Array of similarity scores for each job, shape (n_jobs,).
         """
         if user_emb.ndim == 1:
             user_emb = user_emb.reshape(1, -1)
-
         job_emb = np.vstack(job_emb)
-
         if user_emb.shape[0] == 0 or job_emb.shape[0] == 0:
-            return np.array([0] * len(job_emb))
-
+            return np.zeros(len(job_emb))
         sim_matrix = cosine_similarity(user_emb, job_emb)
         return sim_matrix[0]
 
@@ -100,28 +97,24 @@ class JobRecommender:
         Parameters
         ----------
         user_skills : list
-            List of user skills (strings)
+            List of user skills (strings).
         job_skills : list
-            List of job skills (strings)
+            List of job skills (strings).
         threshold : float, optional
-            Cosine similarity threshold for a match, by default 0.6
+            Cosine similarity threshold for a match, default is 0.6.
 
         Returns
         -------
         int
-            Number of common skills
+            Number of common skills based on embedding similarity.
         """
         if not user_skills or not job_skills:
             return 0
 
-        with open('skill_embeddings.pkl', 'rb') as f:
-            skill_to_embedding = pickle.load(f)
-
-        user_embeddings = np.array([skill_to_embedding.get(skill, np.zeros(384)) for skill in user_skills])
-        job_embeddings = np.array([skill_to_embedding.get(skill, np.zeros(384)) for skill in job_skills])
+        user_embeddings = np.array([self.skill_embeddings.get(skill, np.zeros(384)) for skill in user_skills])
+        job_embeddings = np.array([self.skill_embeddings.get(skill, np.zeros(384)) for skill in job_skills])
 
         sim_matrix = cosine_similarity(user_embeddings, job_embeddings)
-
         common_skills = sum(any(sim_matrix[i, j] > threshold for i in range(len(user_skills)))
                             for j in range(len(job_skills)))
         return common_skills
@@ -133,14 +126,14 @@ class JobRecommender:
         Parameters
         ----------
         user_df : pandas.DataFrame
-            User data dataframe (single user)
+            User data DataFrame (single user).
         jobs_df : pandas.DataFrame
-            Jobs data dataframe
+            Jobs data DataFrame.
 
         Returns
         -------
         list
-            List of recommended job dictionaries
+            List of dictionaries with 'id' and 'similarity_score' for recommended jobs.
         """
         user_df = user_df.iloc[0]
         jobs_df = jobs_df.copy()
@@ -149,7 +142,8 @@ class JobRecommender:
         jobs_df['Title Equal'] = jobs_df['title'].apply(lambda x: 1 if x == user_df['subtitle'] else 0)
         jobs_df['Employee Equal'] = jobs_df['employee_type'].apply(
             lambda x: 1 if x == user_df['employment_type'] else 0)
-        jobs_df['Location Equal'] = jobs_df['location_type'].apply(lambda x: 1 if x == user_df['location_type'] else 0)
+        jobs_df['Location Equal'] = jobs_df['location_type'].apply(
+            lambda x: 1 if x == user_df['location_type'] else 0)
 
         # Calculate description similarity using TF-IDF
         vectorizer = TfidfVectorizer(stop_words='english')
@@ -168,32 +162,26 @@ class JobRecommender:
 
         # Normalize skill similarity
         max_common = jobs_df['common_skills'].max()
-        if max_common > 0:
-            jobs_df['skill_similarity'] = jobs_df['common_skills'] / max_common
-        else:
-            jobs_df['skill_similarity'] = 0.0
+        jobs_df['skill_similarity'] = jobs_df['common_skills'] / max_common if max_common > 0 else 0.0
 
         # Calculate final score
         final_scores = (
-                self.title_weight * jobs_df['Title Equal'] +
-                self.cosine_weight * jobs_df['description_similarity'] +
-                self.emp_type_weight * jobs_df['Employee Equal'] +
-                self.loc_type_weight * jobs_df['Location Equal'] +
-                self.jaccard_weight * jobs_df['skill_similarity']
+            self.title_weight * jobs_df['Title Equal'] +
+            self.cosine_weight * jobs_df['description_similarity'] +
+            self.emp_type_weight * jobs_df['Employee Equal'] +
+            self.loc_type_weight * jobs_df['Location Equal'] +
+            self.skill_weight * jobs_df['skill_similarity']
         )
 
         top_indices = final_scores.argsort()[::-1][:self.top_n]
         recommendations = [
-            {
-                "id": int(jobs_df.iloc[i]['id']),
-                "similarity_score": float(final_scores.iloc[i])
-            }
+            {"id": int(jobs_df.iloc[i]['id']), "similarity_score": float(final_scores.iloc[i])}
             for i in top_indices
         ]
-
         return recommendations
 
-def recommend_for_user(user_df, jobs_df, title_w=0.2, cosine_w=0.2, jaccard_w=0.2,
+
+def recommend_for_user(user_df, jobs_df, skill_embeddings, title_w=0.2, cosine_w=0.2, skill_w=0.2,
                        emp_type_w=0.2, loc_type_w=0.2, top_n=20):
     """
     Generate job recommendations for a user.
@@ -201,33 +189,29 @@ def recommend_for_user(user_df, jobs_df, title_w=0.2, cosine_w=0.2, jaccard_w=0.
     Parameters
     ----------
     user_df : pandas.DataFrame
-        User data dataframe
+        User data DataFrame.
     jobs_df : pandas.DataFrame
-        Jobs data dataframe
+        Jobs data DataFrame.
     title_w : float, optional
-        Weight for title matching, by default 0.2
+        Weight for title matching, default is 0.2.
     cosine_w : float, optional
-        Weight for description similarity, by default 0.2
-    jaccard_w : float, optional
-        Weight for skill similarity, by default 0.2
+        Weight for description similarity, default is 0.2.
+    skill_w : float, optional
+        Weight for skill similarity, default is 0.2.
     emp_type_w : float, optional
-        Weight for employment type matching, by default 0.2
+        Weight for employment type matching, default is 0.2.
     loc_type_w : float, optional
-        Weight for location type matching, by default 0.2
+        Weight for location type matching, default is 0.2.
     top_n : int, optional
-        Number of recommendations to return, by default 20
+        Number of recommendations to return, default is 20.
 
     Returns
     -------
     list
-        List of recommended job dictionaries
+        List of recommended job dictionaries.
     """
     recommender = JobRecommender(
-        title_w=title_w,
-        cosine_w=cosine_w,
-        jaccard_w=jaccard_w,
-        emp_type_w=emp_type_w,
-        loc_type_w=loc_type_w,
-        top_n=top_n
+        title_w=title_w, cosine_w=cosine_w, skill_w=skill_w,
+        emp_type_w=emp_type_w, loc_type_w=loc_type_w, top_n=top_n
     )
     return recommender.recommend(user_df, jobs_df)
