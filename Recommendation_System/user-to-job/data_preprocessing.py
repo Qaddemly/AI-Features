@@ -283,6 +283,8 @@ class DataPreprocessor:
         list
             List of top 10 words
         """
+        if description is None:
+            return []
         words = self.clean_and_tokenize(description)
         word_counts = Counter(words)
         top_10 = word_counts.most_common(10)
@@ -339,6 +341,7 @@ class DataPreprocessor:
         job_df = pd.DataFrame([input_data['job']])
 
         users_df = users_df.drop_duplicates(subset=['about_me'], keep='first').reset_index(drop=True)
+        users_df = users_df.dropna(subset=['about_me'])
 
         users_df['skills'] = users_df['skills'].apply(self.get_user_skills)
         job_df['skills'] = job_df['skills'].apply(self.parse_skills)
