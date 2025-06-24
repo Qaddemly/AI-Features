@@ -1,0 +1,7 @@
+fastapi 
+pydantic 
+numpy 
+scikit-learn 
+pandas nltk 
+sentence-transformers 
+psutil
