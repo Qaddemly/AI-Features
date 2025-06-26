@@ -1,223 +1,263 @@
 import os
-from typing import Optional, Literal, Tuple
 from dotenv import load_dotenv
 from groq import Groq
 
-
 class ResumeSectionGenerator:
-    """Base class for generating and enhancing resume sections using Groq API."""
+    """
+    Base class for generating and enhancing resume sections using Groq API.
+
+    This class provides the foundation for resume section generation, handling API setup
+    and input validation. Child classes define section-specific prompts, section type,
+    and token limits.
+
+    Attributes
+    ----------
+    api_key : str
+        The Groq API key loaded from the .env file.
+    client : Groq
+        The Groq client initialized with the API key.
+    """
 
     def __init__(self):
-        # Load environment variables
+        """Initialize the ResumeSectionGenerator with API key and client."""
         load_dotenv()
         self.api_key = os.getenv("GROQ_API_KEY")
         if not self.api_key:
             raise ValueError("GROQ_API_KEY not found in .env file!")
         self.client = Groq(api_key=self.api_key)
 
-        # Define max tokens for each section
-        self.max_tokens = {
-            "about_me": 200,
-            "skills": 100
-        }
+    def _validate_inputs(self, user_json, mode, existing_section):
+        """
+        Validate input parameters for section generation or enhancement.
 
-    def _validate_inputs(
-            self,
-            user_json: dict,
-            section_type: Literal["about_me", "skills"],
-            mode: Literal["generate", "enhance"],
-            existing_section: Optional[str]
-    ) -> None:
-        """Validate input parameters."""
+        Parameters
+        ----------
+        user_json : dict
+            User data with a 'user' key containing profile information.
+        mode : str
+            Operation mode ('generate' or 'enhance').
+        existing_section : str or None
+            Existing section text to enhance (required for 'enhance' mode).
+
+        Raises
+        ------
+        ValueError
+            If inputs are invalid or missing.
+        """
         if not user_json.get("user"):
             raise ValueError("Input JSON must contain a 'user' key")
         if mode == "enhance" and not existing_section:
-            raise ValueError("Existing section text is required for enhancement mode")
-        if section_type not in self.max_tokens:
-            raise ValueError(f"Invalid section_type '{section_type}'. Must be 'about_me' or 'skills'")
+            raise ValueError("Existing section text required for enhancement mode")
         if mode not in ["generate", "enhance"]:
-            raise ValueError(f"Invalid mode '{mode}'. Must be 'generate' or 'enhance'")
+            raise ValueError(f"Invalid mode '{mode}'")
 
-    def _get_prompts(self, section_type: str, mode: str) -> Tuple[str, str]:
-        """Return system and user prompts for the section and mode."""
-        prompts = {
-            "about_me": {
-                "generate": {
-                    "system": "You are an expert resume writer with a knack for crafting natural, engaging, and ATS-optimized summaries that resonate with recruiters. Your role is to write concise, professional narratives that highlight a candidate’s unique strengths in a warm, human tone.",
-                    "user": """
-                        Write a professional 'About Me' section for a resume as a single paragraph, strictly adhering to these requirements:
-                        - Limit to 7 lines or fewer (approximately 100 words).
-                        - Highlight the user’s key skills, certifications, areas of expertise, and relevant educational background.
-                        - Exclude job titles, years of experience, company names, or future career goals.
-                        - Use a confident, natural tone with strong action verbs (e.g., 'specialize,' 'excel,' 'adept').
-                        - Incorporate industry-standard keywords and, if provided, job-specific keywords for ATS compatibility.
-                        - Avoid vague terms (e.g., 'good,' 'experienced,' 'passionate').
-                        - Return only the paragraph, with no additional text, headings, or explanations.
+    def generate_section(self, user_json, mode, existing_section, job_keywords):
+        """
+        Generate or enhance a resume section using the Groq API.
 
-                        **User Information:**
-                        {user}
+        Parameters
+        ----------
+        user_json : dict
+            User data with a 'user' key containing profile information.
+        mode : str
+            Operation mode ('generate' or 'enhance').
+        existing_section : str or None
+            Existing section text to enhance (required for 'enhance' mode).
+        job_keywords : list or None
+            Optional job-specific keywords to include.
 
-                        **Target Job Keywords (optional):**
-                        {job_keywords}
-                    """
-                },
-                "enhance": {
-                    "system": "You are an expert resume editor skilled at refining ATS-optimized summaries to sound natural and engaging. Your role is to enhance existing content with a warm, professional tone, improving clarity and impact while preserving the candidate’s unique strengths.",
-                    "user": """
-                        Enhance the provided 'About Me' section for a resume as a single paragraph, strictly adhering to these requirements:
-                        - Maintain 7 lines or fewer (approximately 100 words).
-                        - Retain the user’s key skills, certifications, and areas of expertise, improving clarity and impact.
-                        - Exclude job titles, years of experience, company names, or future career goals.
-                        - Use a confident, natural tone with strong action verbs (e.g., 'specialize,' 'excel,' 'adept').
-                        - Incorporate industry-standard and job-specific keywords (if provided) for ATS compatibility.
-                        - Replace vague terms (e.g., 'good,' 'experienced,' 'passionate') with precise language.
-                        - Address weaknesses in the original (e.g., lack of keywords, weak phrasing).
-                        - Return only the paragraph, with no additional text, headings, or explanations.
+        Returns
+        -------
+        str
+            Generated or enhanced section (paragraph for 'about_me', list for 'skills').
 
-                        **User Information:**
-                        {user}
+        Raises
+        ------
+        ValueError
+            If API call fails or inputs are invalid.
+        """
+        self._validate_inputs(user_json, mode, existing_section)
+        user = user_json["user"]
+        job_keywords_str = ", ".join(job_keywords) if job_keywords else "None"
 
-                        **Target Job Keywords (optional):**
-                        {job_keywords}
+        system_prompt, user_prompt_template = self._get_prompts(mode)
+        user_prompt = user_prompt_template.format(
+            user=user,
+            job_keywords=job_keywords_str,
+            existing_section=existing_section or "None"
+        )
 
-                        **Existing About Me Section to Enhance:**
-                        {existing_section}
-                    """
-                }
-            },
-            "skills": {
-                "generate": {
-                    "system": "You are an expert resume writer specializing in crafting ATS-optimized skill lists that feel professional and human-crafted. Your role is to create concise, balanced skill sets that align with job requirements and showcase a candidate’s strengths naturally.",
-                    "user": """
-                        Write a 'Skills' section for a resume as a single comma-separated list, strictly adhering to these requirements:
-                        - Include 8–12 skills, with approximately 60% hard skills (technical, job-specific) and 40% soft skills (interpersonal, e.g., communication, adaptability).
-                        - Prioritize skills from the user’s profile, supplementing with relevant skills inferred from their education, certifications, or interests.
-                        - Incorporate job-specific keywords (if provided) to align with the target job.
-                        - Use clear, standard terms without special characters for ATS compatibility.
-                        - Exclude skills unrelated to the user’s profile or job requirements.
-                        - Return only the comma-separated list (e.g., Python, Django, Teamwork), with no additional text, headings, or explanations.
+        try:
+            response = self.client.chat.completions.create(
+                model="llama-3.1-8b-instant",
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt}
+                ],
+                temperature=0.7,
+                max_tokens=self.max_tokens
+            )
+            return response.choices[0].message.content.strip()
+        except Exception as e:
+            raise ValueError(f"Groq API error: {str(e)}")
 
-                        **User Information:**
-                        {user}
+    def _get_prompts(self, mode):
+        """
+        Abstract method to retrieve section-specific prompts.
 
-                        **Target Job Keywords (optional):**
-                        {job_keywords}
-                    """
-                },
-                "enhance": {
-                    "system": "You are an expert resume editor skilled at refining ATS-optimized skill lists to be concise and professional. Your role is to enhance existing skill sets with a natural, human-crafted feel, improving relevance and alignment with job requirements.",
-                    "user": """
-                        Enhance the provided 'Skills' section for a resume as a single comma-separated list, strictly adhering to these requirements:
-                        - Include 8–12 skills, maintaining approximately 60% hard skills (technical, job-specific) and 40% soft skills (interpersonal, e.g., communication, adaptability).
-                        - Retain relevant skills from the original section, removing vague or irrelevant ones (e.g., 'expert,' 'general coding').
-                        - Incorporate skills from the user’s profile and job-specific keywords (if provided) to align with the target job.
-                        - Use clear, standard terms without special characters for ATS compatibility.
-                        - Return only the comma-separated list (e.g., Python, Django, Teamwork), with no additional text, headings, or explanations.
+        Must be implemented by child classes.
 
-                        **User Information:**
-                        {user}
+        Parameters
+        ----------
+        mode : str
+            Operation mode ('generate' or 'enhance').
 
-                        **Target Job Keywords (optional):**
-                        {job_keywords}
+        Returns
+        -------
+        tuple
+            System prompt and user prompt template.
 
-                        **Existing Skills Section to Enhance:**
-                        {existing_section}
-                    """
-                }
-            }
-        }
-        section_prompts = prompts.get(section_type, {}).get(mode, {})
-        if not section_prompts:
-            raise ValueError(f"Invalid section_type '{section_type}' or mode '{mode}'")
-        return section_prompts["system"], section_prompts["user"]
-
-    def generate_section(
-            self,
-            user_json: dict,
-            section_type: Literal["about_me", "skills"],
-            mode: Literal["generate", "enhance"] = "generate",
-            existing_section: Optional[str] = None,
-            job_keywords: Optional[list] = None
-    ) -> str:
-        """Generate or enhance a resume section (to be implemented by subclasses)."""
-        raise NotImplementedError
-
+        Raises
+        ------
+        NotImplementedError
+            If not implemented by child class.
+        """
+        raise NotImplementedError("Child classes must implement _get_prompts")
 
 class AboutMeGenerator(ResumeSectionGenerator):
-    """Class for generating and enhancing 'About Me' resume sections."""
+    """
+    Generator for 'About Me' resume sections.
 
-    def generate_section(
-            self,
-            user_json: dict,
-            section_type: Literal["about_me"] = "about_me",
-            mode: Literal["generate", "enhance"] = "generate",
-            existing_section: Optional[str] = None,
-            job_keywords: Optional[list] = None
-    ) -> str:
-        """Generate or enhance an 'About Me' section."""
-        self._validate_inputs(user_json, section_type, mode, existing_section)
-        user = user_json["user"]
-        job_keywords_str = ", ".join(job_keywords) if job_keywords else "None"
+    Handles generation and enhancement of the 'About Me' section with specific prompts
+    and token limits.
 
-        system_prompt, user_prompt_template = self._get_prompts(section_type, mode)
-        user_prompt = user_prompt_template.format(
-            user=user,
-            job_keywords=job_keywords_str,
-            existing_section=existing_section or "None"
-        )
+    Attributes
+    ----------
+    section_type : str
+        The section type handled by this class ('about_me').
+    max_tokens : int
+        Maximum token limit for the section (200).
+    """
 
-        try:
-            response = self.client.chat.completions.create(
-                model="llama-3.1-8b-instant",
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt}
-                ],
-                temperature=0.7,  # Slightly higher for natural tone
-                max_tokens=self.max_tokens[section_type],
-            )
-            return response.choices[0].message.content.strip()
-        except Exception as e:
-            raise ValueError(f"Groq API error: {str(e)}")
+    def __init__(self):
+        """Initialize the AboutMeGenerator with section type and token limit."""
+        super().__init__()
+        self.section_type = "about_me"
+        self.max_tokens = 200
 
+    def _get_prompts(self, mode):
+        """
+        Retrieve prompts for 'About Me' section.
+
+        Parameters
+        ----------
+        mode : str
+            Operation mode ('generate' or 'enhance').
+
+        Returns
+        -------
+        tuple
+            System prompt and user prompt template.
+
+        Raises
+        ------
+        ValueError
+            If mode is invalid.
+        """
+        prompts = {
+            "generate": {
+                "system": "You are an expert resume writer crafting natural, ATS-optimized summaries.",
+                "user": """
+                    Write a professional 'About Me' section as a single paragraph:
+                    - Limit to 7 lines (~100 words).
+                    - Highlight skills, certifications, and education from {user}.
+                    - Use confident, natural tone with action verbs (e.g., 'specialize', 'excel').
+                    - Include {job_keywords} for ATS compatibility if provided.
+                    - Return only the paragraph.
+                """
+            },
+            "enhance": {
+                "system": "You are an expert resume editor refining ATS-optimized summaries.",
+                "user": """
+                    Enhance this 'About Me' section as a single paragraph:
+                    - Limit to 7 lines (~100 words).
+                    - Retain skills and certifications from {user}, improve clarity.
+                    - Use confident tone with action verbs.
+                    - Include {job_keywords} for ATS compatibility if provided.
+                    - Enhance {existing_section}.
+                    - Return only the paragraph.
+                """
+            }
+        }
+        if mode not in prompts:
+            raise ValueError(f"Invalid mode '{mode}'")
+        return prompts[mode]["system"], prompts[mode]["user"]
 
 class SkillsGenerator(ResumeSectionGenerator):
-    """Class for generating and enhancing 'Skills' resume sections."""
+    """
+    Generator for 'Skills' resume sections.
 
-    def generate_section(
-            self,
-            user_json: dict,
-            section_type: Literal["skills"] = "skills",
-            mode: Literal["generate", "enhance"] = "generate",
-            existing_section: Optional[str] = None,
-            job_keywords: Optional[list] = None
-    ) -> str:
-        """Generate or enhance a 'Skills' section."""
-        self._validate_inputs(user_json, section_type, mode, existing_section)
-        user = user_json["user"]
-        job_keywords_str = ", ".join(job_keywords) if job_keywords else "None"
+    Handles generation and enhancement of the 'Skills' section with specific prompts
+    and token limits.
 
-        system_prompt, user_prompt_template = self._get_prompts(section_type, mode)
-        user_prompt = user_prompt_template.format(
-            user=user,
-            job_keywords=job_keywords_str,
-            existing_section=existing_section or "None"
-        )
+    Attributes
+    ----------
+    section_type : str
+        The section type handled by this class ('skills').
+    max_tokens : int
+        Maximum token limit for the section (100).
+    """
 
-        try:
-            response = self.client.chat.completions.create(
-                model="llama-3.1-8b-instant",
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt}
-                ],
-                temperature=0.7,  # Slightly higher for natural tone
-                max_tokens=self.max_tokens[section_type],
-            )
-            return response.choices[0].message.content.strip()
-        except Exception as e:
-            raise ValueError(f"Groq API error: {str(e)}")
+    def __init__(self):
+        """Initialize the SkillsGenerator with section type and token limit."""
+        super().__init__()
+        self.section_type = "skills"
+        self.max_tokens = 100
 
+    def _get_prompts(self, mode):
+        """
+        Retrieve prompts for 'Skills' section.
+
+        Parameters
+        ----------
+        mode : str
+            Operation mode ('generate' or 'enhance').
+
+        Returns
+        -------
+        tuple
+            System prompt and user prompt template.
+
+        Raises
+        ------
+        ValueError
+            If mode is invalid.
+        """
+        prompts = {
+            "generate": {
+                "system": "You are an expert resume writer creating ATS-optimized skill lists.",
+                "user": """
+                    Write a 'Skills' section as a comma-separated list:
+                    - Include 8–12 skills (60% hard, 40% soft) from {user}.
+                    - Incorporate {job_keywords} if provided.
+                    - Use clear, ATS-friendly terms.
+                    - Return only the list.
+                """
+            },
+            "enhance": {
+                "system": "You are an expert resume editor refining ATS-optimized skill lists.",
+                "user": """
+                    Enhance this 'Skills' section as a comma-separated list:
+                    - Include 8–12 skills (60% hard, 40% soft) from {user}.
+                    - Incorporate {job_keywords} if provided.
+                    - Refine {existing_section}.
+                    - Return only the list.
+                """
+            }
+        }
+        if mode not in prompts:
+            raise ValueError(f"Invalid mode '{mode}'")
+        return prompts[mode]["system"], prompts[mode]["user"]
 
 # Example usage
 if __name__ == "__main__":
@@ -236,43 +276,21 @@ if __name__ == "__main__":
     existing_skills = "coding, teamwork, expert in tech"
 
     # Initialize generators
-    about_me_generator = AboutMeGenerator()
-    skills_generator = SkillsGenerator()
+    about_me_gen = AboutMeGenerator()
+    skills_gen = SkillsGenerator()
 
     # Generate About Me
-    about_me = about_me_generator.generate_section(
-        user_json=user_data,
-        section_type="about_me",
-        mode="generate",
-        job_keywords=job_keywords
-    )
+    about_me = about_me_gen.generate_section(user_data, "generate", None, job_keywords)
     print("Generated About Me:", about_me)
 
     # Enhance About Me
-    enhanced_about_me = about_me_generator.generate_section(
-        user_json=user_data,
-        section_type="about_me",
-        mode="enhance",
-        existing_section=existing_about_me,
-        job_keywords=job_keywords
-    )
+    enhanced_about_me = about_me_gen.generate_section(user_data, "enhance", existing_about_me, job_keywords)
     print("Enhanced About Me:", enhanced_about_me)
 
     # Generate Skills
-    skills = skills_generator.generate_section(
-        user_json=user_data,
-        section_type="skills",
-        mode="generate",
-        job_keywords=job_keywords
-    )
+    skills = skills_gen.generate_section(user_data, "generate", None, job_keywords)
     print("Generated Skills:", skills)
 
     # Enhance Skills
-    enhanced_skills = skills_generator.generate_section(
-        user_json=user_data,
-        section_type="skills",
-        mode="enhance",
-        existing_section=existing_skills,
-        job_keywords=job_keywords
-    )
+    enhanced_skills = skills_gen.generate_section(user_data, "enhance", existing_skills, job_keywords)
     print("Enhanced Skills:", enhanced_skills)
