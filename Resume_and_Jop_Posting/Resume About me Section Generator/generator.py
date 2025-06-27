@@ -295,7 +295,7 @@ if __name__ == "__main__":
     print("Enhanced About Me:", enhanced_about_me)
 
     # Generate Skills
-    skills = skills_gen.generate_section(user_data, "generate", None, job_description)
+    skills = skills_gen.generate_section(user_data, "generate", None, job_description)z
     print("Generated Skills:", skills)
 
     # Enhance Skills (should switch to generate due to empty existing_section)
