@@ -1,96 +1,303 @@
-import json
-import re
 import os
 from dotenv import load_dotenv
 from groq import Groq
 
-# Load environment variables from .env file
-load_dotenv()
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-if not GROQ_API_KEY:
-    raise ValueError("GROQ_API_KEY not found in .env file!")
-
-client = Groq(api_key=GROQ_API_KEY)
-
-
-def generate_about_me_section(user_json: dict) -> str:
+class ResumeSectionGenerator:
     """
-    Generate an "About Me" section for a Resume based on user information.
-    
-    Args:
-        user_json (dict): A dictionary containing user information.
-        
-    Returns:
-        str: The generated "About Me" section.
-    """
-    user = user_json["user"]
-    #print(user)
+    Base class for generating and enhancing resume sections using Groq API.
 
-    prompt = f"""
-        You are a professional resume writer. Based on the user’s background, write a concise, professional “About Me” section for a resume that:
+    This class provides the foundation for resume section generation, handling API setup
+    and input validation. Child classes define section-specific prompts, section type,
+    and token limits.
 
-        - Does not exceed 7 lines.
-
-        - Focuses solely on the user's skills, knowledge, and areas of expertise (not job experience, job titles, or future goals).
-
-        - Uses a confident and formal tone.
-
-        - Follows best practices from professional resume-writing guidelines (e.g., highlights strengths, uses descriptive and action words, avoids generic or vague statements).
-
-        - Avoids mentioning company names, years of experience, or any job-specific references.
-
-
-      **User information:**
-      {user}
+    Attributes
+    ----------
+    api_key : str
+        The Groq API key loaded from the .env file.
+    client : Groq
+        The Groq client initialized with the API key.
     """
 
-    # Request to Groq API to generate the "About Me" section
-    response = client.chat.completions.create(
-        model="llama-3.1-8b-instant",
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0.6,
-        max_tokens=600,
-    )
+    def __init__(self):
+        """Initialize the ResumeSectionGenerator with API key and client."""
+        load_dotenv()
+        self.api_key = os.getenv("GROQ_API_KEY")
+        if not self.api_key:
+            raise ValueError("GROQ_API_KEY not found in .env file!")
+        self.client = Groq(api_key=self.api_key)
 
-    content = response.choices[0].message.content.strip()
-    
-    # Remove the first line if it's an intro sentence
-    #lines = content.splitlines()
-    #if len(lines) > 1 and "about me" in lines[0].lower():
-     #   content = "\n".join(lines[1:]).strip()
+    def _validate_inputs(self, user_json, mode, existing_section):
+        """
+        Validate input parameters for section generation or enhancement.
 
-    return content
+        If mode is 'enhance' and existing_section is empty, switches to 'generate' mode.
 
+        Parameters
+        ----------
+        user_json : dict
+            User data with a 'user' key containing profile information.
+        mode : str
+            Operation mode ('generate' or 'enhance').
+        existing_section : str or None
+            Existing section text to enhance (optional for 'enhance' mode).
 
-# example usage
+        Returns
+        -------
+        str
+            Validated mode ('generate' or 'enhance').
+
+        Raises
+        ------
+        ValueError
+            If inputs are invalid or missing.
+        """
+        if not user_json.get("user"):
+            raise ValueError("Input JSON must contain a 'user' key")
+        if mode not in ["generate", "enhance"]:
+            raise ValueError(f"Invalid mode '{mode}'")
+        if mode == "enhance" and not existing_section:
+            mode = "generate"
+        return mode
+
+    def generate_section(self, user_json, mode, existing_section, job_description):
+        """
+        Generate or enhance a resume section using the Groq API.
+
+        Parameters
+        ----------
+        user_json : dict
+            User data with a 'user' key containing profile information.
+        mode : str
+            Operation mode ('generate' or 'enhance').
+        existing_section : str or None
+            Existing section text to enhance (optional for 'enhance' mode).
+        job_description : str or None
+            Optional job description to tailor the section for ATS compatibility.
+
+        Returns
+        -------
+        str
+            Generated or enhanced section (paragraph for 'about_me', list for 'skills').
+
+        Raises
+        ------
+        ValueError
+            If API call fails or inputs are invalid.
+        """
+        mode = self._validate_inputs(user_json, mode, existing_section)
+        user = user_json["user"]
+        # Format user data into a string for the prompt
+        skills = ", ".join([skill["name"] for skill in user.get("skills", [])]) or "None"
+        educations = ", ".join([f"{edu['field_of_study']} at {edu['university']}" for edu in user.get("educations", [])]) or "None"
+        certificates = ", ".join([cert["name"] for cert in user.get("certificates", [])]) or "None"
+        languages = ", ".join([lang["name"] for lang in user.get("languages", [])]) or "None"
+        experiences = ", ".join([f"{exp['job_title']} at {exp['company_name']}" for exp in user.get("experiences", [])]) or "None"
+        user_str = f"Skills: {skills}; Education: {educations}; Certificates: {certificates}; Languages: {languages}; Experiences: {experiences}"
+        job_description_str = job_description if job_description else "None"
+
+        system_prompt, user_prompt_template = self._get_prompts(mode)
+        user_prompt = user_prompt_template.format(
+            user=user_str,
+            job_description=job_description_str,
+            existing_section=existing_section or "None"
+        )
+
+        try:
+            response = self.client.chat.completions.create(
+                model="llama-3.1-8b-instant",
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt}
+                ],
+                temperature=0.7,
+                max_tokens=self.max_tokens
+            )
+            return response.choices[0].message.content.strip()
+        except Exception as e:
+            raise ValueError(f"Groq API error: {str(e)}")
+
+    def _get_prompts(self, mode):
+        """
+        Abstract method to retrieve section-specific prompts.
+
+        Must be implemented by child classes.
+
+        Parameters
+        ----------
+        mode : str
+            Operation mode ('generate' or 'enhance').
+
+        Returns
+        -------
+        tuple
+            System prompt and user prompt template.
+
+        Raises
+        ------
+        NotImplementedError
+            If not implemented by child class.
+        """
+        raise NotImplementedError("Child classes must implement _get_prompts")
+
+class AboutMeGenerator(ResumeSectionGenerator):
+    """
+    Generator for 'About Me' resume sections.
+
+    Handles generation and enhancement of the 'About Me' section with specific prompts
+    and token limits.
+
+    Attributes
+    ----------
+    section_type : str
+        The section type handled by this class ('about_me').
+    max_tokens : int
+        Maximum token limit for the section (200).
+    """
+
+    def __init__(self):
+        """Initialize the AboutMeGenerator with section type and token limit."""
+        super().__init__()
+        self.section_type = "about_me"
+        self.max_tokens = 200
+
+    def _get_prompts(self, mode):
+        """
+        Retrieve prompts for 'About Me' section.
+
+        Parameters
+        ----------
+        mode : str
+            Operation mode ('generate' or 'enhance').
+
+        Returns
+        -------
+        tuple
+            System prompt and user prompt template.
+
+        Raises
+        ------
+        ValueError
+            If mode is invalid.
+        """
+        prompts = {
+            "generate": {
+                "system": "You are an expert resume writer crafting natural, ATS-optimized summaries.",
+                "user": """
+                    Write a professional 'About Me' section as a single paragraph:
+                    - Limit to 7 lines (~100 words).
+                    - Highlight skills, certifications, education, and experiences from {user}.
+                    - Use confident, natural tone with action verbs (e.g., 'specialize', 'excel').
+                    - Tailor to {job_description} for ATS compatibility if provided.
+                    - Return only the paragraph.
+                """
+            },
+            "enhance": {
+                "system": "You are an expert resume editor refining ATS-optimized summaries.",
+                "user": """
+                    Enhance this 'About Me' section as a single paragraph:
+                    - Limit to 7 lines (~100 words).
+                    - Retain skills, certifications, and experiences from {user}, improve clarity.
+                    - Use confident tone with action verbs.
+                    - Tailor to {job_description} for ATS compatibility if provided.
+                    - Enhance {existing_section}.
+                    - Return only the paragraph.
+                """
+            }
+        }
+        if mode not in prompts:
+            raise ValueError(f"Invalid mode '{mode}'")
+        return prompts[mode]["system"], prompts[mode]["user"]
+
+class SkillsGenerator(ResumeSectionGenerator):
+    """
+    Generator for 'Skills' resume sections.
+
+    Handles generation and enhancement of the 'Skills' section with specific prompts
+    and token limits.
+
+    Attributes
+    ----------
+    section_type : str
+        The section type handled by this class ('skills').
+    max_tokens : int
+        Maximum token limit for the section (100).
+    """
+
+    def __init__(self):
+        """Initialize the SkillsGenerator with section type and token limit."""
+        super().__init__()
+        self.section_type = "skills"
+        self.max_tokens = 100
+
+    def _get_prompts(self, mode):
+        """
+        Retrieve prompts for 'Skills' section.
+
+        Parameters
+        ----------
+        mode : str
+            Operation mode ('generate' or 'enhance').
+
+        Returns
+        -------
+        tuple
+            System prompt and user prompt template.
+
+        Raises
+        ------
+        ValueError
+            If mode is invalid.
+        """
+        prompts = {
+            "generate": {
+                "system": "You are an expert resume writer creating ATS-optimized skill lists.",
+                "user": """
+                    Generate a 'Skills' section as a single line of 8–12 skills (60% hard, 40% soft) from {user}, tailored to {job_description} if provided. Use clear, ATS-friendly terms, separated by commas and spaces. Do not include any additional text, headings, bullet points, or formatting. Return only the comma-separated list.
+                """
+            },
+            "enhance": {
+                "system": "You are an expert resume editor refining ATS-optimized skill lists.",
+                "user": """
+                    Enhance the 'Skills' section {existing_section} into a single line of 8–12 skills (60% hard, 40% soft) from {user}, tailored to {job_description} if provided. Use clear, ATS-friendly terms, separated by commas and spaces. Do not include any additional text, headings, bullet points, or formatting. Return only the comma-separated list.
+                """
+            }
+        }
+        if mode not in prompts:
+            raise ValueError(f"Invalid mode '{mode}'")
+        return prompts[mode]["system"], prompts[mode]["user"]
+
+# Example usage
 if __name__ == "__main__":
-    # Path to the JSON file
-    test_file_path = "data/test.json"
+    import json
 
-    # Load user data from JSON
+    # Sample user data
+    test_file_path = "data/test.json"
     with open(test_file_path, "r", encoding="utf-8") as file:
         user_data = json.load(file)
 
-    # Generate About Me section
-    about_me = generate_about_me_section(user_data)
+    # Sample job description
+    job_description = "We are seeking a skilled Backend Developer proficient in Node.js, TypeScript, and PostgreSQL to build scalable APIs and integrate AI-driven solutions. The role requires strong problem-solving skills and experience with Spring Boot or Java-based frameworks."
 
-    # Print the result
-    print(about_me)
+    # Sample existing sections for enhancement
+    existing_about_me = ""
+    existing_skills = ""
 
+    # Initialize generators
+    about_me_gen = AboutMeGenerator()
+    skills_gen = SkillsGenerator()
 
+    # Generate About Me
+    about_me = about_me_gen.generate_section(user_data, "generate", None, job_description)
+    print("Generated About Me:", about_me)
 
-"""
-output:
+    # Enhance About Me (should switch to generate due to empty existing_section)
+    enhanced_about_me = about_me_gen.generate_section(user_data, "enhance", existing_about_me, job_description)
+    print("Enhanced About Me:", enhanced_about_me)
 
-Here's a concise and professional "About Me" section based on the user's background:
+    # Generate Skills
+    skills = skills_gen.generate_section(user_data, "generate", None, job_description)z
+    print("Generated Skills:", skills)
 
-"Dedicated full-stack developer with expertise in designing and developing scalable web applications. Skilled in JavaScript, React, and Python, with a strong proficiency in Django and AWS. Proficient in containerization with Docker and orchestration with Kubernetes. Bilingual in English and Spanish, with a strong foundation in Computer Science from Stanford University and AWS Certified Solutions Architect certification."
-
-
-
-"""
-
-"""
-"Results-driven software engineer with expertise in full-stack development, scalable architecture, and cloud computing. Skilled in JavaScript, React, Python, Django, and AWS, with a proven track record in building high-performance applications. Proficient in Docker, Kubernetes, and containerization. Fluently conversant in English and Spanish."
-
-"""
+    # Enhance Skills (should switch to generate due to empty existing_section)
+    enhanced_skills = skills_gen.generate_section(user_data, "enhance", existing_skills, job_description)
+    print("Enhanced Skills:", enhanced_skills)
