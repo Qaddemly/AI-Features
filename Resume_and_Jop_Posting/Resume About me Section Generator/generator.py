@@ -30,6 +30,8 @@ class ResumeSectionGenerator:
         """
         Validate input parameters for section generation or enhancement.
 
+        If mode is 'enhance' and existing_section is empty, switches to 'generate' mode.
+
         Parameters
         ----------
         user_json : dict
@@ -37,7 +39,12 @@ class ResumeSectionGenerator:
         mode : str
             Operation mode ('generate' or 'enhance').
         existing_section : str or None
-            Existing section text to enhance (required for 'enhance' mode).
+            Existing section text to enhance (optional for 'enhance' mode).
+
+        Returns
+        -------
+        str
+            Validated mode ('generate' or 'enhance').
 
         Raises
         ------
@@ -46,12 +53,13 @@ class ResumeSectionGenerator:
         """
         if not user_json.get("user"):
             raise ValueError("Input JSON must contain a 'user' key")
-        if mode == "enhance" and not existing_section:
-            raise ValueError("Existing section text required for enhancement mode")
         if mode not in ["generate", "enhance"]:
             raise ValueError(f"Invalid mode '{mode}'")
+        if mode == "enhance" and not existing_section:
+            mode = "generate"
+        return mode
 
-    def generate_section(self, user_json, mode, existing_section, job_keywords):
+    def generate_section(self, user_json, mode, existing_section, job_description):
         """
         Generate or enhance a resume section using the Groq API.
 
@@ -62,9 +70,9 @@ class ResumeSectionGenerator:
         mode : str
             Operation mode ('generate' or 'enhance').
         existing_section : str or None
-            Existing section text to enhance (required for 'enhance' mode).
-        job_keywords : list or None
-            Optional job-specific keywords to include.
+            Existing section text to enhance (optional for 'enhance' mode).
+        job_description : str or None
+            Optional job description to tailor the section for ATS compatibility.
 
         Returns
         -------
@@ -76,14 +84,21 @@ class ResumeSectionGenerator:
         ValueError
             If API call fails or inputs are invalid.
         """
-        self._validate_inputs(user_json, mode, existing_section)
+        mode = self._validate_inputs(user_json, mode, existing_section)
         user = user_json["user"]
-        job_keywords_str = ", ".join(job_keywords) if job_keywords else "None"
+        # Format user data into a string for the prompt
+        skills = ", ".join([skill["name"] for skill in user.get("skills", [])]) or "None"
+        educations = ", ".join([f"{edu['field_of_study']} at {edu['university']}" for edu in user.get("educations", [])]) or "None"
+        certificates = ", ".join([cert["name"] for cert in user.get("certificates", [])]) or "None"
+        languages = ", ".join([lang["name"] for lang in user.get("languages", [])]) or "None"
+        experiences = ", ".join([f"{exp['job_title']} at {exp['company_name']}" for exp in user.get("experiences", [])]) or "None"
+        user_str = f"Skills: {skills}; Education: {educations}; Certificates: {certificates}; Languages: {languages}; Experiences: {experiences}"
+        job_description_str = job_description if job_description else "None"
 
         system_prompt, user_prompt_template = self._get_prompts(mode)
         user_prompt = user_prompt_template.format(
-            user=user,
-            job_keywords=job_keywords_str,
+            user=user_str,
+            job_description=job_description_str,
             existing_section=existing_section or "None"
         )
 
@@ -170,9 +185,9 @@ class AboutMeGenerator(ResumeSectionGenerator):
                 "user": """
                     Write a professional 'About Me' section as a single paragraph:
                     - Limit to 7 lines (~100 words).
-                    - Highlight skills, certifications, and education from {user}.
+                    - Highlight skills, certifications, education, and experiences from {user}.
                     - Use confident, natural tone with action verbs (e.g., 'specialize', 'excel').
-                    - Include {job_keywords} for ATS compatibility if provided.
+                    - Tailor to {job_description} for ATS compatibility if provided.
                     - Return only the paragraph.
                 """
             },
@@ -181,9 +196,9 @@ class AboutMeGenerator(ResumeSectionGenerator):
                 "user": """
                     Enhance this 'About Me' section as a single paragraph:
                     - Limit to 7 lines (~100 words).
-                    - Retain skills and certifications from {user}, improve clarity.
+                    - Retain skills, certifications, and experiences from {user}, improve clarity.
                     - Use confident tone with action verbs.
-                    - Include {job_keywords} for ATS compatibility if provided.
+                    - Tailor to {job_description} for ATS compatibility if provided.
                     - Enhance {existing_section}.
                     - Return only the paragraph.
                 """
@@ -237,21 +252,13 @@ class SkillsGenerator(ResumeSectionGenerator):
             "generate": {
                 "system": "You are an expert resume writer creating ATS-optimized skill lists.",
                 "user": """
-                    Write a 'Skills' section as a comma-separated list:
-                    - Include 8–12 skills (60% hard, 40% soft) from {user}.
-                    - Incorporate {job_keywords} if provided.
-                    - Use clear, ATS-friendly terms.
-                    - Return only the list.
+                    Generate a 'Skills' section as a single line of 8–12 skills (60% hard, 40% soft) from {user}, tailored to {job_description} if provided. Use clear, ATS-friendly terms, separated by commas and spaces. Do not include any additional text, headings, bullet points, or formatting. Return only the comma-separated list.
                 """
             },
             "enhance": {
                 "system": "You are an expert resume editor refining ATS-optimized skill lists.",
                 "user": """
-                    Enhance this 'Skills' section as a comma-separated list:
-                    - Include 8–12 skills (60% hard, 40% soft) from {user}.
-                    - Incorporate {job_keywords} if provided.
-                    - Refine {existing_section}.
-                    - Return only the list.
+                    Enhance the 'Skills' section {existing_section} into a single line of 8–12 skills (60% hard, 40% soft) from {user}, tailored to {job_description} if provided. Use clear, ATS-friendly terms, separated by commas and spaces. Do not include any additional text, headings, bullet points, or formatting. Return only the comma-separated list.
                 """
             }
         }
@@ -268,29 +275,29 @@ if __name__ == "__main__":
     with open(test_file_path, "r", encoding="utf-8") as file:
         user_data = json.load(file)
 
-    # Sample job keywords (optional, from DataPreprocessor)
-    job_keywords = ["Python", "Django", "AWS", "Communication"]
+    # Sample job description
+    job_description = "We are seeking a skilled Backend Developer proficient in Node.js, TypeScript, and PostgreSQL to build scalable APIs and integrate AI-driven solutions. The role requires strong problem-solving skills and experience with Spring Boot or Java-based frameworks."
 
     # Sample existing sections for enhancement
-    existing_about_me = "Experienced developer good at coding and team player."
-    existing_skills = "coding, teamwork, expert in tech"
+    existing_about_me = ""
+    existing_skills = ""
 
     # Initialize generators
     about_me_gen = AboutMeGenerator()
     skills_gen = SkillsGenerator()
 
     # Generate About Me
-    about_me = about_me_gen.generate_section(user_data, "generate", None, job_keywords)
+    about_me = about_me_gen.generate_section(user_data, "generate", None, job_description)
     print("Generated About Me:", about_me)
 
-    # Enhance About Me
-    enhanced_about_me = about_me_gen.generate_section(user_data, "enhance", existing_about_me, job_keywords)
+    # Enhance About Me (should switch to generate due to empty existing_section)
+    enhanced_about_me = about_me_gen.generate_section(user_data, "enhance", existing_about_me, job_description)
     print("Enhanced About Me:", enhanced_about_me)
 
     # Generate Skills
-    skills = skills_gen.generate_section(user_data, "generate", None, job_keywords)
+    skills = skills_gen.generate_section(user_data, "generate", None, job_description)
     print("Generated Skills:", skills)
 
-    # Enhance Skills
-    enhanced_skills = skills_gen.generate_section(user_data, "enhance", existing_skills, job_keywords)
+    # Enhance Skills (should switch to generate due to empty existing_section)
+    enhanced_skills = skills_gen.generate_section(user_data, "enhance", existing_skills, job_description)
     print("Enhanced Skills:", enhanced_skills)
