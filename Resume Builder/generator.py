@@ -295,17 +295,14 @@ if __name__ == "__main__":
     print("Enhanced About Me:", enhanced_about_me)
 
     # Generate Skills
-<<<<<<< HEAD
     skills = skills_gen.generate_section(user_data, "generate", None, job_description)
     print("Generated Skills:", skills)
 
     # Enhance Skills (should switch to generate due to empty existing_section)
     enhanced_skills = skills_gen.generate_section(user_data, "enhance", existing_skills, job_description)
-=======
     skills = skills_gen.generate_section(user_data, "generate", None, job_description).split(',')
     print("Generated Skills:", skills)
 
     # Enhance Skills (should switch to generate due to empty existing_section)
     enhanced_skills = skills_gen.generate_section(user_data, "enhance", existing_skills, job_description).split(',')
->>>>>>> 9376bb4f939734efebef14233377f83fc7734a5c
     print("Enhanced Skills:", enhanced_skills)
