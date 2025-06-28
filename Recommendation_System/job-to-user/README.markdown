@@ -1,140 +1,152 @@
-# Job Recommendation System for Users
+# Qaddemly Job Recommendation System
 
 ## Overview
+The Qaddemly Job Recommendation System is a Python-based application designed to recommend users for a specific job based on similarity metrics such as skills, job title, description, employment type, and location type. The system processes user and job data, generates embeddings for skills, and computes similarity scores to identify the best-suited candidates for a job, enabling job owners to notify potential applicants. The application includes a FastAPI endpoint for integration into web services and a command-line interface for local execution.
 
-The Job Recommendation System for Users is a content-based recommendation engine designed to assist job seekers in discovering relevant job opportunities. By analyzing a user’s skills, professional background, and preferences against a collection of job listings, the system generates a ranked list of job recommendations tailored to the user’s profile. The system employs natural language processing (NLP) and similarity metrics to evaluate job titles, descriptions, skills, employment types, and location preferences, facilitating an exploratory approach to job discovery.
+## Features
+- **Data Preprocessing**: Cleans and processes user and job data, including text normalization, skill parsing, and embedding generation using `sentence-transformers`.
+- **User Recommendation**: Recommends users for a job based on weighted similarity metrics (title, description, skills, employment type, location type).
+- **API Endpoint**: Provides a `/recommend-users` FastAPI endpoint to handle JSON requests with multiple users and a single job.
+- **Command-Line Interface**: Allows local execution via `main.py` for testing and development.
+- **ATS-Friendly**: Outputs minimal, structured data (user IDs and similarity scores) suitable for Applicant Tracking Systems.
 
-## Components
-
-The system comprises four Python modules, each contributing to the recommendation pipeline:
-
-- **`data_preprocessing.py`**: Preprocesses user and job data by cleaning text, parsing skills, extracting recent experiences, and generating skill embeddings using a SentenceTransformer model. Outputs structured Pandas DataFrames and embeddings.
-- **`recommendation_to_user.py`**: Implements the `JobRecommender` class to compute similarity scores based on title matching, description similarity (via TF-IDF), skill overlap, and employment/location type alignment. Returns a ranked list of job recommendations.
-- **`app.py`**: Provides a FastAPI-based REST API to accept user and job data via HTTP requests and return recommendations, enabling integration with external applications.
-- **`main.py`**: Serves as the command-line entry point, orchestrating preprocessing and recommendation for quick testing with a JSON input file.
-
-## Setup
-
-### Prerequisites
-
-- **Python**: Version 3.8 or higher.
-- **Dependencies**: Install required libraries using pip:
-  ```bash
-  pip install numpy pandas nltk sentence-transformers scikit-learn fastapi uvicorn pydantic
-  ```
-- **NLTK Data**: Download necessary NLTK resources:
-  ```python
-  import nltk
-  nltk.download('stopwords')
-  nltk.download('punkt')
-  nltk.download('wordnet')
-  ```
-
-### Input Data
-
-The system expects input in JSON format, containing a user profile and a list of job listings. Save the input as `test.json` in the project directory. Example structure:
-
-```json
-{
-  "user": {
-    "id": 1,
-    "about_me": "Passionate software engineer with expertise in AI",
-    "subtitle": "Software Engineer",
-    "skills": [{"name": "Python"}, {"name": "Machine Learning"}],
-    "experiences": [
-      {
-        "job_title": "Developer",
-        "employment_type": "Full-time",
-        "location_type": "Remote",
-        "start_date": "2023-06-01"
-      }
-    ],
-    "educations": []
-  },
-  "jobs": [
-    {
-      "id": 101,
-      "title": "Machine Learning Engineer",
-      "description": "Develop advanced AI models",
-      "skills": ["Python", "TensorFlow"],
-      "employee_type": "Full-time",
-      "location_type": "Remote"
-    },
-    {
-      "id": 102,
-      "title": "Content Writer",
-      "description": "Create engaging content",
-      "skills": ["Writing", "SEO"],
-      "employee_type": "Part-time",
-      "location_type": "On-site"
-    }
-  ]
-}
+## Project Structure
+```
+qaddemly/
+├── app.py                  # FastAPI application with /recommend-users endpoint
+├── data_preprocessing.py   # Data preprocessing and embedding generation
+├── recommendation_to_job.py# User recommendation logic
+├── main.py                # Command-line interface for recommendations
+├── data/
+│   └── test.json          # Sample input JSON file
+├── .env                   # Environment variables (e.g., GROQ_API_KEY)
+└── requirements.txt       # Python dependencies
 ```
 
+## Setup Instructions
+1. **Clone the Repository** (if applicable):
+   ```bash
+   git clone <repository-url>
+   cd qaddemly
+   ```
+
+2. **Create a Virtual Environment**:
+   ```bash
+   python -m venv qaddemly_env
+   source qaddemly_env/bin/activate  # Linux/Mac
+   .\qaddemly_env\Scripts\activate   # Windows
+   ```
+
+3. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Download NLTK Data**:
+   ```python
+   import nltk
+   nltk.download('punkt')
+   nltk.download('stopwords')
+   nltk.download('wordnet')
+   ```
+
+5. **Set Environment Variables**:
+   Create a `.env` file in the project root:
+   ```
+   GROQ_API_KEY=your_valid_groq_api_key_here
+   ```
+
+6. **Prepare Input Data**:
+   Create a `data/test.json` file with the following structure:
+   ```json
+   {
+       "users": [
+           {
+               "id": 2,
+               "country": "Egypt",
+               "city": "Tanta",
+               "about_me": "Passionate and goal-driven software engineer...",
+               "subtitle": "Backend Developer | AI Enthusiast | Problem Solver",
+               "skills": [{"name": "Node.js"}, {"name": "Backend"}, {"name": "postgres"}, {"name": "java"}, {"name": "software engineer"}, {"name": "TypeScript"}, {"name": "Spring boot"}],
+               "educations": [...],
+               "experiences": [...]
+           },
+           {...}
+       ],
+       "job": {
+           "id": 28746,
+           "title": "Digital Marketing Specialist",
+           "description": "Social Media Managers oversee...",
+           "skills": ["Social media platforms (e.g., Facebook, Twitter, Instagram)", ...],
+           "location_type": "Onsite",
+           "employee_type": "Internship",
+           ...
+       }
+   }
+   ```
+
 ## Usage
+### Running the API
+1. Start the FastAPI server:
+   ```bash
+   uvicorn app:app --host 0.0.0.1 --port 8005
+   ```
+2. Test the `/recommend-users` endpoint:
+   ```bash
+   curl -X POST "http://127.0.0.1:8005/recommend-users" \
+        -H "Content-Type: application/json" \
+        -d @data/test.json
+   ```
+   **Expected Output**:
+   ```json
+   [
+       {"id": 2, "similarity_score": 0.3},
+       {"id": 2, "similarity_score": 0.3}
+   ]
+   ```
 
-### Command-Line Interface
-
-To generate recommendations via the command line:
-1. Ensure all Python files and `test.json` are in the same directory.
-2. Run the main script:
+### Running Locally
+1. Execute the command-line interface:
    ```bash
    python main.py
    ```
-3. The system will output a list of recommended jobs with their IDs and similarity scores.
+   This processes `data/test.json` and prints recommendations to the console.
 
-### API Interface
+## File Descriptions
+- **data_preprocessing.py**:
+  - Contains the `DataPreprocessor` class for cleaning and processing user and job data.
+  - Parses skills, preprocesses text (lowercasing, lemmatizing, removing stop words), and generates skill embeddings using `sentence-transformers`.
+  - Saves preprocessed DataFrames (`users_df.pkl`, `job_df.pkl`) and embeddings (`skill_embeddings.pkl`).
 
-To use the API:
-1. Start the FastAPI server:
-   ```bash
-   python app.py
-   ```
-2. The server will run on `http://localhost:8001`.
-3. Send a POST request to the `/recommend` endpoint with the JSON input:
-   ```bash
-   curl -X POST "http://localhost:8001/recommend" -H "Content-Type: application/json" -d @test.json
-   ```
-4. The response will include a list of recommendations and a success message.
+- **recommendation_to_job.py**:
+  - Contains the `UserRecommender` class for recommending users for a job.
+  - Computes similarity scores based on title, description, skills, employment type, and location type, using TF-IDF for descriptions and cosine similarity for skills.
 
-## Technical Details
+- **app.py**:
+  - FastAPI application with the `/recommend-users` endpoint.
+  - Accepts a JSON request with a list of users and a single job, returning recommended users with similarity scores.
+  - Integrates with `DataPreprocessor` and `UserRecommender`.
 
-The recommendation process involves the following steps:
+- **main.py**:
+  - Command-line interface for running recommendations locally.
+  - Loads input from a JSON file, preprocesses data, and generates recommendations.
 
-1. **Preprocessing** (`data_preprocessing.py`):
-   - Cleans text by removing special characters, lowercasing, and lemmatizing.
-   - Parses user skills and job skills, extracting the most recent user experience.
-   - Generates skill embeddings using the `all-MiniLM-L6-v2` SentenceTransformer model.
-   - Produces Pandas DataFrames and embeddings for further processing.
+## Dependencies
+See `requirements.txt` for a complete list of dependencies. Key libraries include:
+- `fastapi`: For the API server.
+- `uvicorn`: ASGI server for running FastAPI.
+- `pydantic`: For request validation.
+- `numpy`, `pandas`, `scikit-learn`: For data processing and similarity calculations.
+- `nltk`: For text preprocessing.
+- `sentence-transformers`: For skill embeddings.
 
-2. **Recommendation** (`recommendation_to_user.py`):
-   - Computes similarities:
-     - **Title**: Binary match between user subtitle and job title.
-     - **Description**: TF-IDF-based cosine similarity between user’s “about me” and job description.
-     - **Skills**: Counts common skills using embedding-based cosine similarity (threshold: 0.5).
-     - **Employment/Location**: Binary matching for employment and location types.
-   - Combines similarities using weights (default: 0.2 each) to compute a final score.
-   - Returns the top `top_n` jobs ranked by score.
-
-3. **API and CLI** (`app.py`, `main.py`):
-   - `app.py` exposes a `/recommend` endpoint to handle JSON input and return recommendations.
-   - `main.py` provides a command-line interface for quick testing.
+## Notes
+- The system expects a single job and multiple users in the input JSON.
+- Similarity scores may be low if user skills (e.g., Node.js, Java) do not match job requirements (e.g., social media skills).
+- The API runs on port 8005 by default, adjustable in `app.py`.
+- Ensure the `GROQ_API_KEY` is set for any Groq-related features (e.g., resume generation integration).
 
 ## Troubleshooting
-
-- **NLTK Errors**: Ensure `stopwords`, `punkt`, and `wordnet` are downloaded.
-- **JSON Format Issues**: Verify that `test.json` follows the expected structure with `user` and `jobs` fields.
-- **API Errors**: Check that port `8001` is available and the JSON payload matches the `InputData` model in `app.py`.
-- **Memory Constraints**: Skill embedding generation may require significant RAM; ensure adequate resources.
-
-## Potential Enhancements
-
-- Support recommendations for multiple users simultaneously.
-- Incorporate additional criteria, such as salary or experience level.
-- Cache skill embeddings to improve API performance.
-- Develop a web-based interface for user interaction.
-
-## License
-
-This feature is licensed under the MIT License, permitting use, modification, and distribution with attribution.
+- **Dependency Errors**: If you encounter errors like `numpy.ufunc size changed`, ensure `requirements.txt` versions are used.
+- **NLTK Data**: Run `nltk.download()` commands if preprocessing fails due to missing data.
+- **Input Validation**: Ensure `test.json` matches the expected structure to avoid 400 errors.

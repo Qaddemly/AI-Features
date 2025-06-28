@@ -318,7 +318,7 @@ class DataPreprocessor:
             pickle.dump(skill_to_embedding, f)
         return skill_to_embedding
 
-    def preprocess(self, input_json = 'test.json'):
+    def preprocess(self, input_data = 'test.json'):
         """
         Main preprocessing function to process input JSON data.
 
@@ -332,8 +332,8 @@ class DataPreprocessor:
         tuple
             (users_df, job_df) preprocessed dataframes
         """
-        with open(input_json, 'r') as f:
-            input_data = json.load(f)
+        # with open(input_data, 'r') as f:
+        #     input_data = json.load(f)
 
         users_df = pd.DataFrame([user for user in input_data['users']])
         job_df = pd.DataFrame([input_data['job']])
