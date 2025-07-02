@@ -252,13 +252,33 @@ class SkillsGenerator(ResumeSectionGenerator):
             "generate": {
                 "system": "You are an expert resume writer creating ATS-optimized skill lists.",
                 "user": """
-                    Generate a 'Skills' section as a single line of 8–12 skills (60% hard, 40% soft) from {user}, tailored to {job_description} if provided. Use clear, ATS-friendly terms, separated by commas and spaces. Do not include any additional text, headings, bullet points, or formatting. Return only the comma-separated list.
+                    - Generate a single line of 8–12 skills with 60% hard skills and 40% soft skills.
+                    - Base skills on {user} if provided, otherwise assume software engineering skills.
+                    - Tailor skills to {job_description} if provided, otherwise use general technical and soft skills.
+                    - Use clear, ATS-friendly terms.
+                    - Separate skills with commas and spaces.
+                    - Exclude all additional text, explanations, headings, bullet points, or formatting.
+                    - Avoid extra spaces, newlines, or punctuation like ';', '.', or colons.
+                    - Return only the comma-separated list of skills.
+                    - Do not return any other text except the skills.
+                    - Assume missing requirements, don't ask or mention that is something required to do your job, mention ONLY SKILLS!
+                    - Do not even mention "Based in your information" or any intro, mention only skills directly.
                 """
             },
             "enhance": {
                 "system": "You are an expert resume editor refining ATS-optimized skill lists.",
                 "user": """
-                    Enhance the 'Skills' section {existing_section} into a single line of 8–12 skills (60% hard, 40% soft) from {user}, tailored to {job_description} if provided. Use clear, ATS-friendly terms, separated by commas and spaces. Do not include any additional text, headings, bullet points, or formatting. Return only the comma-separated list.
+                    - Enhance {existing_section} into a single line of 8–12 skills with 60% hard skills and 40% soft skills.
+                    - Base skills on {user} if provided, otherwise assume software engineering skills.
+                    - Tailor skills to {job_description} if provided, otherwise use general technical and soft skills.
+                    - Use clear, ATS-friendly terms.
+                    - Separate skills with commas and spaces.
+                    - Exclude all additional text, explanations, headings, bullet points, or formatting.
+                    - Avoid extra spaces, newlines, or punctuation like ';', '.', or colons.
+                    - Return only the comma-separated list of skills.
+                    - Do not return any other text except the skills.
+                    - Assume missing requirements, don't ask or mention that is something required to do your job, mention ONLY SKILLS!
+                    - Do not even mention "Based in your information" or any intro, mention only skills directly.
                 """
             }
         }
@@ -300,9 +320,13 @@ if __name__ == "__main__":
 
     # Enhance Skills (should switch to generate due to empty existing_section)
     enhanced_skills = skills_gen.generate_section(user_data, "enhance", existing_skills, job_description)
-    skills = skills_gen.generate_section(user_data, "generate", None, job_description).split(',')
+    skills = skills_gen.generate_section(user_data, "generate", None, job_description).split(', ')
+    if skills[-1][-1] == '.':
+        skills[-1] = skills[-1][:-1]
     print("Generated Skills:", skills)
 
     # Enhance Skills (should switch to generate due to empty existing_section)
-    enhanced_skills = skills_gen.generate_section(user_data, "enhance", existing_skills, job_description).split(',')
+    enhanced_skills = skills_gen.generate_section(user_data, "enhance", existing_skills, job_description).split(', ')
+    if enhanced_skills[-1][-1] == '.':
+        enhanced_skills[-1] = enhanced_skills[-1][:-1]
     print("Enhanced Skills:", enhanced_skills)

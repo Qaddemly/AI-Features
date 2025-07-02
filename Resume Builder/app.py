@@ -94,7 +94,9 @@ async def generate_skills(request: ResumeSectionRequest):
             mode=mode,
             existing_section=existing_section,
             job_description=request.jobDescription
-        ).split(',')
+        ).split(', ')
+        if result[-1][-1] == '.':
+            result[-1] = result[-1][:-1]
         return {"skills": result}
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
