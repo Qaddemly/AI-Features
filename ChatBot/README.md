@@ -1,4 +1,51 @@
-## 🚀 Qaddemly AI Chatbot — Fetching Data from Node.js to FastAPI
+# 🚀 Qaddemly AI Chatbot — Fetching Data from Node.js to FastAPI
+
+## 🏗️ Bot Runner Architecture
+
+```mermaid
+%%{init: {'theme': 'neutral', 'fontFamily': 'Arial'}}%%
+flowchart TD
+    A[run_qaddemly_bot] --> B[Create Classifier Task]
+    B --> C{Run Classifier Crew}
+    C -->|GENERAL| D[Get RAG Answer]
+    C -->|SPECIFIC| E[Create Task Classifier]
+    E --> F{Run Task Crew}
+    F -->|Fixed Feature| G[Return Predefined Response]
+    F -->|OTHER| H[Create Query Task]
+    H --> I{Run Query Crew}
+    I -->|Needs Data| J[Fetch from Node.js]
+    I -->|No Data| K[Empty Data]
+    J --> L[Create Final Answer Task]
+    K --> L
+    L --> M{Run Final Crew}
+    M --> N[Return Final Answer]
+    
+    subgraph bot_runner.py
+    A
+    end
+    
+    subgraph Agents
+    B --> classifier_agent
+    E --> task_agent
+    H --> query_agent
+    L --> final_answer_agent
+    end
+    
+    subgraph Tasks
+    B --> build_classifier_task
+    E --> build_task_classifier_task
+    H --> build_query_task
+    L --> build_final_answer_task
+    end
+    
+    D -->|uses| RAG[rag_system.py]
+    J -->|calls| FastAPI[main.py endpoint]
+    
+    style A fill:#4CAF50,stroke:#388E3C
+    style D fill:#2196F3,stroke:#0D47A1
+    style G fill:#FFC107,stroke:#FFA000
+    style N fill:#4CAF50,stroke:#388E3C
+```
 
 This project demonstrates communication between two backend servers:
 
@@ -7,7 +54,7 @@ This project demonstrates communication between two backend servers:
 
 ---
 
-## ⚙️ Step 1: Run Node.js Server
+### ⚙️ Step 1: Run Node.js Server
 
 1. On your classmate’s machine, navigate to the Node.js project folder.
 
@@ -33,7 +80,7 @@ This project demonstrates communication between two backend servers:
 
 ---
 
-## ⚙️ Step 2: Run FastAPI Server
+### ⚙️ Step 2: Run FastAPI Server
 
 1. Open `main.py` in your FastAPI project.
 
@@ -57,13 +104,13 @@ This project demonstrates communication between two backend servers:
 
 ---
 
-## 📡 API Endpoints
+### 📡 API Endpoints
 
-### 🔹 `/qaddemly-bot` (POST)
+#### 🔹 `/qaddemly-bot` (POST)
 
 Send user question to the Qaddemly AI Bot.
 
-#### 📅 Request body:
+##### 📅 Request body:
 
 ```json
 {
@@ -75,11 +122,11 @@ Send user question to the Qaddemly AI Bot.
 
 ---
 
-### 🔹 `/fetch-data-from-node` (POST)
+#### 🔹 `/fetch-data-from-node` (POST)
 
 Fetch dynamic data from the Node.js database when needed.
 
-#### 📅 Request body (used internally by the chatbot system):
+##### 📅 Request body (used internally by the chatbot system):
 
 ```json
 {
@@ -92,7 +139,7 @@ Fetch dynamic data from the Node.js database when needed.
 
 ---
 
-## 🔄 How It Works (Behind the Scenes)
+### 🔄 How It Works (Behind the Scenes)
 
 1. User sends a question to `/qaddemly-bot`.
 2. The bot:
@@ -104,7 +151,7 @@ Fetch dynamic data from the Node.js database when needed.
 
 ---
 
-## 🛠️ Notes
+### 🛠️ Notes
 
 - `HuggingFaceEmbeddings` in `rag_system.py` is deprecated in LangChain ≥ 0.2.2. Update with:
 
@@ -127,7 +174,7 @@ Fetch dynamic data from the Node.js database when needed.
 
 ---
 
-## ✅ Example Workflow
+### ✅ Example Workflow
 
 1. Node.js backend: Starts `ngrok` on port 3000.
 2. FastAPI: Connects to the Node.js ngrok URL to fetch user-specific data.
