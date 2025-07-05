@@ -1,81 +1,99 @@
+
 # Resume Optimization API
 
-This FastAPI application provides an API for optimizing resumes based on job descriptions using the Groq LLM service.
+This FastAPI-based application provides an AI-powered resume optimization service using Groq LLMs.
 
-## Features
-- Extract text from PDF resumes
-- Analyze resume content against job descriptions
-- Provide actionable optimization recommendations
-- Identify missing and underrepresented keywords
-- Suggest content modifications and structural improvements
+## 💡 Features
 
-## Prerequisites
-- Python 3.7+
-- Groq API key (set in environment variables)
+- Upload resumes as PDF or structured JSON
+- Analyze and enhance resume content based on a job description
+- Provide keyword analysis (missing and underrepresented)
+- Recommend additions, modifications, or removals
+- Full JSON-based response for structured usage
 
-## Installation
+## 📦 Requirements
 
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd <repository-directory>
-   ```
-2. Create and activate a virtual environment:
+Install dependencies:
 
-  ```bash
-  python -m venv venv
-  source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-  ```
+```bash
+pip install -r requirements.txt
+```
 
-3. Install dependencies:
+You must also create a `.env` file with your Groq API key:
 
-  ```bash
-  pip install -r requirements.txt
-  ```
+```env
+GROQ_API_KEY=your_groq_api_key_here
+```
 
-4. Create a .env file in the project root with your Groq API key:
-  ```env
-  GROQ_API_KEY=your_api_key_here
-  ```
+## 🚀 Running the Server
 
-## Usage
-
-### Running the Application
 ```bash
 uvicorn main:app --reload --port 8006
 ```
-The API will be available at http://localhost:8006
 
-## API EndPoints
+Access the API docs at: [http://localhost:8006/docs](http://localhost:8006/docs)
 
-1. Optimize Resume (JSON input)
-- Endpoint: POST /optimize-resume/
-- Input: JSON payload with:
+## 📮 API Endpoints
+
+### `POST /optimize-resume/`
+
+Optimize resume using structured JSON input.
+
+**Body Example:**
+
 ```json
 {
-  "userData": {},
-  "resumeData": {},
-  "jobDescription": "string"
+  "userData": { "name": "John Doe", "email": "john@example.com" },
+  "resumeData": { "raw_text": "Experienced software engineer..." },
+  "jobDescription": "We are hiring a backend Python developer..."
 }
 ```
-- Response: JSON with optimization recommendations
 
-2. Optimize Resume (PDF input)
-- Endpoint: POST /optimize-resume-pdf
-- Input: Multipart form with:
-  - resume_pdf: PDF file
-  - job_description: String
-  - user_data: JSON string
-- Response: JSON with optimization recommendations
+---
 
+### `POST /optimize-resume-pdf`
 
-## Example Requests
+Upload a PDF resume along with a job description and user data.
 
-- cURL for PDF endpoint:
-```bash
-curl -X POST "http://localhost:8006/optimize-resume-pdf" \
-  -H "accept: application/json" \
-  -F "resume_pdf=@resume.pdf" \
-  -F "job_description=Software Engineer position requiring Python and FastAPI experience" \
-  -F "user_data={\"name\":\"John Doe\",\"target_role\":\"Software Engineer\"}"
+**Form Fields:**
+
+- `resume_pdf`: The uploaded PDF file
+- `job_description`: The job description text
+- `user_data`: A JSON string with user data
+
+---
+
+## 📊 Response Format
+
+All endpoints return structured JSON:
+
+```json
+{
+  "summary": "...",
+  "recommendations": {
+    "add": [...],
+    "modify": [...],
+    "remove": [...]
+  },
+  "keyword_analysis": {
+    "missing_keywords": [...],
+    "underrepresented_keywords": [...]
+  }
+}
 ```
+
+---
+
+## 🔐 Environment Variables
+
+Ensure your `.env` file contains:
+
+```env
+GROQ_API_KEY=your_groq_api_key_here
+```
+
+---
+
+## 📄 License
+
+This project is for educational/demo purposes.
