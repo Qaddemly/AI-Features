@@ -64,8 +64,9 @@ FIXED_FEATURE_RESPONSES = {
 }
 
 
-def run_qaddemly_bot(question: str, user_type: str, user_id: str):
+def run_qaddemly_bot(question: str, user_type: str, user_data: dict):
     result = {}
+    # 1. Step: Classify the question (GENERAL vs SPECIFIC)
     classifier_task = build_classifier_task(question, user_type)
     classification_crew = Crew(
         agents=[classifier_task.agent],
@@ -81,6 +82,7 @@ def run_qaddemly_bot(question: str, user_type: str, user_id: str):
         result["answer"] = get_answer(question)
         return result
 
+    # 2. Step: Determine task type
     task_classification = build_task_classifier_task(question, user_type)
     task_crew = Crew(
         agents=[task_classification.agent],
@@ -94,7 +96,8 @@ def run_qaddemly_bot(question: str, user_type: str, user_id: str):
     if task_type_result != "OTHER":
         result["answer"] = FIXED_FEATURE_RESPONSES.get(task_type_result)
         return result
-
+    
+    # 3. Step: Determine if data is needed
     query_task = build_query_task(question, user_type)
     query_crew = Crew(
         agents=[query_task.agent],
@@ -105,24 +108,12 @@ def run_qaddemly_bot(question: str, user_type: str, user_id: str):
     data_needed = query_crew.kickoff().strip().upper()
     result["needed_data"] = data_needed
 
-    backend_data = {}
-    if data_needed != "NOTNEEDED_DATA":
-        fastapi_url = "http://localhost:8000/fetch-data-from-node"
-        payload = {
-            "needed_data": [item.strip() for item in data_needed.split(",")],
-            "user_type": user_type,
-            "user_question": question,
-            "user_id": user_id,
-        }
+    # 4. Step: Final Answer (with or without backend data)
+    if data_needed == "NOTNEEDED_DATA":
+        backend_data = {}
+    else:
+        backend_data = user_data
 
-        try:
-            response = requests.post(fastapi_url, json=payload)
-            response.raise_for_status()
-            result_json = response.json()
-            backend_data = result_json.get("retrieved_data", {})
-        except Exception as e:
-            backend_data = {}
-            result["error"] = str(e)
 
     final_task = build_final_answer_task(question, user_type, backend_data)
     final_crew = Crew(

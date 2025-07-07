@@ -1,182 +1,147 @@
-# 🚀 Qaddemly AI Chatbot — Fetching Data from Node.js to FastAPI
+#  Qaddemly AI Assistant Bot
 
-## 🏗️ Bot Runner Architecture
+Qaddemly AI Assistant is a multi-agent chatbot system that intelligently handles user questions in a job platform. It utilizes classification, task analysis, RAG (Retrieval-Augmented Generation), and LLM reasoning to provide helpful answers based on system features, user data, or documentation.
+
+---
+
+##  Features
+
+- 🔍 **Intent Classification** (General vs Specific)
+- 🧽 **Feature Task Detection** (e.g., Recommendation, Resume Builder)
+- 🧠 **RAG System** for general queries using LangChain + FAISS
+- 📡 **User-Aware Answering** using personalized profile data
+- 🧵 **Multi-step Reasoning** via [CrewAI](https://www.crewai.com/)
+- ⚙️ **LLM-Powered Agents** using `Groq` API + `llama3`
+
+---
+
+## 💠 Technologies Used
+
+| Stack         | Description                      |
+| ------------- | -------------------------------- |
+| **FastAPI**   | API backend                      |
+| **CrewAI**    | Agent orchestration              |
+| **LangChain** | RAG system with FAISS embeddings |
+| **FAISS**     | Vector search database           |
+| **Groq**      | LLM provider (LLaMA3)            |
+| **Pydantic**  | Data validation                  |
+| **dotenv**    | Environment variable loader      |
+
+---
+
+## 🧩 System Architecture
 
 ```mermaid
-%%{init: {'theme': 'neutral', 'fontFamily': 'Arial'}}%%
 flowchart TD
-    A[run_qaddemly_bot] --> B[Create Classifier Task]
-    B --> C{Run Classifier Crew}
-    C -->|GENERAL| D[Get RAG Answer]
-    C -->|SPECIFIC| E[Create Task Classifier]
-    E --> F{Run Task Crew}
-    F -->|Fixed Feature| G[Return Predefined Response]
-    F -->|OTHER| H[Create Query Task]
-    H --> I{Run Query Crew}
-    I -->|Needs Data| J[Fetch from Node.js]
-    I -->|No Data| K[Empty Data]
-    J --> L[Create Final Answer Task]
-    K --> L
-    L --> M{Run Final Crew}
-    M --> N[Return Final Answer]
-    
-    subgraph bot_runner.py
-    A
-    end
-    
-    subgraph Agents
-    B --> classifier_agent
-    E --> task_agent
-    H --> query_agent
-    L --> final_answer_agent
-    end
-    
-    subgraph Tasks
-    B --> build_classifier_task
-    E --> build_task_classifier_task
-    H --> build_query_task
-    L --> build_final_answer_task
-    end
-    
-    D -->|uses| RAG[rag_system.py]
-    J -->|calls| FastAPI[main.py endpoint]
-    
-    style A fill:#4CAF50,stroke:#388E3C
-    style D fill:#2196F3,stroke:#0D47A1
-    style G fill:#FFC107,stroke:#FFA000
-    style N fill:#4CAF50,stroke:#388E3C
+    A[User Question via API] --> B[Classifier Agent (GENERAL / SPECIFIC)]
+    B -->|GENERAL| C[RAG System → Answer from JSON (FAISS)]
+    B -->|SPECIFIC| D[Task Classifier Agent]
+    D -->|Feature Matched| E[Fixed Feature Response]
+    D -->|OTHER| F[Query Agent → Check Needed Data]
+    F -->|Data Not Needed| G[Final Answer Agent (No Data)]
+    F -->|Data Needed| H[Pass user_data]
+    H --> I[Final Answer Agent (Personalized Answer)]
+    E --> Z[Response to User]
+    G --> Z
+    I --> Z
+    C --> Z
 ```
 
-This project demonstrates communication between two backend servers:
+---
 
-- A **Node.js server** (hosted by your teammate)
-- A **FastAPI server** (your backend)
+## 🚀 Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/your-username/qaddemly-bot.git
+cd qaddemly-bot
+```
+
+### 2. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Create `.env` file
+
+```env
+GROQ_API_KEY=your_groq_api_key
+AGENTOPS_API_KEY=your_agentops_key  # Optional
+```
+
+### 4. Run the FastAPI server
+
+```bash
+uvicorn main:app --reload
+```
+
+### 5. (Optional) Expose using ngrok
+
+```bash
+ngrok http 8000
+```
 
 ---
 
-### ⚙️ Step 1: Run Node.js Server
+## 📦 API Usage
 
-1. On your classmate’s machine, navigate to the Node.js project folder.
+### Endpoint
 
-2. Run the server:
+`POST /qaddemly-bot`
 
-   ```bash
-   node server.js
-   ```
-
-3. Start an `ngrok` tunnel to expose the server:
-
-   ```bash
-   ngrok http 3000
-   ```
-
-4. Copy the forwarded `ngrok` URL (e.g.):
-
-   ```bash
-   https://67a9-156-203-147-147.ngrok-free.app -> http://localhost:3000
-   ```
-
-5. Share this `ngrok` URL with your FastAPI backend team.
-
----
-
-### ⚙️ Step 2: Run FastAPI Server
-
-1. Open `main.py` in your FastAPI project.
-
-2. Replace the placeholder `nodejs_url` with the real one from the Node.js server:
-
-   ```python
-   nodejs_url = "https://67a9-156-203-147-147.ngrok-free.app/api/fetch-data"
-   ```
-
-3. Run the FastAPI server (will auto-tunnel using `pyngrok`):
-
-   ```bash
-   uvicorn main:app --reload
-   ```
-
-4. Access the Swagger UI to test endpoints:
-
-   ```
-   http://127.0.0.1:8000/docs
-   ```
-
----
-
-### 📡 API Endpoints
-
-#### 🔹 `/qaddemly-bot` (POST)
-
-Send user question to the Qaddemly AI Bot.
-
-##### 📅 Request body:
+### Request Body
 
 ```json
 {
-  "question": "What is the Matching Score?",
+  "question": "What job roles am I best suited for based on my profile?",
   "user_type": "candidate",
-  "user_id": "12345"
+  "user_data": {
+    "first_name": "Abdo",
+    "skills": ["Node.js", "Spring boot", "Java"],
+    "experiences": [...],
+    ...
+  }
+}
+```
+
+### Response
+
+```json
+{
+  "classification": "SPECIFIC",
+  "task_type": "OTHER",
+  "needed_data": "USER_PROFILE",
+  "answer": "Based on your profile, here are roles that suit you best..."
 }
 ```
 
 ---
 
-#### 🔹 `/fetch-data-from-node` (POST)
+## 📁 Folder Structure
 
-Fetch dynamic data from the Node.js database when needed.
-
-##### 📅 Request body (used internally by the chatbot system):
-
-```json
-{
-  "needed_data": ["USER_PROFILE", "USER_RESUME"],
-  "user_type": "candidate",
-  "user_question": "What job roles am I best suited for?",
-  "user_id": "12345"
-}
+```
+qaddemly-bot/
+├── main.py                  # FastAPI endpoint
+├── bot_runner.py            # Core logic to run multi-agent workflow
+├── rag_system.py            # Retrieval-Augmented Generation system
+├── agents.py                # CrewAI agents definition
+├── tasks.py                 # Tasks per agent
+├── data/
+│   └── QA.json              # Static FAQ data for RAG
+├── QA_faiss_index/          # Saved FAISS index
+├── .env                     # Secrets (not committed)
+├── requirements.txt         # Python dependencies
+└── README.md
 ```
 
 ---
 
-### 🔄 How It Works (Behind the Scenes)
+## 📌 Notes
 
-1. User sends a question to `/qaddemly-bot`.
-2. The bot:
-   - Classifies the question.
-   - If the question is `SPECIFIC`, checks if user data is needed.
-   - If needed, sends a request to `/fetch-data-from-node`.
-   - That request is forwarded to the Node.js backend to fetch real data (e.g., resume, profile).
-   - Final answer is generated using retrieved data + LLM.
+- The `QA.json` file is used for **general queries**. If missing or modified, the FAISS index is automatically rebuilt.
+- Add new question-answer pairs in `QA.json` to enhance general responses.
+- CrewAI allows for sequential task execution between agents.
 
 ---
-
-### 🛠️ Notes
-
-- `HuggingFaceEmbeddings` in `rag_system.py` is deprecated in LangChain ≥ 0.2.2. Update with:
-
-  ```bash
-  pip install -U langchain-huggingface
-  ```
-
-  Replace import:
-
-  ```python
-  from langchain_huggingface import HuggingFaceEmbeddings
-  ```
-
-- Make sure `QA.json` and `QA_faiss_index/` exist before running the bot. You can run:
-
-  ```python
-  from rag_system import build_vectorstore
-  build_vectorstore()
-  ```
-
----
-
-### ✅ Example Workflow
-
-1. Node.js backend: Starts `ngrok` on port 3000.
-2. FastAPI: Connects to the Node.js ngrok URL to fetch user-specific data.
-3. Chatbot processes the question, uses data (if needed), and responds using LLM (LLaMA 3).
-

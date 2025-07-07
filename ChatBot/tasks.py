@@ -19,7 +19,7 @@ test_cases = [
 """
 question = "What job roles am I best suited for based on my profile?"
 user_type = "candidate"
-user_id = "12345"
+user_data = {}
 
 def build_classifier_task(question: str, user_type: str) -> Task:
     formatted_description = (
@@ -103,18 +103,14 @@ You are receiving a user question from a {user_type}:
 {question}
 ---
 
-Determine whether the question requires backend MongoDB data. If so, list ONLY the necessary collections from this list:
+Determine whether the question requires backend MongoDB data. If so, list ONLY the necessary collections from the next:
 
-- ALL_JOBS
 - USER_PROFILE
-- USER_RESUME
-- USER_APPLICATIONS
-- COMPANY_PROFILE
-- USER_MESSAGES
+
 
 If none are needed, reply with: NOTNEEDED_DATA
 
-Respond ONLY with either a **comma-separated list** (e.g., ALL_JOBS, USER_PROFILE) or: NOTNEEDED_DATA.
+Respond only with either USER_PROFILE or NOTNEEDED_DATA.
 """,
         agent=query_agent,
         expected_output="Comma-separated MongoDB collections or NOTNEEDED_DATA",
