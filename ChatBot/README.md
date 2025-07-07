@@ -135,26 +135,6 @@ flowchart LR
 
 ---
 
-## System Architecture
-
-```mermaid
-flowchart TD
-    A[User Question via API] --> B[Classifier Agent (GENERAL / SPECIFIC)]
-    B -->|GENERAL| C[RAG System → Answer from JSON (FAISS)]
-    B -->|SPECIFIC| D[Task Classifier Agent]
-    D -->|Feature Matched| E[Fixed Feature Response]
-    D -->|OTHER| F[Query Agent → Check Needed Data]
-    F -->|Data Not Needed| G[Final Answer Agent (No Data)]
-    F -->|Data Needed| H[Pass user_data]
-    H --> I[Final Answer Agent (Personalized Answer)]
-    E --> Z[Response to User]
-    G --> Z
-    I --> Z
-    C --> Z
-```
-
----
-
 ## Getting Started
 
 ### 1. Clone the repo
