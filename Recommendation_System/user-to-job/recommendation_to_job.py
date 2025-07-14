@@ -182,7 +182,7 @@ class UserRecommender:
                 self.jaccard_weight * users_df['skill_similarity']
         )
 
-        top_indices = final_scores.argsort()[::-1][:self.top_n]
+        top_indices = final_scores.argsort()[::-1][:min(self.top_n, len(final_scores))]
         recommendations = [
             {
                 "id": int(users_df.iloc[i]['id']),
